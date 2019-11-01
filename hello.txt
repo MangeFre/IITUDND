@@ -1,3 +1,3 @@
-Chloe says hello too
-Hello!
-Wuuf!
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5f7887ffc9c5f7f2f8957d720bffccf5d05658483cd3c66649e921f7cac2397
+size 35
