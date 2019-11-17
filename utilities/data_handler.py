@@ -93,4 +93,11 @@ class DataHandler:
             for _ in range(len(labeled_tweets)):
                 train_histories.append(self.full_history_by_user[cur_user])
 
-        return train_labeled, train_histories, test_labeled, test_histories
+        # get the merged (labeled and unlabeled data without duplicates from overlap) for just the users in trainset
+        training_users = set(basket_of_users[cur_user_idx:])
+        train_merged = []
+        for tweet_json in self.merged:
+            if tweet_json['user']['id'] in training_users:
+                train_merged.append(tweet_json)
+
+        return train_labeled, train_histories, test_labeled, test_histories, train_merged
