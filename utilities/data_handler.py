@@ -10,10 +10,14 @@ from tweepy import TweepError
 import os
 import random
 
+RANDOM_SEED = 42
 
 class DataHandler:
     def __init__(self, unlabeled_data_filename, labeled_data_filename):
-        print('here')
+
+        # set random seed for reproducable data sets
+        random.seed(RANDOM_SEED)
+
         # load json data
         with open(unlabeled_data_filename) as fin:
             self.unlabeled = [json.loads(line) for line in fin.readlines()]
