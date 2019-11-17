@@ -7,8 +7,8 @@ from torch.optim.lr_scheduler import StepLR
 
 # constants
 LEARNING_RATE = 0.1
-DECAY_FACTOR = 0.5
-EPOCHS = 10
+DECAY_FACTOR = 0.1
+EPOCHS = 2
 
 class MLP(nn.Module):
     """
