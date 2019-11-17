@@ -24,9 +24,9 @@ class DataHandler:
         self.id_to_class = {}  # this is the binary informative / not informative score
         # CHANGE FILEPATH — Read in the classifications of each tweet
         with open(classifications_filename) as fin:
-            reader = csv.DictReader(fin, dialect='excel - tab')
+            reader = csv.DictReader(fin, dialect='excel-tab')
             for line in reader:
-                self.id_to_class[line['tweet_id']]=class_encoding[line['text_info']]
+                self.id_to_class[int(line['tweet_id'])]=class_encoding[line['text_info']]
 
         # load json data
         with open(unlabeled_data_filename) as fin:
@@ -34,7 +34,7 @@ class DataHandler:
         with open(labeled_data_filename) as fin:
             jsons = [json.loads(line) for line in fin.readlines()]
             # skip the don't know classifications (there are only 6)
-            self.labeled = [json for json in jsons if self.id_to_class[json['user']['id']] != -1 ]
+            self.labeled = [json for json in jsons if self.id_to_class[json['id']] != -1]
 
         # get set of labeled tweet ids
         self.labeled_tweet_ids = set()
