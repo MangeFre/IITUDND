@@ -88,7 +88,7 @@ class MLP(nn.Module):
 
         return correct / total
 
-    def get_auc(self,X_test, y_test):
+    def get_auc_DEPRICATED(self,X_test, y_test): #todo figure out why this doesn't work
 
         # make dataloader
         testset = utils.TensorDataset(X_test, y_test)  # create your datset
