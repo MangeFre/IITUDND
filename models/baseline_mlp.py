@@ -3,6 +3,8 @@ import torch
 import torch.utils.data as utils
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
+import numpy as np
+from sklearn.metrics import roc_auc_score
 
 
 # constants
@@ -85,3 +87,19 @@ class MLP(nn.Module):
                 correct += (predictions == labels).sum().item()
 
         return correct / total
+
+    def get_auc(self,X_test, y_test):
+
+        # make dataloader
+        testset = utils.TensorDataset(X_test, y_test)  # create your datset
+        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
+
+        # test model
+        y_scores = []
+        with torch.no_grad():
+            for data in testloader:
+                inputs, labels = data[0].to(self.device), data[1].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+
+        return roc_auc_score(y_test.numpy(), np.array(y_scores))
