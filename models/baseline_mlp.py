@@ -18,6 +18,13 @@ class MLP(nn.Module):
     https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py
     """
     def __init__(self, input_size, first_layer_size, second_layer_size, activation_function):
+        """
+        A simple 4 layer network for binary classification
+        :param input_size: an int
+        :param first_layer_size: an int
+        :param second_layer_size: an int
+        :param activation_function: a function, an activation function for all neurons except last layer
+        """
 
         self.f = activation_function
 
@@ -42,6 +49,11 @@ class MLP(nn.Module):
         return x
 
     def learn(self, X_train, y_train):
+        """
+        Train the network on a labeled dataset
+        :param X_train: a tensor of features
+        :param y_train: a tensor of labels
+        """
 
         # make dataloader
         trainset = utils.TensorDataset(X_train, y_train)
@@ -49,7 +61,7 @@ class MLP(nn.Module):
 
 
         # train model
-        for epoch in range(EPOCHS):  # loop over the dataset multiple times
+        for epoch in range(EPOCHS):
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
             running_loss = 0.0
             for j, data in enumerate(trainloader, 0):
@@ -70,10 +82,16 @@ class MLP(nn.Module):
             self.scheduler.step()
 
     def get_accuracy(self, X_test, y_test):
+        """
+        Get the accuracy of the model on some test set
+        :param X_test: a tensor of features
+        :param y_test: a tensor of labels
+        :return: a float, the accuracy (number of correct predictions out of total)
+        """
 
         # make dataloader
-        testset = utils.TensorDataset(X_test, y_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
+        testset = utils.TensorDataset(X_test, y_test)
+        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         correct = 0
@@ -88,17 +106,22 @@ class MLP(nn.Module):
 
         return correct / total
 
-    def get_auc_DEPRICATED(self,X_test, y_test): #todo figure out why this doesn't work
-
+    def get_auc(self,X_test, y_test):
+        """
+        Get the Area under the ROC curve for some test set
+        :param X_test: a tensor of features
+        :param y_test: a tensor of labels
+        :return: a float, the AUC score
+        """
         # make dataloader
-        testset = utils.TensorDataset(X_test, y_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
+        testset = utils.TensorDataset(X_test)  # create your datset
+        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
         with torch.no_grad():
             for data in testloader:
-                inputs, labels = data[0].to(self.device), data[1].to(self.device)
+                inputs = data[0].to(self.device)
                 outputs = self(inputs)
                 y_scores.extend(outputs.reshape(-1).tolist())
 
