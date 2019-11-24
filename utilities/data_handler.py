@@ -1,19 +1,15 @@
-import math
+
 from collections import defaultdict
 import json
-import csv
-import nltk
-from sklearn.feature_extraction.text import TfidfVectorizer
-import tweepy
-# We must use the API to determine whether the tweets are protected
-from tweepy import TweepError
-import os
 import random
 import csv
 
-RANDOM_SEED = 42
+RANDOM_SEED = 42 # this ensures that you get the same labels if have seperate datahandlers for different extractions
 
 class DataHandler:
+    """
+    A class to unify data
+    """
     def __init__(self, unlabeled_data_filename, labeled_data_filename, classifications_filename):
 
         # set random seed for reproducable data sets
