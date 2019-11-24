@@ -55,6 +55,7 @@ class DataHandler:
             tweet_id = tweet_json['id']
             if tweet_id in self.labeled_tweet_ids:
                 self.overlap += 1
+                continue
             self.merged.append(tweet_json)
 
         # get dict of {user id : [labeled_tweet1_by_user, labeled_tweet2_by_user, etc]}
