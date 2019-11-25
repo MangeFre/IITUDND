@@ -1,28 +1,30 @@
-
+from dateutil import parser
 from collections import defaultdict
 import json
 import random
 import csv
 
-RANDOM_SEED = 42 # this ensures that you get the same labels if have seperate datahandlers for different extractions
+RANDOM_SEED = 42  # this ensures that you get the same labels if have seperate datahandlers for different extractions
+
 
 class DataHandler:
     """
     A class to unify data
     """
+
     def __init__(self, unlabeled_data_filename, labeled_data_filename, classifications_filename):
 
         # set random seed for reproducable data sets
         random.seed(RANDOM_SEED)
 
         # Establish dict of annotated scores for each tweet ID
-        class_encoding = {'dont_know_or_cant_judge':-1 , 'informative': 1, 'not_informative': 0}
+        class_encoding = {'dont_know_or_cant_judge': -1, 'informative': 1, 'not_informative': 0}
         self.id_to_class = {}  # this is the binary informative / not informative score
         # CHANGE FILEPATH — Read in the classifications of each tweet
         with open(classifications_filename) as fin:
             reader = csv.DictReader(fin, dialect='excel-tab')
             for line in reader:
-                self.id_to_class[int(line['tweet_id'])]=class_encoding[line['text_info']]
+                self.id_to_class[int(line['tweet_id'])] = class_encoding[line['text_info']]
 
         # load json data
         with open(unlabeled_data_filename) as fin:
@@ -49,7 +51,7 @@ class DataHandler:
             self.unlabeled_tweet_ids.add(tweet_json['id'])
 
         # merge labeled data with unlabeled avoiding duplicates
-        self.overlap = 0 # number of tweets overlapping between unlabeled and labeled
+        self.overlap = 0  # number of tweets overlapping between unlabeled and labeled
         self.merged = self.labeled.copy()
         for tweet_json in self.unlabeled:
             tweet_id = tweet_json['id']
@@ -64,13 +66,17 @@ class DataHandler:
             user_id = tweet_json['user']['id']
             self.labeled_tweets_by_user[user_id].append(tweet_json)
 
-        # get user histories (TODO SORT BY DATE)
-        self.full_history_by_user = defaultdict(list)
+        # get user histories
+        self.full_sorted_history_by_user = defaultdict(list)
         for tweet_json in self.merged:
             user_id = tweet_json['user']['id']
-            self.full_history_by_user[user_id].append(tweet_json)
+            self.full_sorted_history_by_user[user_id].append(tweet_json)
+        # sort each list of tweets by 'created_at' by each user
+        for key, val in self.full_sorted_history_by_user.items():
+            self.full_sorted_history_by_user[key] = sorted(val, key=lambda i: parser.parse(
+                i['created_at']).timestamp())
 
-    def get_train_test_split(self,ratio_of_test_samples = .2):
+    def get_train_test_split(self, ratio_of_test_samples=.2):
 
         basket_of_users = [user_id for user_id in self.labeled_tweets_by_user.keys()]
         random.shuffle(basket_of_users)
@@ -81,30 +87,44 @@ class DataHandler:
         test_labeled = []
         test_histories = []
         test_classes = []
+        test_histories_by_target = []
         cur_user_idx = 0
-        while(len(test_labeled) < goal_number_of_test_tweets):
+        while len(test_labeled) < goal_number_of_test_tweets:
             cur_user = basket_of_users[cur_user_idx]
             labeled_tweets = self.labeled_tweets_by_user[cur_user]
             test_labeled.extend(labeled_tweets)
             test_classes.extend([self.id_to_class[json['id']] for json in labeled_tweets])
 
             # put the users history in for each of their tweets (to keep test_history aligned with test_labeled)
-            for _ in range(len(labeled_tweets)):
-                test_histories.append(self.full_history_by_user[cur_user])
+            for labeled_tweet in labeled_tweets:
+                test_histories.append(self.full_sorted_history_by_user[cur_user])
+                cur_labeled_tweet = 0
+                for tweet in self.full_sorted_history_by_user[cur_user]:
+                    if tweet.get('id') == labeled_tweet.get('id'):
+                        break
+                    cur_labeled_tweet += 1
+                test_histories_by_target.append(self.full_sorted_history_by_user[cur_user][:cur_labeled_tweet + 1])
             cur_user_idx += 1
 
         # put the remaining data in the training set
         train_labeled = []
         train_histories = []
         train_classes = []
+        train_histories_by_target = []
         for cur_user in basket_of_users[cur_user_idx:]:
             labeled_tweets = self.labeled_tweets_by_user[cur_user]
             train_labeled.extend(labeled_tweets)
             train_classes.extend([self.id_to_class[json['id']] for json in labeled_tweets])
 
             # put the users history in for each of their tweets (to keep train_history aligned with train_labeled)
-            for _ in range(len(labeled_tweets)):
-                train_histories.append(self.full_history_by_user[cur_user])
+            for labeled_tweet in labeled_tweets:
+                train_histories.append(self.full_sorted_history_by_user[cur_user])
+                cur_labeled_tweet = 0
+                for tweet in self.full_sorted_history_by_user[cur_user]:
+                    if tweet.get('id') == labeled_tweet.get('id'):
+                        break
+                    cur_labeled_tweet += 1
+                train_histories_by_target.append(self.full_sorted_history_by_user[cur_user][:cur_labeled_tweet + 1])
 
         # get the merged (labeled and unlabeled data without duplicates from overlap) for just the users in trainset
         training_users = set(basket_of_users[cur_user_idx:])
@@ -113,4 +133,12 @@ class DataHandler:
             if tweet_json['user']['id'] in training_users:
                 train_merged.append(tweet_json)
 
-        return train_labeled, train_histories, test_labeled, test_histories, train_merged, train_classes, test_classes
+        return train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes
+
+
+UNLABELED_DATA = '/Users/Maw/PyCharmProjects/IITUDND/data/retrieved_data/calfire_extras.json'
+LABELED_DATA = '/Users/Maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/json/california_wildfires_final_data.json'
+CLASSIFICATIONS = '/Users/Maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/annotations/california_wildfires_final_data.tsv'
+datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
+
+train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes = datahandler.get_train_test_split()
