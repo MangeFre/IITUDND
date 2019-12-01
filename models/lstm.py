@@ -1,8 +1,14 @@
+from collections import defaultdict
+
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from sklearn.metrics import roc_auc_score
 from torch.optim.lr_scheduler import StepLR
 import random
+import utils
+import matplotlib.pyplot as plt
 
 # constants
 LEARNING_RATE = 0.01
@@ -124,26 +130,41 @@ class LSTM(nn.Module):
         Get the accuracy of the model on some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a tensor of class labels (1 or 0)
-        :return: a float, the accuracy (number of correct predictions out of total)
+        :return: a list of tuples, each user history length and its mean accuracy
+        :#TODO: DEPRECATED return: a float, the accuracy (number of correct predictions out of total)
         """
+        accByLength = defaultdict(list)
 
         # test model
         correct = 0
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
+                length = X_i.shape[0]                           # user history length
+
                 outputs = self(X_i)                             # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()   # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
+                accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
 
-        return correct / total
+        plt.figure()                                            # initiate accuracy plot
+        length = []
+        acc = []
+        for len in accByLength:
+            length.append(len)
+            acc.append(np.mean(accByLength[len]))
+        plt.plot(length, acc)                                   # plot accuracy by history length
+        plt.suptitle('Test classification accuracy rate by user history length')
+        plt.xlabel('User history length')
+        plt.ylabel('Average accuracy rate')
+        plt.show()
+
+        return list(map(lambda l, a:(l, a), length, acc))       # return list of tuples: (hist length, mean accuracy)
+        # return correct / total
 
 
-
-    #TODO IMPLEMeNT
-    '''
-    def get_auc(self,X_test, y_test):
+    '''def get_auc(self,X_test, y_test):
         """
         Get the Area under the ROC curve for some test set
         :param X_test: a tensor of features
@@ -151,7 +172,7 @@ class LSTM(nn.Module):
         :return: a float, the AUC score
         """
         # make dataloader
-        testset = utils.TensorDataset(X_test)  # create your datset
+        testset = utils.TensorDataset(X_test)  # create your dataset
         testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
