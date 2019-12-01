@@ -195,7 +195,7 @@ class LSTM(nn.Module):
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1])))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
-        plt.xlabel('User history length, discretized into bins (ascending order')
+        plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.5, 1.0)
         plt.show()
