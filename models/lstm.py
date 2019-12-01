@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from sklearn.metrics import roc_auc_score, confusion_matrix
+from sklearn.metrics import roc_auc_score, confusion_matrix, r2_score
 import torch.utils.data as data_utils
 from torch.optim.lr_scheduler import StepLR
 import random
@@ -136,6 +136,9 @@ class LSTM(nn.Module):
         accByLength = defaultdict(list)  # dict of lists storing accuracies by length
         totalCases = len(X)
 
+        trueByLength = defaultdict(list)
+        predByLength = defaultdict(list)
+
         # test model
         correct = 0
         total = 0
@@ -147,26 +150,37 @@ class LSTM(nn.Module):
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
+                predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
                 accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
+                trueByLength[length].append(y[i].item()) # keep track of original classification
 
         # Discretize lengths into bins:
-
         binMaxCapacity = totalCases // 4 + 1  # define max bin capacity
-        accByBin = defaultdict(list)  # new dict storing individual accuracies per bin
+        accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
+        trueByBin = defaultdict(list) # new dict storing individual true values per bin
+        predByBin = defaultdict(list) # new dict storing predicted values (need for R2)
         binNum = 1
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)
         for length in accByLength:
-            for item in accByLength[length]:    # iterate through each classification of the hist length
+            for i in range(len(accByLength[length])):    # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
                     binMinMax[binNum].append(length) # record maximum length of the bin
                     binNum += 1
                     binCount = 0
                     binMinMax[binNum].append(length) # record the min length of the bin
-                accByBin[binNum].append(item)  # append the classification value to the bin
+                trueByBin[binNum].append(trueByLength[length][i])  # append the true value to the bin list
+                accByBin[binNum].append(accByLength[length][i])  # append the classification accuracy to the bin list
+                predByBin[binNum].append(predByLength[length][i]) # append predicted value to bin list
         binMinMax[3].append(length)               # record length of final bin
+
+        # Calculate R score: (Turn into separate method)
+        for binNum in accByBin:
+            predictedVals = predByBin[binNum]
+            trueVals = trueByBin[binNum]
+            print("R2 score for bin", binNum, "=", r2_score(trueVals, predictedVals))
 
         plt.figure()  # initiate accuracy plot
         bins = []
@@ -187,6 +201,7 @@ class LSTM(nn.Module):
                   math.ceil(np.max(accuracy) + 0.5 * (np.max(accByLength) - np.min(accuracy)))]) # set y range
         plt.show()
 
+        ''' Compute ratios of true classifications to false classifications'''
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
@@ -239,7 +254,7 @@ class LSTM(nn.Module):
         Get the confusion matrix of some test set
         :param X_test: a tensor of features
         :param y_test: a tensor of labels
-        :return: a float, the AUC score
+        :return: a confusion matrix
         """
         # make dataloader
         testset = data_utils.TensorDataset(X_test)  # create your dataset
