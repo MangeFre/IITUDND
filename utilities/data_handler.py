@@ -137,51 +137,57 @@ class DataHandler:
 
     def get_k_fold_split(self, k):
         train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = datahandler.get_train_test_split()
-        num_per_train_fold = len(train) // k
-        num_per_test_fold = len(test) // k
-        validation = []
+        num_per_fold = len(train) // k
+        folds = []
         train_tweet_cursor = 0
-        test_tweet_cursor = 0
         for i in range(k):
+            # K fold on that 80% train set
             if i == k - 1:
                 # dump rest of the data
-                validation.append(([train[train_tweet_cursor:],
-                                    train_h[train_tweet_cursor:],
-                                    train_hbt[train_tweet_cursor:],
-                                    train_c[train_tweet_cursor:],
-                                    train_m[train_tweet_cursor:]],
-                                   [test[test_tweet_cursor:],
-                                    test_h[test_tweet_cursor:],
-                                    test_hbt[test_tweet_cursor:],
-                                    test_c[test_tweet_cursor:], None]))
+                folds.append([train[train_tweet_cursor:],
+                              train_h[train_tweet_cursor:],
+                              train_hbt[train_tweet_cursor:],
+                              train_c[train_tweet_cursor:],
+                              train_m[train_tweet_cursor:]])
                 break
             # initialize fold counter
             train_fold_counter = 0
-            test_fold_counter = 0
             # get the train set split index
             cur_train_user_id = train[train_tweet_cursor].get('user').get('id')
-            while train_fold_counter < num_per_train_fold or cur_train_user_id == train[
+            while train_fold_counter < num_per_fold or cur_train_user_id == train[
                 train_tweet_cursor + train_fold_counter + 1].get('user').get('id'):
                 train_fold_counter += 1
-            # get the test set split index
-            cur_test_user_id = test[test_tweet_cursor].get('user').get('id')
-            while test_fold_counter < num_per_test_fold or cur_test_user_id == test[
-                test_tweet_cursor + test_fold_counter + 1].get('user').get('id'):
-                test_fold_counter += 1
-
-            validation.append(([train[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
-                                train_h[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
-                                train_hbt[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
-                                train_c[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
-                                train_m[train_tweet_cursor:train_tweet_cursor + train_fold_counter]],
-                               [test[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
-                                test_h[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
-                                test_hbt[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
-                                test_c[test_tweet_cursor:test_tweet_cursor + test_fold_counter], None]))
+            folds.append([train[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                          train_h[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                          train_hbt[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                          train_c[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                          train_m[train_tweet_cursor:train_tweet_cursor + train_fold_counter]])
             train_tweet_cursor += train_fold_counter
-            test_tweet_cursor += test_fold_counter
         # todo: do evaluation here
         evaluation = ([train, train_h, train_hbt, train_c, train_m], [test, test_h, test_hbt, test_c, None])
+        # get the validation set for k fold
+        validation = []
+        for i in range(len(folds)):
+            train_folds = []
+            test_fold = folds[i]
+            for j in range(len(folds)):
+                if j == i:
+                    continue
+                else:
+                    train_folds.append(folds[j])
+            # merge elements in train_folds
+            merged_train = []
+            merged_train_h = []
+            merged_train_hbt = []
+            merged_train_c = []
+            merged_train_m = []
+            for fold in train_folds:
+                merged_train.extend(fold[0])
+                merged_train_h.extend(fold[1])
+                merged_train_hbt.extend(fold[2])
+                merged_train_c.extend(fold[3])
+                merged_train_m.extend(fold[4])
+            validation.append(([merged_train, merged_train_h, merged_train_hbt, merged_train_c, merged_train_m], test_fold))
         return evaluation, validation
 
 
@@ -190,7 +196,7 @@ LABELED_DATA = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/json/cali
 CLASSIFICATIONS = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/annotations/california_wildfires_final_data.tsv'
 datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
 
-train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes = datahandler.get_train_test_split()
+# train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes = datahandler.get_train_test_split()
 
 # eva = tuple(  train[train_labeled, train_histories, train_histories_by_target, train_classes, train_merged],
 #               test[test_labeled, test_histories, test_histories_by_target, test_classes, None])
