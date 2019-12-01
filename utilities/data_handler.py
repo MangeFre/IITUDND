@@ -136,8 +136,7 @@ class DataHandler:
         return train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes
 
     def get_k_fold_split(self, k, ratio=.2):
-        train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = datahandler.get_train_test_split(
-            ratio)
+        train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = self.get_train_test_split(ratio)
         num_per_fold = len(train) // k
         folds = []
         train_tweet_cursor = 0
@@ -206,4 +205,5 @@ datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
 #                       test[test_labeled, test_histories, test_histories_by_target, None, test_classes]),
 #               tuple_2()...
 #               tuple_k()]
-eva, val = datahandler.get_k_fold_split(10)
+k = 10
+eva, val = datahandler.get_k_fold_split(k)
