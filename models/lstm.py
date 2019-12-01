@@ -129,7 +129,8 @@ class LSTM(nn.Module):
     def get_accuracy_graph(self, X, y):
         """
             Get the accuracy of the model on some test set
-            :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+            :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
+            sequence
             :param y: a tensor of class labels (1 or 0)
             :return: a plot of accuracies across bins of history lengths and a list of each bin's mean accuracy
             """
@@ -197,7 +198,8 @@ class LSTM(nn.Module):
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
         plt.ylabel('Average accuracy rate')
-        plt.ylim(0.5, 1.0)
+        plt.ylim(0.65, 1.0)
+        plt.yticks(np.arange(0.65, 1, 0.05))
         plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''

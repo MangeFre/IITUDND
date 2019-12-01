@@ -158,6 +158,7 @@ class MLP(nn.Module):
         plt.xlabel('User history length, discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.5, 1.0)
+        plt.yticks(np.arange(0.65, 1, 0.05))
         plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
