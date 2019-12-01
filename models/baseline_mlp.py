@@ -1,3 +1,5 @@
+import math
+
 import torch.nn as nn
 import torch
 import torch.utils.data as utils
@@ -133,11 +135,15 @@ class MLP(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.bar(bins, accuracy)  # plot accuracy by history length
-        plt.xticks(bins, (binMinMax[0][0] + ' to ' + binMinMax[0][1], binMinMax[1][0] + ' to ' + binMinMax[1][1],
-                          binMinMax[2][0] + ' to ' + binMinMax[2][1], binMinMax[3][0] + ' to ' + binMinMax[3][1]))
+        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),     # set the x tick labels
+                          str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
+                          str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
+                          str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1])))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length, discretized into bins (ascending order')
         plt.ylabel('Average accuracy rate')
+        plt.ylim([math.ceil(np.min(accuracy) - 0.5 * (np.max(accuracy) - np.min(accuracy))),
+                  math.ceil(np.max(accuracy) + 0.5 * (np.max(accByLength) - np.min(accuracy)))]) # set y range
         plt.show()
 
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
