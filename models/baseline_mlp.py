@@ -9,6 +9,7 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import torch.utils.data as data_utils
 
 
 # constants
@@ -178,8 +179,8 @@ class MLP(nn.Module):
         :return: a float, the AUC score
         """
         # make dataloader
-        testset = utils.TensorDataset(X_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
@@ -190,3 +191,25 @@ class MLP(nn.Module):
                 y_scores.extend(outputs.reshape(-1).tolist())
 
         return roc_auc_score(y_test.numpy(), np.array(y_scores))
+
+
+    def get_confusion_matrix(self,X_test, y_test):
+        """
+        Get the confusion matrix of some test set
+        :param X_test: a tensor of features
+        :param y_test: a tensor of labels
+        :return: a float, the AUC score
+        """
+        # make dataloader
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
+        # test model
+        y_scores = []
+        with torch.no_grad():
+            for data in testloader:
+                inputs = data[0].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+
+        return confusion_matrix(y_test.numpy(), np.array(y_scores))

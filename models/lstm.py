@@ -5,7 +5,8 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, confusion_matrix
+import torch.utils.data as data_utils
 from torch.optim.lr_scheduler import StepLR
 import random
 import matplotlib.pyplot as plt
@@ -211,7 +212,7 @@ class LSTM(nn.Module):
         return correct / total
 
 
-    '''def get_auc(self,X_test, y_test):
+    def get_auc(self,X_test, y_test):
         """
         Get the Area under the ROC curve for some test set
         :param X_test: a tensor of features
@@ -219,8 +220,8 @@ class LSTM(nn.Module):
         :return: a float, the AUC score
         """
         # make dataloader
-        testset = utils.TensorDataset(X_test)  # create your dataset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
@@ -231,7 +232,28 @@ class LSTM(nn.Module):
                 y_scores.extend(outputs.reshape(-1).tolist())
 
         return roc_auc_score(y_test.numpy(), np.array(y_scores))
-    '''
+
+
+    def get_confusion_matrix(self,X_test, y_test):
+        """
+        Get the confusion matrix of some test set
+        :param X_test: a tensor of features
+        :param y_test: a tensor of labels
+        :return: a float, the AUC score
+        """
+        # make dataloader
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
+        # test model
+        y_scores = []
+        with torch.no_grad():
+            for data in testloader:
+                inputs = data[0].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+
+        return confusion_matrix(y_test.numpy(), np.array(y_scores))
 
 
 def shuffle_data(X, y):
