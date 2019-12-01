@@ -159,12 +159,12 @@ class LSTM(nn.Module):
             for item in accByLength[length]:    # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
-                    binMinMax[binCount].append(length) # record maximum length of the bin
+                    binMinMax[binNum].append(length) # record maximum length of the bin
                     binNum += 1
                     binCount = 0
-                    binMinMax[binCount].append(length) # record the min length of the bin
+                    binMinMax[binNum].append(length) # record the min length of the bin
                 accByBin[binNum].append(item)  # append the classification value to the bin
-        binMinMax[3][1] = length               # record length of final bin
+        binMinMax[3].append(length)               # record length of final bin
 
         plt.figure()  # initiate accuracy plot
         bins = []
