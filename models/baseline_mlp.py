@@ -6,7 +6,7 @@ import torch.utils.data as utils
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, r2_score
 import matplotlib.pyplot as plt
 from collections import defaultdict
 import torch.utils.data as data_utils
