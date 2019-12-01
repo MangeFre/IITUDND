@@ -7,7 +7,6 @@ import torch.optim as optim
 from sklearn.metrics import roc_auc_score
 from torch.optim.lr_scheduler import StepLR
 import random
-import utils
 import matplotlib.pyplot as plt
 
 # constants
@@ -175,8 +174,8 @@ class LSTM(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.bar(bins, accuracy)  # plot accuracy by history length
-        plt.xticks(bins, (binMinMax[1][0] + ' to ' + binMinMax[1][1], binMinMax[2][0] + ' to ' + binMinMax[2][1],
-                          binMinMax[3][0] + ' to ' + binMinMax[3][1], binMinMax[4][0] + ' to ' + binMinMax[4][1]))
+        plt.xticks(bins, (binMinMax[0][0] + ' to ' + binMinMax[0][1], binMinMax[1][0] + ' to ' + binMinMax[1][1],
+                          binMinMax[2][0] + ' to ' + binMinMax[2][1], binMinMax[3][0] + ' to ' + binMinMax[3][1]))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length, discretized into bins (ascending order')
         plt.ylabel('Average accuracy rate')
