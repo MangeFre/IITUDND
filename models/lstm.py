@@ -159,7 +159,7 @@ class LSTM(nn.Module):
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
         predByBin = defaultdict(list) # new dict storing predicted values (need for R2)
-        binNum = 1
+        binNum = 0
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)

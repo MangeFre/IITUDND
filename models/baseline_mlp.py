@@ -6,7 +6,7 @@ import torch.utils.data as utils
 import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
-from sklearn.metrics import roc_auc_score, r2_score
+from sklearn.metrics import roc_auc_score, r2_score, confusion_matrix
 import matplotlib.pyplot as plt
 from collections import defaultdict
 import torch.utils.data as data_utils
@@ -119,7 +119,7 @@ class MLP(nn.Module):
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
         predByBin = defaultdict(list) # new dict storing predicted values (need for R2)
-        binNum = 1
+        binNum = 0
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)
