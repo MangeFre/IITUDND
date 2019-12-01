@@ -5,6 +5,8 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import numpy as np
 from sklearn.metrics import roc_auc_score
+import matplotlib.pyplot as plt
+from collections import defaultdict
 
 
 # constants
