@@ -135,10 +135,67 @@ class DataHandler:
 
         return train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes
 
+    def get_k_fold_split(self, k):
+        train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = datahandler.get_train_test_split()
+        num_per_train_fold = len(train) // k
+        num_per_test_fold = len(test) // k
+        validation = []
+        train_tweet_cursor = 0
+        test_tweet_cursor = 0
+        for i in range(k):
+            if i == k - 1:
+                # dump rest of the data
+                validation.append(([train[train_tweet_cursor:],
+                                    train_h[train_tweet_cursor:],
+                                    train_hbt[train_tweet_cursor:],
+                                    train_c[train_tweet_cursor:],
+                                    train_m[train_tweet_cursor:]],
+                                   [test[test_tweet_cursor:],
+                                    test_h[test_tweet_cursor:],
+                                    test_hbt[test_tweet_cursor:],
+                                    test_c[test_tweet_cursor:], None]))
+                break
+            # initialize fold counter
+            train_fold_counter = 0
+            test_fold_counter = 0
+            # get the train set split index
+            cur_train_user_id = train[train_tweet_cursor].get('user').get('id')
+            while train_fold_counter < num_per_train_fold or cur_train_user_id == train[
+                train_tweet_cursor + train_fold_counter + 1].get('user').get('id'):
+                train_fold_counter += 1
+            # get the test set split index
+            cur_test_user_id = test[test_tweet_cursor].get('user').get('id')
+            while test_fold_counter < num_per_test_fold or cur_test_user_id == test[
+                test_tweet_cursor + test_fold_counter + 1].get('user').get('id'):
+                test_fold_counter += 1
 
-UNLABELED_DATA = '/Users/Maw/PyCharmProjects/IITUDND/data/retrieved_data/calfire_extras.json'
-LABELED_DATA = '/Users/Maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/json/california_wildfires_final_data.json'
-CLASSIFICATIONS = '/Users/Maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/annotations/california_wildfires_final_data.tsv'
+            validation.append(([train[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                                train_h[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                                train_hbt[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                                train_c[train_tweet_cursor:train_tweet_cursor + train_fold_counter],
+                                train_m[train_tweet_cursor:train_tweet_cursor + train_fold_counter]],
+                               [test[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
+                                test_h[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
+                                test_hbt[test_tweet_cursor:test_tweet_cursor + test_fold_counter],
+                                test_c[test_tweet_cursor:test_tweet_cursor + test_fold_counter], None]))
+            train_tweet_cursor += train_fold_counter
+            test_tweet_cursor += test_fold_counter
+        # todo: do evaluation here
+        evaluation = ([train, train_h, train_hbt, train_c, train_m], [test, test_h, test_hbt, test_c, None])
+        return evaluation, validation
+
+
+UNLABELED_DATA = '/Users/maw/PyCharmProjects/IITUDND/data/retrieved_data/calfire_extras.json'
+LABELED_DATA = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/json/california_wildfires_final_data.json'
+CLASSIFICATIONS = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/annotations/california_wildfires_final_data.tsv'
 datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
 
 train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes = datahandler.get_train_test_split()
+
+# eva = tuple(  train[train_labeled, train_histories, train_histories_by_target, train_classes, train_merged],
+#               test[test_labeled, test_histories, test_histories_by_target, test_classes, None])
+# val = list[   tuple_1(train[train_labeled, train_histories, train_histories_by_target, train_merged, train_classes],
+#                       test[test_labeled, test_histories, test_histories_by_target, None, test_classes]),
+#               tuple_2()...
+#               tuple_k()]
+eva, val = datahandler.get_k_fold_split(10)
