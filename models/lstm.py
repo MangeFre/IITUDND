@@ -197,8 +197,7 @@ class LSTM(nn.Module):
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length, discretized into bins (ascending order')
         plt.ylabel('Average accuracy rate')
-        plt.ylim([math.ceil(np.min(accuracy) - 0.5 * (np.max(accuracy) - np.min(accuracy))),
-                  math.ceil(np.max(accuracy) + 0.5 * (np.max(accByLength) - np.min(accuracy)))]) # set y range
+        plt.ylim(0.5, 1.0)
         plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
