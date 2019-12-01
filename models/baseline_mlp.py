@@ -88,9 +88,9 @@ class MLP(nn.Module):
             Get the accuracy of the model on some test set
             :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
             :param y: a tensor of class labels (1 or 0)
-            :return: a list of ratios of true vs. incorrect classifications per bin
+            :return: a list of tuples, each user history length and its mean accuracy
             """
-        accByLength = defaultdict(list)                         # dict of lists storing accuracies by length
+        accByLength = defaultdict(list)  # dict of lists storing accuracies by length
         totalCases = len(X)
 
         # test model
@@ -98,10 +98,10 @@ class MLP(nn.Module):
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                length = X_i.shape[0]                           # user history length
-                
-                outputs = self(X_i)                             # output contains labels for the whole sequence
-                predictions = torch.round(outputs[-1]).item()   # we only care about the last one
+                length = X_i.shape[0]  # user history length
+
+                outputs = self(X_i)  # output contains labels for the whole sequence
+                predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
                 accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
@@ -113,17 +113,17 @@ class MLP(nn.Module):
         binNum = 1
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
-        binMinMax[1].append(1)
+        binMinMax[0].append(1)
         for length in accByLength:
-            for item in accByLength[length]:  # iterate through each classification of the hist length
+            for item in accByLength[length]:    # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
-                    binMinMax[binCount].append(length)  # record maximum length of the bin
+                    binMinMax[binNum].append(length) # record maximum length of the bin
                     binNum += 1
                     binCount = 0
-                    binMinMax[binCount].append(length)  # record the min length of the bin
+                    binMinMax[binNum].append(length) # record the min length of the bin
                 accByBin[binNum].append(item)  # append the classification value to the bin
-        binMinMax[4][1] = length  # record length of final bin
+        binMinMax[3].append(length)               # record length of final bin
 
         plt.figure()  # initiate accuracy plot
         bins = []
@@ -133,9 +133,8 @@ class MLP(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.bar(bins, accuracy)  # plot accuracy by history length
-        plt.xticks(bins,
-                   (binMinMax[1][0] + ' to ' + binMinMax[1][1], binMinMax[2][0] + ' to ' + binMinMax[2][1],
-                    binMinMax[3][0] + ' to ' + binMinMax[3][1], binMinMax[4][0] + ' to ' + binMinMax[4][1]))
+        plt.xticks(bins, (binMinMax[0][0] + ' to ' + binMinMax[0][1], binMinMax[1][0] + ' to ' + binMinMax[1][1],
+                          binMinMax[2][0] + ' to ' + binMinMax[2][1], binMinMax[3][0] + ' to ' + binMinMax[3][1]))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length, discretized into bins (ascending order')
         plt.ylabel('Average accuracy rate')
@@ -143,8 +142,7 @@ class MLP(nn.Module):
 
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
-            binRatios.append(
-                sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
+            binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
         return binRatios
 
     def get_accuracy(self, X, y):
