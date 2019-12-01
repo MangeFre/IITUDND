@@ -113,7 +113,7 @@ class MLP(nn.Module):
         binNum = 1
         binCount = 0
         for length in accByLength:
-            for item in length:                                 # iterate through each classification of the hist length
+            for item in accByLength[length]:                    # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:                  # move to next bin if current is at max capacity
                     binNum += 1
