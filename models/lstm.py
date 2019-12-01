@@ -14,55 +14,67 @@ RANDOM_SEED = 42
 
 class LSTM(nn.Module):
     """
-    An LSTM to classify the last tweet in a sequence based on feature vectors
+    An LSTM to classify tweets in a sequence based on already extracted feature vectors
     Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
     def __init__(self, input_dim, hidden_dim):
+        """
+        build an LSTM
+        :param input_dim: the dimensionality of the feature vectors to be input
+        :param hidden_dim: the number of neurons used in the LSTM layer
+        """
         super(LSTM, self).__init__()
-        self.lstm = nn.LSTM(input_dim, hidden_dim)
-        self.hidden2class = nn.Linear(hidden_dim, 1)
+        self.lstm = nn.LSTM(input_dim, hidden_dim)      # lstm layer
+        self.hidden2class = nn.Linear(hidden_dim, 1)    # fully connected layer
 
+        # set up optimization
         self.loss_function = torch.nn.BCELoss()
         self.optimizer = optim.SGD(self.parameters(), lr=LEARNING_RATE, momentum=MOMENTUM)
-        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR)
+        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR) # this decreases learning rate every epoch
 
-        # set random seed for reproducable data sets
+        # set random seed for reproducible data sets
         random.seed(RANDOM_SEED)
 
     def forward(self, X_i):
         """
-        A forward pass of the network to classify the last element in the sequence
+        A forward pass of the network to classify each element in the sequence
         :param X_i: a 2d tensor of shape (len(history), input_dim), a single user history sequence
-        :return: a predicted class (1 for informative, 0 for not)
+        :return: a 1d tensor of predicted classes (1 for informative, 0 for not)
         """
-        input = X_i.view(X_i.shape[0], 1, -1) # need to add a dimension for batch (2nd dim out of 3d now)
-        lstm_out, _ = self.lstm(input) # lstm_out contains all hidden states for the sequence
-        preds = torch.sigmoid(self.hidden2class(lstm_out.view(lstm_out.shape[0],-1))) # reduce to 2d
+        input = X_i.view(X_i.shape[0], 1, -1) # need to add a fake dimension for batch (2nd dim out of 3d now)
+        lstm_out, _ = self.lstm(input) # lstm_out contains all hidden states for each tweet in the sequence
+        fc_in = lstm_out.view(lstm_out.shape[0],-1) # remove fake batch dimension
+        preds = torch.sigmoid(self.hidden2class(fc_in)).view(-1) # reduce to 1d tensor after getting scalar predictions
         return preds
 
     def learn(self, X, y):
         """
         Train the network using a list of sequences of features and their respective labels
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
+        :param y: a 1d tensor of class labels (1 or 0)
         """
 
         for epoch in range(EPOCHS):
 
-            X, y = shuffle_data(X, y)
+            X, y = shuffle_data(X, y) # shuffle the data each epoch
 
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0
-            for i, X_i in enumerate(X):
-                self.zero_grad()
-                pred = self(X_i)
+            running_loss = 0.0 # this variable just for visualization
 
-                # just examine last prediction #todo examine all labeled
-                loss = self.loss_function(pred[-1][0], y[i]) # todo understand what dif is between Size([1]) and Size([])
+            for i, X_i in enumerate(X):
+                self.zero_grad() # reset the auto gradient calculations
+
+                pred = self(X_i) # forward pass
+
+                # just examine last prediction #todo examine all labeled, not just the last
+                loss = self.loss_function(pred[-1], y[i])
+
+                # back propagation
                 loss.backward()
                 self.optimizer.step()
 
+                # report the running loss on each set of 200 for visualization
                 running_loss += loss.item()
                 if i % 200 == 199:  # print every 200 mini-batches
                     print('[%d, %5d] loss: %.3f' %
@@ -120,8 +132,8 @@ class LSTM(nn.Module):
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                outputs = self(X_i)
-                predictions = torch.round(outputs[-1]).reshape(-1).item()
+                outputs = self(X_i)                             # output contains labels for the whole sequence
+                predictions = torch.round(outputs[-1]).item()   # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
 
