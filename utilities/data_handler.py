@@ -135,8 +135,9 @@ class DataHandler:
 
         return train_labeled, train_histories, train_histories_by_target, test_labeled, test_histories, test_histories_by_target, train_merged, train_classes, test_classes
 
-    def get_k_fold_split(self, k):
-        train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = datahandler.get_train_test_split()
+    def get_k_fold_split(self, k, ratio=.2):
+        train, train_h, train_hbt, test, test_h, test_hbt, train_m, train_c, test_c = datahandler.get_train_test_split(
+            ratio)
         num_per_fold = len(train) // k
         folds = []
         train_tweet_cursor = 0
@@ -187,7 +188,8 @@ class DataHandler:
                 merged_train_hbt.extend(fold[2])
                 merged_train_c.extend(fold[3])
                 merged_train_m.extend(fold[4])
-            validation.append(([merged_train, merged_train_h, merged_train_hbt, merged_train_c, merged_train_m], test_fold))
+            validation.append(
+                ([merged_train, merged_train_h, merged_train_hbt, merged_train_c, merged_train_m], test_fold))
         return evaluation, validation
 
 
