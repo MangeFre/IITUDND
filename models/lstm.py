@@ -154,7 +154,7 @@ class LSTM(nn.Module):
         binNum = 1
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
-        binMinMax[1].append(1)
+        binMinMax[0].append(1)
         for length in accByLength:
             for item in accByLength[length]:    # iterate through each classification of the hist length
                 binCount += 1
@@ -164,7 +164,7 @@ class LSTM(nn.Module):
                     binCount = 0
                     binMinMax[binCount].append(length) # record the min length of the bin
                 accByBin[binNum].append(item)  # append the classification value to the bin
-        binMinMax[4][1] = length               # record length of final bin
+        binMinMax[3][1] = length               # record length of final bin
 
         plt.figure()  # initiate accuracy plot
         bins = []
