@@ -5,10 +5,10 @@ from torch.optim.lr_scheduler import StepLR
 import random
 
 # constants
-LEARNING_RATE = 0.1
+LEARNING_RATE = 0.01
 MOMENTUM = 0.9
-DECAY_FACTOR = 0.25
-EPOCHS = 5
+DECAY_FACTOR = 0.5
+EPOCHS = 2
 
 RANDOM_SEED = 42
 
@@ -37,7 +37,7 @@ class LSTM(nn.Module):
         :return: a predicted class (1 for informative, 0 for not)
         """
         input = X_i.view(X_i.shape[0], 1, -1) # need to add a dimension for batch (2nd dim out of 3d now)
-        lstm_out, _ = self.lstm(X_i.view(X_i.shape[0], 1, -1)) # lstm_out contains all hidden states for the sequence
+        lstm_out, _ = self.lstm(input) # lstm_out contains all hidden states for the sequence
         preds = torch.sigmoid(self.hidden2class(lstm_out.view(lstm_out.shape[0],-1))) # reduce to 2d
         return preds
 
@@ -58,8 +58,8 @@ class LSTM(nn.Module):
                 self.zero_grad()
                 pred = self(X_i)
 
-                # todo just use target
-                loss = self.loss_function(pred[0][0], y[i]) # todo understand what dif is between Size([1]) and Size([])
+                # just examine last prediction #todo examine all labeled
+                loss = self.loss_function(pred[-1][0], y[i]) # todo understand what dif is between Size([1]) and Size([])
                 loss.backward()
                 self.optimizer.step()
 
@@ -121,7 +121,7 @@ class LSTM(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 outputs = self(X_i)
-                predictions = torch.round(outputs).reshape(-1).item()
+                predictions = torch.round(outputs[-1]).reshape(-1).item()
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
 
@@ -167,8 +167,3 @@ def shuffle_data(X, y):
     X, y = list(zip(*together))
 
     return X, torch.Tensor(y)
-
-
-c = LSTM(2,3)
-
-c(torch.zeros(4,2))
