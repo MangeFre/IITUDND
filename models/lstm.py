@@ -154,13 +154,18 @@ class LSTM(nn.Module):
         accByBin = defaultdict(list)  # new dict storing individual accuracies per bin
         binNum = 1
         binCount = 0
+        binMinMax = defaultdict(list) # store the min and max length in each bin
+        binMinMax[1].append(1)
         for length in accByLength:
             for item in accByLength[length]:    # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
+                    binMinMax[binCount].append(length) # record maximum length of the bin
                     binNum += 1
                     binCount = 0
+                    binMinMax[binCount].append(length) # record the min length of the bin
                 accByBin[binNum].append(item)  # append the classification value to the bin
+        binMinMax[4][1] = length               # record length of final bin
 
         plt.figure()  # initiate accuracy plot
         bins = []
@@ -169,7 +174,9 @@ class LSTM(nn.Module):
         for bin in accByBin:
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
-        plt.plot(bins, accuracy)  # plot accuracy by history length
+        plt.bar(bins, accuracy)  # plot accuracy by history length
+        plt.xticks(bins, (binMinMax[1][0] + ' to ' + binMinMax[1][1], binMinMax[2][0] + ' to ' + binMinMax[2][1],
+                          binMinMax[3][0] + ' to ' + binMinMax[3][1], binMinMax[4][0] + ' to ' + binMinMax[4][1]))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length, discretized into bins (ascending order')
         plt.ylabel('Average accuracy rate')
