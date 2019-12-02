@@ -167,7 +167,7 @@ class LSTM(nn.Module):
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)
         for length in accByLength:
-            for i in range(len(accByLength[length])):    # iterate through each classification of the hist length
+            for i in range(len(accByLength[length].values())): # iterate through each classification of the hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
                     binMinMax[binNum].append(length) # record maximum length of the bin
@@ -177,7 +177,7 @@ class LSTM(nn.Module):
                 trueByBin[binNum].append(trueByLength[length][i])  # append the true value to the bin list
                 accByBin[binNum].append(accByLength[length][i])  # append the classification accuracy to the bin list
                 predByBin[binNum].append(predByLength[length][i]) # append predicted value to bin list
-        binMinMax[3].append(length)               # record length of final bin
+        binMinMax[-1].append(length)               # record length of final bin
 
         # Calculate R score: (Turn into separate method)
         for binNum in accByBin:
