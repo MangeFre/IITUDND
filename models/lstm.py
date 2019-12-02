@@ -193,10 +193,15 @@ class LSTM(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.bar(bins, accuracy)  # plot accuracy by history length
-        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),     # set the x tick labels
+        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
                           str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
-                          str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1])))
+                          str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
+                          str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1]),
+                          str(binMinMax[6][0]) + ' to ' + str(binMinMax[6][1]),
+                          str(binMinMax[7][0]) + ' to ' + str(binMinMax[7][1])
+                          ))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
         plt.ylabel('Average accuracy rate')
