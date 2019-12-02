@@ -191,7 +191,7 @@ class DataHandler:
                 ([merged_train, merged_train_h, merged_train_hbt, merged_train_c, merged_train_m], test_fold))
         return evaluation, validation
 
-
+'''
 UNLABELED_DATA = '/Users/maw/PyCharmProjects/IITUDND/data/retrieved_data/calfire_extras.json'
 LABELED_DATA = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/json/california_wildfires_final_data.json'
 CLASSIFICATIONS = '/Users/maw/PyCharmProjects/IITUDND/data/CrisisMMD_v1.0/annotations/california_wildfires_final_data.tsv'
@@ -207,3 +207,4 @@ datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
 #               tuple_k()]
 k = 10
 eva, val = datahandler.get_k_fold_split(k)
+'''
