@@ -166,7 +166,7 @@ class LSTM(nn.Module):
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)
-        for length in accByLength:                        # iterate through each hist length
+        for length in range(len(accByLength)):            # iterate through each hist length
             for i in range(len(accByLength[length][1])):  # iterate through each value in the current hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
