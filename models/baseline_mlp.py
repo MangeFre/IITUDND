@@ -33,7 +33,7 @@ class MLP(nn.Module):
 
         super(MLP, self).__init__()
         self.fc1 = nn.Linear(input_size, hidden_dim)
-        # self.fc2 = nn.Linear(first_layer_size, second_layer_size) # removed to be more like LSTM
+        #self.fc2 = nn.Linear(hidden_dim, second_layer_size) # removed to be more like LSTM
         self.fc3 = nn.Linear(hidden_dim, 1)
 
         # set up cuda
