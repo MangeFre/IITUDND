@@ -12,7 +12,7 @@ import random
 import matplotlib.pyplot as plt
 
 # constants
-LEARNING_RATE = 0.01
+# LEARNING_RATE = 0.01 # moved to __init__ param default
 MOMENTUM = 0.9
 DECAY_FACTOR = 0.5
 EPOCHS = 2
@@ -25,7 +25,7 @@ class LSTM(nn.Module):
     Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
-    def __init__(self, input_dim, hidden_dim):
+    def __init__(self, input_dim, hidden_dim, learning_rate = 0.01):
         """
         build an LSTM
         :param input_dim: the dimensionality of the feature vectors to be input
@@ -37,7 +37,7 @@ class LSTM(nn.Module):
 
         # set up optimization
         self.loss_function = torch.nn.BCELoss()
-        self.optimizer = optim.SGD(self.parameters(), lr=LEARNING_RATE, momentum=MOMENTUM)
+        self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=MOMENTUM)
         self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR) # this decreases learning rate every epoch
 
         # set random seed for reproducible data sets
