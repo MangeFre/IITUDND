@@ -150,7 +150,7 @@ class MLP(nn.Module):
         for binNum in trueByBin:  # Iterate through each bin's list of true classifications
             trueVals = np.sum(trueByBin[binNum]) / len(trueByBin[binNum])  # divide + by length of list
             print("True proportion of + scores in bin", binNum, "=", trueVals)
-            priors.append(trueVals ^ 2 + (1 - trueVals) ^ 2)
+            priors.append(trueVals ** 2 + (1 - trueVals) ** 2)
 
         plt.figure()  # initiate accuracy plot
         bins = []
