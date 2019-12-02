@@ -67,7 +67,7 @@ class LSTM(nn.Module):
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            #running_loss = 0.0 # this variable just for visualization
+            running_loss = 0.0 # this variable just for visualization
 
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
@@ -82,11 +82,11 @@ class LSTM(nn.Module):
                 self.optimizer.step()
 
                 # report the running loss on each set of 200 for visualization
-                #running_loss += loss.item()
-                #if i % 200 == 199:  # print every 200 mini-batches
-                    #print('[%d, %5d] loss: %.3f' %
-                          #(epoch + 1, i + 1, running_loss / 200))
-                    #running_loss = 0.0
+                running_loss += loss.item()
+                if i % 200 == 199:  # print every 200 mini-batches
+                    print('[%d, %5d] loss: %.3f' %
+                          (epoch + 1, i + 1, running_loss / 200))
+                    running_loss = 0.0
 
             # halve learning rate
             self.scheduler.step()
@@ -187,11 +187,11 @@ class LSTM(nn.Module):
 
     def get_accuracy(self, X, y):
         """
-                Get the accuracy of the model on some test set
-                :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-                :param y: a tensor of class labels (1 or 0)
-                :return: a float, the accuracy (number of correct predictions out of total)
-                """
+        Get the accuracy of the model on some test set
+        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+        :param y: a tensor of class labels (1 or 0)
+        :return: a float, the accuracy (number of correct predictions out of total)
+        """
 
         # test model
         correct = 0
@@ -205,26 +205,21 @@ class LSTM(nn.Module):
         return correct / total
 
 
-    def get_auc(self,X_test, y_test):
+    def get_auc(self,X, y):
         """
         Get the Area under the ROC curve for some test set
-        :param X_test: a tensor of features
-        :param y_test: a tensor of labels
+        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+        :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
-        # make dataloader
-        testset = data_utils.TensorDataset(X_test)  # create your dataset
-        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
         with torch.no_grad():
-            for data in testloader:
-                inputs = data[0].to(self.device)
-                outputs = self(inputs)
-                y_scores.extend(outputs.reshape(-1).tolist())
-
-        return roc_auc_score(y_test.numpy(), np.array(y_scores))
+            for i, X_i in enumerate(X):
+                outputs = self(X_i)  # output contains labels for the whole sequence
+                y_scores.append(outputs[-1].item())  # we only care about the last one
+        return roc_auc_score(y.numpy(), np.array(y_scores))
 
 
     def get_confusion_matrix(self,X_test, y_test):
