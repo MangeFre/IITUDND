@@ -185,6 +185,11 @@ class LSTM(nn.Module):
             trueVals = trueByBin[binNum]
             print("R2 score for bin", binNum, "=", r2_score(trueVals, predictedVals))
 
+        # Calculate priors per bin:
+        for binNum in trueByBin: # Iterate through each bin's list of true classifications
+            trueVals = np.sum(trueByBin[binNum]) / len(trueByBin[binNum]) # divide + by length of list
+            print("True proportion of + scores in bin", binNum, "=", trueVals)
+
         plt.figure()  # initiate accuracy plot
         bins = []
         accuracy = []
@@ -199,8 +204,8 @@ class LSTM(nn.Module):
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
                           str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
                           str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])))
-        plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
-        plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
+        plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
+        plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.7, 0.95)
         plt.yticks(np.arange(0.7, 0.95, 0.05))
