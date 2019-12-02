@@ -22,21 +22,19 @@ class MLP(nn.Module):
     A multilayer perceptron based on the starter tutorial at pytorch:
     https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py
     """
-    def __init__(self, input_size, first_layer_size, second_layer_size, activation_function):
+    def __init__(self, input_size, hidden_dim):
         """
         A simple 4 layer network for binary classification
         :param input_size: an int
-        :param first_layer_size: an int
-        :param second_layer_size: an int
-        :param activation_function: a function, an activation function for all neurons except last layer
+        :param hidden_dim: an int
         """
 
-        self.f = activation_function
+        self.f = torch.relu
 
         super(MLP, self).__init__()
-        self.fc1 = nn.Linear(input_size, first_layer_size)
-        self.fc2 = nn.Linear(first_layer_size, second_layer_size)
-        self.fc3 = nn.Linear(second_layer_size, 1)
+        self.fc1 = nn.Linear(input_size, hidden_dim)
+        # self.fc2 = nn.Linear(first_layer_size, second_layer_size) # removed to be more like LSTM
+        self.fc3 = nn.Linear(hidden_dim, 1)
 
         # set up cuda
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -49,7 +47,7 @@ class MLP(nn.Module):
 
     def forward(self, x):
         x = self.f(self.fc1(x))
-        x = self.f(self.fc2(x))
+        #x = self.f(self.fc2(x)) # removed to be more like LSTM
         x = torch.sigmoid(self.fc3(x))
         return x
 
