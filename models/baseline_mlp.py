@@ -89,7 +89,8 @@ class MLP(nn.Module):
     def get_accuracy_graph(self, X, y):
         """
             Get the accuracy of the model on some test set
-            :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+            :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
+            sequence
             :param y: a tensor of class labels (1 or 0)
             :return: a plot of accuracies across bins of history lengths and a list of each bin's mean accuracy
             """
@@ -105,7 +106,6 @@ class MLP(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 length = X_i.shape[0]  # user history length
-
                 outputs = self(X_i)  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
@@ -113,12 +113,15 @@ class MLP(nn.Module):
                 predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
                 accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
                 trueByLength[length].append(y[i].item()) # keep track of original classification
+        predByLength = sorted(predByLength)
+        accByLength = sorted(accByLength)
+        trueByLength = sorted(trueByLength)
 
         # Discretize lengths into bins:
         binMaxCapacity = totalCases // 4 + 1  # define max bin capacity
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
-        predByBin = defaultdict(list) # new dict storing predicted values (need for R2)
+        predByBin = defaultdict(list) # new dict storing predicted values per bin (need for R2)
         binNum = 0
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
@@ -155,9 +158,9 @@ class MLP(nn.Module):
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1])))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
-        plt.xlabel('User history length, discretized into bins (ascending order)')
+        plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
         plt.ylabel('Average accuracy rate')
-        plt.ylim(0.5, 1.0)
+        plt.ylim(0.65, 1.0)
         plt.yticks(np.arange(0.65, 1, 0.05))
         plt.show()
 

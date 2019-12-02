@@ -146,7 +146,6 @@ class LSTM(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 length = X_i.shape[0]  # user history length
-
                 outputs = self(X_i)  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
@@ -154,12 +153,15 @@ class LSTM(nn.Module):
                 predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
                 accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
                 trueByLength[length].append(y[i].item()) # keep track of original classification
+        predByLength = sorted(predByLength)
+        accByLength = sorted(accByLength)
+        trueByLength = sorted(trueByLength)
 
         # Discretize lengths into bins:
         binMaxCapacity = totalCases // 4 + 1  # define max bin capacity
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
-        predByBin = defaultdict(list) # new dict storing predicted values (need for R2)
+        predByBin = defaultdict(list) # new dict storing predicted values per bin (need for R2)
         binNum = 0
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
