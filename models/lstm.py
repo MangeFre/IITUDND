@@ -175,8 +175,8 @@ class LSTM(nn.Module):
         plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
-        plt.ylim(0.7, 0.95)
-        plt.yticks(np.arange(0.7, 0.95, 0.05))
+        plt.ylim(0.5, 0.9)
+        plt.yticks(np.arange(0.5, 0.9, 0.05))
         plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
