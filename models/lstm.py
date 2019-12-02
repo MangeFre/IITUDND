@@ -67,7 +67,7 @@ class LSTM(nn.Module):
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0 # this variable just for visualization
+            #running_loss = 0.0 # this variable just for visualization
 
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
@@ -82,11 +82,11 @@ class LSTM(nn.Module):
                 self.optimizer.step()
 
                 # report the running loss on each set of 200 for visualization
-                running_loss += loss.item()
-                if i % 200 == 199:  # print every 200 mini-batches
-                    print('[%d, %5d] loss: %.3f' %
-                          (epoch + 1, i + 1, running_loss / 200))
-                    running_loss = 0.0
+                #running_loss += loss.item()
+                #if i % 200 == 199:  # print every 200 mini-batches
+                    #print('[%d, %5d] loss: %.3f' %
+                          #(epoch + 1, i + 1, running_loss / 200))
+                    #running_loss = 0.0
 
             # halve learning rate
             self.scheduler.step()
