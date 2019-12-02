@@ -158,7 +158,7 @@ class LSTM(nn.Module):
         trueByLength = sorted(trueByLength)
 
         # Discretize lengths into bins:
-        binMaxCapacity = totalCases // 4 + 1  # define max bin capacity
+        binMaxCapacity = totalCases // 10 + 1  # define max bin capacity
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
         predByBin = defaultdict(list) # new dict storing predicted values per bin (need for R2)
