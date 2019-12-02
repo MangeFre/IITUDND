@@ -153,9 +153,9 @@ class LSTM(nn.Module):
                 predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
                 accByLength[length].append(1) if predictions == y[i].item() else accByLength[length].append(0)
                 trueByLength[length].append(y[i].item()) # keep track of original classification
-        predByLength = sorted(predByLength)
-        accByLength = sorted(accByLength)
-        trueByLength = sorted(trueByLength)
+        predByLength = sorted(predByLength.items()) # get every dict in order via a sorted list of tuples (len, vals)
+        accByLength = sorted(accByLength.items())
+        trueByLength = sorted(trueByLength.items())
 
         # Discretize lengths into bins:
         binMaxCapacity = totalCases // 10 + 1  # define max bin capacity
@@ -166,18 +166,18 @@ class LSTM(nn.Module):
         binCount = 0
         binMinMax = defaultdict(list) # store the min and max length in each bin
         binMinMax[0].append(1)
-        for length in accByLength:
-            for i in range(len(accByLength[length].values())): # iterate through each classification of the hist length
+        for length in accByLength:                        # iterate through each hist length
+            for i in range(len(accByLength[length][1])):  # iterate through each value in the current hist length
                 binCount += 1
                 if binCount >= binMaxCapacity:  # move to next bin if current is at max capacity
                     binMinMax[binNum].append(length) # record maximum length of the bin
                     binNum += 1
                     binCount = 0
                     binMinMax[binNum].append(length) # record the min length of the bin
-                trueByBin[binNum].append(trueByLength[length][i])  # append the true value to the bin list
-                accByBin[binNum].append(accByLength[length][i])  # append the classification accuracy to the bin list
-                predByBin[binNum].append(predByLength[length][i]) # append predicted value to bin list
-        binMinMax[-1].append(length)               # record length of final bin
+                trueByBin[binNum].append(trueByLength[length][1][i])  # append the true value to the bin list
+                accByBin[binNum].append(accByLength[length][1][i])  # append the classification accuracy to the bin list
+                predByBin[binNum].append(predByLength[length][1][i]) # append predicted value to bin list
+        binMinMax[-1].append(length)                 # record length of final bin
 
         # Calculate R score: (Turn into separate method)
         for binNum in accByBin:
