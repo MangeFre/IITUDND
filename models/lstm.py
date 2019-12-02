@@ -177,7 +177,7 @@ class LSTM(nn.Module):
                 trueByBin[binNum].append(trueByLength[length][1][i])  # append the true value to the bin list
                 accByBin[binNum].append(accByLength[length][1][i])  # append the classification accuracy to the bin list
                 predByBin[binNum].append(predByLength[length][1][i]) # append predicted value to bin list
-        binMinMax[-1].append(accByLength[length][0])                 # record length of final bin
+        binMinMax[5].append(accByLength[length][0])                 # record length of final bin
 
         # Calculate R score: (Turn into separate method)
         for binNum in accByBin:
@@ -198,8 +198,7 @@ class LSTM(nn.Module):
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
                           str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
-                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])
-                          ))
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
         plt.ylabel('Average accuracy rate')
