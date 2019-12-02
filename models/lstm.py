@@ -158,7 +158,7 @@ class LSTM(nn.Module):
         trueByLength = sorted(trueByLength.items())
 
         # Discretize lengths into bins:
-        binMaxCapacity = totalCases // 8 + 1  # define max bin capacity
+        binMaxCapacity = totalCases // 6 + 1  # define max bin capacity
         accByBin = defaultdict(list)  # new dict storing individual accuracies (1=correct,0=wrong) per bin
         trueByBin = defaultdict(list) # new dict storing individual true values per bin
         predByBin = defaultdict(list) # new dict storing predicted values per bin (need for R2)
@@ -198,9 +198,7 @@ class LSTM(nn.Module):
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
                           str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
-                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1]),
-                          str(binMinMax[6][0]) + ' to ' + str(binMinMax[6][1]),
-                          str(binMinMax[7][0]) + ' to ' + str(binMinMax[7][1])
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])
                           ))
         plt.suptitle('Test classification accuracy rate by user history length, discretized into four bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins(ascending order)')
