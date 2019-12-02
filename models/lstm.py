@@ -12,7 +12,7 @@ import random
 import matplotlib.pyplot as plt
 
 # constants
-LEARNING_RATE = 0.01
+# LEARNING_RATE = 0.01 # moved to __init__ param default
 MOMENTUM = 0.9
 DECAY_FACTOR = 0.5
 EPOCHS = 2
@@ -25,7 +25,7 @@ class LSTM(nn.Module):
     Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
-    def __init__(self, input_dim, hidden_dim):
+    def __init__(self, input_dim, hidden_dim, learning_rate = 0.01):
         """
         build an LSTM
         :param input_dim: the dimensionality of the feature vectors to be input
@@ -37,7 +37,7 @@ class LSTM(nn.Module):
 
         # set up optimization
         self.loss_function = torch.nn.BCELoss()
-        self.optimizer = optim.SGD(self.parameters(), lr=LEARNING_RATE, momentum=MOMENTUM)
+        self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=MOMENTUM)
         self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR) # this decreases learning rate every epoch
 
         # set random seed for reproducible data sets
@@ -90,41 +90,6 @@ class LSTM(nn.Module):
 
             # halve learning rate
             self.scheduler.step()
-    '''
-    def learn_bootstrap(self, X, y, y_bootstrap):
-        """
-        Train the network using a list of sequences of features and their respective labels
-        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
-        """
-        
-        #under development
-        
-        for epoch in range(EPOCHS):
-
-            X, y = shuffle_data(X, y)
-
-            print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0
-            for i, X_i in enumerate(X):
-                self.zero_grad()
-                pred = self(X_i)
-
-                # todo just use target
-                loss = self.loss_function(pred[0][0], y[i]) # todo understand what dif is between Size([1]) and Size([])
-                loss.backward()
-                self.optimizer.step()
-
-                running_loss += loss.item()
-                if i % 200 == 199:  # print every 200 mini-batches
-                    print('[%d, %5d] loss: %.3f' %
-                          (epoch + 1, i + 1, running_loss / 200))
-                    running_loss = 0.0
-
-            # halve learning rate
-            self.scheduler.step()
-            
-    '''
 
     def get_accuracy_graph(self, X, y):
         """
