@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 
 # constants
 # LEARNING_RATE = 0.01 # moved to __init__ param default
-MOMENTUM = 0.9
-DECAY_FACTOR = 0.5
-EPOCHS = 3
+# MOMENTUM = 0.9 # moved to __init__ param default
+# DECAY_FACTOR = 0.5 # moved to __init__ param default
+# EPOCHS = 3 # moved to learn param default
 
 RANDOM_SEED = 42
 
@@ -25,7 +25,7 @@ class LSTM(nn.Module):
     Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
-    def __init__(self, input_dim, hidden_dim, learning_rate = 0.01):
+    def __init__(self, input_dim, hidden_dim, learning_rate = 0.01, momentum = 0.9, decay_factor = 0.5):
         """
         build an LSTM
         :param input_dim: the dimensionality of the feature vectors to be input
@@ -37,8 +37,8 @@ class LSTM(nn.Module):
 
         # set up optimization
         self.loss_function = torch.nn.BCELoss()
-        self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=MOMENTUM)
-        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR) # this decreases learning rate every epoch
+        self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=momentum)
+        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=decay_factor) # this decreases learning rate every epoch
 
         # set random seed for reproducible data sets
         random.seed(RANDOM_SEED)
@@ -55,14 +55,14 @@ class LSTM(nn.Module):
         preds = torch.sigmoid(self.hidden2class(fc_in)).view(-1) # reduce to 1d tensor after getting scalar predictions
         return preds
 
-    def learn(self, X, y):
+    def learn(self, X, y, epochs = 3):
         """
         Train the network using a list of sequences of features and their respective labels
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a 1d tensor of class labels (1 or 0)
         """
 
-        for epoch in range(EPOCHS):
+        for epoch in range(epochs):
 
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
