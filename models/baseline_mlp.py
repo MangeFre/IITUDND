@@ -13,23 +13,24 @@ import torch.utils.data as data_utils
 
 
 # constants
-LEARNING_RATE = 0.1
-DECAY_FACTOR = 0.1
-EPOCHS = 2
+# LEARNING_RATE = 0.01 # moved to __init__ param default
+# MOMENTUM = 0.9 # moved to __init__ param default
+# DECAY_FACTOR = 0.5 # moved to __init__ param default
+# EPOCHS = 3 # moved to learn param default
 
 class MLP(nn.Module):
     """
     A multilayer perceptron based on the starter tutorial at pytorch:
     https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py
     """
-    def __init__(self, input_size, hidden_dim):
+    def __init__(self, input_size, hidden_dim, activation_function = torch.relu, learning_rate = 0.001, decay_factor = 0.5, momentum = 0.9):
         """
         A simple 4 layer network for binary classification
         :param input_size: an int
         :param hidden_dim: an int
         """
 
-        self.f = torch.relu
+        self.f = activation_function
 
         super(MLP, self).__init__()
         self.fc1 = nn.Linear(input_size, hidden_dim)
@@ -42,8 +43,8 @@ class MLP(nn.Module):
 
         # set up optimization
         self.criterion = nn.BCELoss()
-        self.optimizer = optim.SGD(self.parameters(), lr=LEARNING_RATE)
-        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=DECAY_FACTOR)
+        self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=momentum)
+        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=decay_factor)
 
     def forward(self, x):
         x = self.f(self.fc1(x))
@@ -51,7 +52,7 @@ class MLP(nn.Module):
         x = torch.sigmoid(self.fc3(x))
         return x
 
-    def learn(self, X_train, y_train):
+    def learn(self, X_train, y_train, epochs = 3):
         """
         Train the network on a labeled dataset
         :param X_train: a tensor of features
@@ -64,7 +65,7 @@ class MLP(nn.Module):
 
 
         # train model
-        for epoch in range(EPOCHS):
+        for epoch in range(epochs):
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
             running_loss = 0.0
             for j, data in enumerate(trainloader, 0):
