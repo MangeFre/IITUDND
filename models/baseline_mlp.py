@@ -179,7 +179,8 @@ class MLP(nn.Module):
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
         return binRatios
 
-    def get_accuracy(self, X, y):
+    # todo how did this get here and how was it working for so long!
+    '''def get_accuracy(self, X, y):
         """
         Get the accuracy of the model on some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
@@ -196,6 +197,33 @@ class MLP(nn.Module):
                 predictions = torch.round(outputs[-1]).item()   # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
+        return correct / total'''
+
+    def get_accuracy(self, X_test, y_test):
+        """
+        Get the accuracy of the model on some test set
+        :param X_test: a tensor of features
+        :param y_test: a tensor of labels
+        :return: a float, the accuracy (number of correct predictions out of total)
+        """
+
+        # make dataloader
+        testset = utils.TensorDataset(X_test, y_test)  # create your datset
+        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
+        testset = utils.TensorDataset(X_test, y_test)
+        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
+        # test model
+        correct = 0
+        total = 0
+        with torch.no_grad():
+            for data in testloader:
+                inputs, labels = data[0].to(self.device), data[1].to(self.device)
+                outputs = self(inputs)
+                predictions = torch.round(outputs).reshape(-1)
+                total += labels.size(0)
+                correct += (predictions == labels).sum().item()
+
         return correct / total
 
     def get_auc(self,X_test, y_test):
