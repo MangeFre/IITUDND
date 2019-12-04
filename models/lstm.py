@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 # LEARNING_RATE = 0.01 # moved to __init__ param default
 MOMENTUM = 0.9
 DECAY_FACTOR = 0.5
-EPOCHS = 2
+EPOCHS = 3
 
 RANDOM_SEED = 42
 
