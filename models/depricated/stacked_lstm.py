@@ -1,16 +1,15 @@
 import math
-
-import torch.nn as nn
-import torch
-import torch.utils.data as utils
-import torch.optim as optim
-from torch.optim.lr_scheduler import StepLR
-import numpy as np
-from sklearn.metrics import roc_auc_score, r2_score, confusion_matrix
-import matplotlib.pyplot as plt
 from collections import defaultdict
-import torch.utils.data as data_utils
 
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.metrics import roc_auc_score, confusion_matrix, r2_score
+import torch.utils.data as data_utils
+from torch.optim.lr_scheduler import StepLR
+import random
+import matplotlib.pyplot as plt
 
 # constants
 # LEARNING_RATE = 0.01 # moved to __init__ param default
@@ -18,72 +17,77 @@ import torch.utils.data as data_utils
 # DECAY_FACTOR = 0.5 # moved to __init__ param default
 # EPOCHS = 3 # moved to learn param default
 
-class MLP(nn.Module):
+RANDOM_SEED = 42
+
+class StackedLSTM(nn.Module):
     """
-    A multilayer perceptron based on the starter tutorial at pytorch:
-    https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py
+    An LSTM to classify tweets in a sequence based on already extracted feature vectors
+    Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
-    def __init__(self, input_size, hidden_dim, num_layers= 1, activation_function = torch.relu, learning_rate = 0.001, decay_factor = 0.5, momentum = 0.9):
+
+    def __init__(self, input_dim, hidden_dim1,hidden_dim2, learning_rate = 0.01, momentum = 0.9, decay_factor = 0.5):
         """
-        A simple 4 layer network for binary classification
-        :param input_size: an int
-        :param hidden_dim: an int
+        build an LSTM
+        :param input_dim: the dimensionality of the feature vectors to be input
+        :param hidden_dim: the number of neurons used in the LSTM layer
         """
-
-        self.f = activation_function
-
-        super(MLP, self).__init__()
-
-        self.fc_first = nn.Linear(input_size, hidden_dim)
-        self.layers = []
-        for i in range(num_layers):
-            self.layers.append(nn.Linear(hidden_dim, hidden_dim))
-        self.fc_last = nn.Linear(hidden_dim, 1)
-
-        # set up cuda
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.to(self.device)
+        super(StackedLSTM, self).__init__()
+        self.lstm1 = nn.LSTM(input_dim, hidden_dim1)      # lstm layer
+        self.lstm2 = nn.LSTM(hidden_dim1, hidden_dim2)
+        self.hidden2class = nn.Linear(hidden_dim2, 1)    # fully connected layer
 
         # set up optimization
-        self.criterion = nn.BCELoss()
+        self.loss_function = torch.nn.BCELoss()
         self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=momentum)
-        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=decay_factor)
+        self.scheduler = StepLR(self.optimizer, step_size=1, gamma=decay_factor) # this decreases learning rate every epoch
 
-    def forward(self, x):
-        x = self.f(self.fc_first(x))
-        for i in range(len(self.layers)):
-            x = self.f(self.layers[i](x))
-        x = torch.sigmoid(self.fc_last(x))
-        return x
+        # set random seed for reproducible data sets
+        random.seed(RANDOM_SEED)
 
-    def learn(self, X_train, y_train, epochs = 3):
+    def forward(self, X_i):
         """
-        Train the network on a labeled dataset
-        :param X_train: a tensor of features
-        :param y_train: a tensor of labels
+        A forward pass of the network to classify each element in the sequence
+        :param X_i: a 2d tensor of shape (len(history), input_dim), a single user history sequence
+        :return: a 1d tensor of predicted classes (1 for informative, 0 for not)
+        """
+        input = X_i.view(X_i.shape[0], 1, -1) # need to add a fake dimension for batch (2nd dim out of 3d now)
+        lstm_out1, _ = self.lstm1(input) # lstm_out contains all hidden states for each tweet in the sequence
+        lstm_out2, _ = self.lstm2(lstm_out1)
+        fc_in = lstm_out2.view(lstm_out2.shape[0],-1) # remove fake batch dimension
+        preds = torch.sigmoid(self.hidden2class(fc_in)).view(-1) # reduce to 1d tensor after getting scalar predictions
+        return preds
+
+    def learn(self, X, y, epochs = 3):
+        """
+        Train the network using a list of sequences of features and their respective labels
+        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+        :param y: a 1d tensor of class labels (1 or 0)
         """
 
-        # make dataloader
-        trainset = utils.TensorDataset(X_train, y_train)
-        trainloader = utils.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
-
-
-        # train model
         for epoch in range(epochs):
+
+            X, y = shuffle_data(X, y) # shuffle the data each epoch
+
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0
-            for j, data in enumerate(trainloader, 0):
-                inputs, labels = data[0].to(self.device), data[1].to(self.device)
-                self.optimizer.zero_grad()
-                outputs = self(inputs)
-                loss = self.criterion(outputs.reshape(-1), labels)
+            running_loss = 0.0 # this variable just for visualization
+
+            for i, X_i in enumerate(X):
+                self.zero_grad() # reset the auto gradient calculations
+
+                pred = self(X_i) # forward pass
+
+                # just examine last prediction #todo examine all labeled, not just the last
+                loss = self.loss_function(pred[-1], y[i])
+
+                # back propagation
                 loss.backward()
                 self.optimizer.step()
 
+                # report the running loss on each set of 200 for visualization
                 running_loss += loss.item()
-                if j % 200 == 199:  # print every 200 mini-batches
+                if i % 200 == 199:  # print every 200 mini-batches
                     print('[%d, %5d] loss: %.3f' %
-                          (epoch + 1, j + 1, running_loss / 200))
+                          (epoch + 1, i + 1, running_loss / 200))
                     running_loss = 0.0
 
             # halve learning rate
@@ -150,10 +154,10 @@ class MLP(nn.Module):
 
         # Calculate priors per bin:
         priors = []
-        for binNum in trueByBin:  # Iterate through each bin's list of true classifications
-            trueVals = np.sum(trueByBin[binNum]) / len(trueByBin[binNum])  # divide + by length of list
+        for binNum in trueByBin: # Iterate through each bin's list of true classifications
+            trueVals = np.sum(trueByBin[binNum]) / len(trueByBin[binNum]) # divide + by length of list
             print("True proportion of + scores in bin", binNum, "=", trueVals)
-            priors.append(trueVals ** 2 + (1 - trueVals) ** 2)
+            priors.append(trueVals**2 + (1-trueVals)**2)
 
         plt.figure()  # initiate accuracy plot
         bins = []
@@ -163,7 +167,7 @@ class MLP(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
-        plt.plot(bins, priors, label="Naive accuracy")  # plot dumb accuracy by bin
+        plt.plot(bins, priors, label="Naive accuracy")    # plot dumb accuracy by bin
         plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
                           str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
@@ -183,8 +187,7 @@ class MLP(nn.Module):
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
         return binRatios
 
-    # todo how did this get here and how was it working for so long!
-    '''def get_accuracy(self, X, y):
+    def get_accuracy(self, X, y):
         """
         Get the accuracy of the model on some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
@@ -197,59 +200,28 @@ class MLP(nn.Module):
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                outputs = self(X_i)                             # output contains labels for the whole sequence
-                predictions = torch.round(outputs[-1]).item()   # we only care about the last one
+                outputs = self(X_i)  # output contains labels for the whole sequence
+                predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
-        return correct / total'''
-
-    def get_accuracy(self, X_test, y_test):
-        """
-        Get the accuracy of the model on some test set
-        :param X_test: a tensor of features
-        :param y_test: a tensor of labels
-        :return: a float, the accuracy (number of correct predictions out of total)
-        """
-
-        # make dataloader
-        testset = utils.TensorDataset(X_test, y_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
-        testset = utils.TensorDataset(X_test, y_test)
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
-
-        # test model
-        correct = 0
-        total = 0
-        with torch.no_grad():
-            for data in testloader:
-                inputs, labels = data[0].to(self.device), data[1].to(self.device)
-                outputs = self(inputs)
-                predictions = torch.round(outputs).reshape(-1)
-                total += labels.size(0)
-                correct += (predictions == labels).sum().item()
-
         return correct / total
 
-    def get_auc(self,X_test, y_test):
+
+    def get_auc(self,X, y):
         """
         Get the Area under the ROC curve for some test set
-        :param X_test: a tensor of features
-        :param y_test: a tensor of labels
+        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+        :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
-        # make dataloader
-        testset = data_utils.TensorDataset(X_test)  # create your dataset
-        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
         with torch.no_grad():
-            for data in testloader:
-                inputs = data[0].to(self.device)
-                outputs = self(inputs)
-                y_scores.extend(outputs.reshape(-1).tolist())
-
-        return roc_auc_score(y_test.numpy(), np.array(y_scores))
+            for i, X_i in enumerate(X):
+                outputs = self(X_i)  # output contains labels for the whole sequence
+                y_scores.append(outputs[-1].item())  # we only care about the last one
+        return roc_auc_score(y.numpy(), np.array(y_scores))
 
 
     def get_confusion_matrix(self,X_test, y_test):
@@ -257,7 +229,7 @@ class MLP(nn.Module):
         Get the confusion matrix of some test set
         :param X_test: a tensor of features
         :param y_test: a tensor of labels
-        :return: a float, the AUC score
+        :return: a confusion matrix
         """
         # make dataloader
         testset = data_utils.TensorDataset(X_test)  # create your dataset
@@ -272,3 +244,18 @@ class MLP(nn.Module):
                 y_scores.extend(outputs.reshape(-1).tolist())
 
         return confusion_matrix(y_test.numpy(), np.array(y_scores))
+
+
+def shuffle_data(X, y):
+    """
+    permute features and labels together
+    :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
+    :param y: a tensor of class labels (1 or 0)
+    :return: X, y permuted together
+    """
+
+    together = list(zip(X, y.tolist()))
+    random.shuffle(together)
+    X, y = list(zip(*together))
+
+    return X, torch.Tensor(y)

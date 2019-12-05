@@ -25,14 +25,16 @@ class LSTM(nn.Module):
     Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
-    def __init__(self, input_dim, hidden_dim, learning_rate = 0.01, momentum = 0.9, decay_factor = 0.5):
+    def __init__(self, input_dim, hidden_dim, num_layers = 1, bidirectional = False,  learning_rate = 0.01, momentum = 0.9, decay_factor = 0.5):
         """
         build an LSTM
         :param input_dim: the dimensionality of the feature vectors to be input
         :param hidden_dim: the number of neurons used in the LSTM layer
         """
         super(LSTM, self).__init__()
-        self.lstm = nn.LSTM(input_dim, hidden_dim)      # lstm layer
+        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers= num_layers, bidirectional = bidirectional)  # lstm layer
+        if bidirectional:
+            hidden_dim = hidden_dim * 2
         self.hidden2class = nn.Linear(hidden_dim, 1)    # fully connected layer
 
         # set up optimization
