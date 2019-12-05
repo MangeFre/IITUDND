@@ -43,6 +43,8 @@ class MLP(nn.Module):
         # set up cuda
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.to(self.device)
+        for i in range(len(self.layers)):
+            self.layers[i].to(self.device)
 
         # set up optimization
         self.criterion = nn.BCELoss()
