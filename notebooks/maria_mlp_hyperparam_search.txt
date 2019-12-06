@@ -1,0 +1,4814 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\qc\partightenfactor0
+
+\f0\fs24 \cf0 Maria MLP hyperparam search\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf0 \
+starting test 0 params: (347, 1, <built-in method sigmoid of type object at 0x10d036fc0>, 0.015113368673193517, 0.5552509266664061, 0.7022341763083064, 1)\
+running fold 0\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.709\
+[1,   400] loss: 0.696\
+[1,   600] loss: 0.657\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.702\
+[1,   400] loss: 0.710\
+[1,   600] loss: 0.695\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.703\
+[1,   400] loss: 0.685\
+[1,   600] loss: 0.675\
+fold result 0.7272727272727273\
+running fold 3\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.701\
+[1,   400] loss: 0.695\
+[1,   600] loss: 0.670\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.712\
+[1,   400] loss: 0.694\
+[1,   600] loss: 0.676\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.705\
+[1,   400] loss: 0.707\
+[1,   600] loss: 0.695\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.711\
+[1,   400] loss: 0.704\
+[1,   600] loss: 0.687\
+fold result 0.7241379310344828\
+running fold 7\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.717\
+[1,   400] loss: 0.702\
+[1,   600] loss: 0.660\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.691\
+[1,   400] loss: 0.706\
+[1,   600] loss: 0.681\
+fold result 0.7586206896551724\
+running fold 9\
+epoch: 0 learning rate: [0.015113368673193517]\
+[1,   200] loss: 0.706\
+[1,   400] loss: 0.703\
+[1,   600] loss: 0.685\
+fold result 0.6402439024390244\
+test outcome 0.664337869867727\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 1 params: (163, 1, <built-in method relu of type object at 0x10d036fc0>, 0.07163159128965427, 0.869430403999605, 0.5306632868027423, 5)\
+running fold 0\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 3.373\
+[1,   400] loss: 12.411\
+[1,   600] loss: 10.224\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.154\
+[2,   400] loss: 10.465\
+[2,   600] loss: 10.431\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 9.809\
+[3,   400] loss: 10.707\
+[3,   600] loss: 10.396\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.534\
+[4,   400] loss: 10.293\
+[4,   600] loss: 10.742\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.811\
+[5,   400] loss: 9.774\
+[5,   600] loss: 10.569\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 5.402\
+[1,   400] loss: 10.052\
+[1,   600] loss: 11.225\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.051\
+[2,   400] loss: 10.707\
+[2,   600] loss: 10.707\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 9.913\
+[3,   400] loss: 11.156\
+[3,   600] loss: 10.603\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 9.913\
+[4,   400] loss: 10.534\
+[4,   600] loss: 10.672\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.983\
+[5,   400] loss: 10.396\
+[5,   600] loss: 9.809\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 5.413\
+[1,   400] loss: 9.283\
+[1,   600] loss: 9.121\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 9.476\
+[2,   400] loss: 9.716\
+[2,   600] loss: 8.748\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 8.555\
+[3,   400] loss: 8.070\
+[3,   600] loss: 7.788\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 7.041\
+[4,   400] loss: 9.028\
+[4,   600] loss: 8.155\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 7.883\
+[5,   400] loss: 8.859\
+[5,   600] loss: 8.532\
+fold result 0.6959247648902821\
+running fold 3\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 4.534\
+[1,   400] loss: 9.828\
+[1,   600] loss: 10.672\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 9.947\
+[2,   400] loss: 10.500\
+[2,   600] loss: 10.327\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.396\
+[3,   400] loss: 10.569\
+[3,   600] loss: 9.878\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.534\
+[4,   400] loss: 10.500\
+[4,   600] loss: 10.293\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 9.809\
+[5,   400] loss: 10.120\
+[5,   600] loss: 10.949\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 4.982\
+[1,   400] loss: 9.064\
+[1,   600] loss: 10.431\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.742\
+[2,   400] loss: 10.776\
+[2,   600] loss: 9.844\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.811\
+[3,   400] loss: 9.636\
+[3,   600] loss: 10.120\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.293\
+[4,   400] loss: 10.534\
+[4,   600] loss: 10.742\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.569\
+[5,   400] loss: 10.016\
+[5,   600] loss: 10.120\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 4.406\
+[1,   400] loss: 10.308\
+[1,   600] loss: 9.892\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.396\
+[2,   400] loss: 10.396\
+[2,   600] loss: 10.672\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.223\
+[3,   400] loss: 10.776\
+[3,   600] loss: 10.154\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.258\
+[4,   400] loss: 10.638\
+[4,   600] loss: 9.602\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.396\
+[5,   400] loss: 10.258\
+[5,   600] loss: 10.983\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 5.529\
+[1,   400] loss: 10.016\
+[1,   600] loss: 10.154\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.258\
+[2,   400] loss: 10.707\
+[2,   600] loss: 10.569\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 9.982\
+[3,   400] loss: 10.638\
+[3,   600] loss: 10.534\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.569\
+[4,   400] loss: 10.534\
+[4,   600] loss: 10.672\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 9.982\
+[5,   400] loss: 11.018\
+[5,   600] loss: 10.154\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 6.760\
+[1,   400] loss: 9.434\
+[1,   600] loss: 9.198\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.845\
+[2,   400] loss: 9.395\
+[2,   600] loss: 10.327\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.465\
+[3,   400] loss: 9.671\
+[3,   600] loss: 10.051\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 9.947\
+[4,   400] loss: 10.672\
+[4,   600] loss: 9.947\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.569\
+[5,   400] loss: 10.189\
+[5,   600] loss: 10.327\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 5.918\
+[1,   400] loss: 10.707\
+[1,   600] loss: 9.809\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.051\
+[2,   400] loss: 9.360\
+[2,   600] loss: 11.191\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.293\
+[3,   400] loss: 10.742\
+[3,   600] loss: 9.567\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.362\
+[4,   400] loss: 10.742\
+[4,   600] loss: 10.396\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 10.258\
+[5,   400] loss: 10.569\
+[5,   600] loss: 9.809\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.07163159128965427]\
+[1,   200] loss: 5.718\
+[1,   400] loss: 10.120\
+[1,   600] loss: 11.107\
+epoch: 1 learning rate: [0.03801225567267862]\
+[2,   200] loss: 10.154\
+[2,   400] loss: 10.085\
+[2,   600] loss: 10.707\
+epoch: 2 learning rate: [0.02017170853404982]\
+[3,   200] loss: 10.603\
+[3,   400] loss: 10.672\
+[3,   600] loss: 10.120\
+epoch: 3 learning rate: [0.010704385151105807]\
+[4,   200] loss: 10.051\
+[4,   400] loss: 10.638\
+[4,   600] loss: 10.258\
+epoch: 4 learning rate: [0.005680424207488277]\
+[5,   200] loss: 9.982\
+[5,   400] loss: 10.776\
+[5,   600] loss: 10.189\
+fold result 0.6036585365853658\
+test outcome 0.6337200856334583\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 2 params: (383, 2, <built-in method tanh of type object at 0x10d036fc0>, 0.023030883342305505, 0.3105090591962486, 0.2182487174339884, 9)\
+running fold 0\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.560\
+[1,   400] loss: 0.517\
+[1,   600] loss: 0.465\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.382\
+[2,   400] loss: 0.420\
+[2,   600] loss: 0.391\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.367\
+[3,   400] loss: 0.371\
+[3,   600] loss: 0.384\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.372\
+[4,   400] loss: 0.379\
+[4,   600] loss: 0.386\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.344\
+[5,   400] loss: 0.379\
+[5,   600] loss: 0.380\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.357\
+[6,   400] loss: 0.354\
+[6,   600] loss: 0.389\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.366\
+[7,   400] loss: 0.351\
+[7,   600] loss: 0.364\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.357\
+[8,   400] loss: 0.364\
+[8,   600] loss: 0.376\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.357\
+[9,   400] loss: 0.360\
+[9,   600] loss: 0.387\
+fold result 0.7931034482758621\
+running fold 1\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.535\
+[1,   400] loss: 0.507\
+[1,   600] loss: 0.492\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.378\
+[2,   400] loss: 0.410\
+[2,   600] loss: 0.419\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.364\
+[3,   400] loss: 0.377\
+[3,   600] loss: 0.364\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.352\
+[4,   400] loss: 0.360\
+[4,   600] loss: 0.373\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.355\
+[5,   400] loss: 0.380\
+[5,   600] loss: 0.369\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.374\
+[6,   400] loss: 0.378\
+[6,   600] loss: 0.329\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.361\
+[7,   400] loss: 0.368\
+[7,   600] loss: 0.377\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.370\
+[8,   400] loss: 0.346\
+[8,   600] loss: 0.355\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.368\
+[9,   400] loss: 0.353\
+[9,   600] loss: 0.356\
+fold result 0.7899686520376176\
+running fold 2\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.546\
+[1,   400] loss: 0.482\
+[1,   600] loss: 0.499\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.413\
+[2,   400] loss: 0.377\
+[2,   600] loss: 0.374\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.360\
+[3,   400] loss: 0.369\
+[3,   600] loss: 0.373\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.348\
+[4,   400] loss: 0.378\
+[4,   600] loss: 0.360\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.354\
+[5,   400] loss: 0.353\
+[5,   600] loss: 0.384\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.340\
+[6,   400] loss: 0.353\
+[6,   600] loss: 0.358\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.351\
+[7,   400] loss: 0.365\
+[7,   600] loss: 0.351\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.402\
+[8,   400] loss: 0.340\
+[8,   600] loss: 0.375\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.353\
+[9,   400] loss: 0.361\
+[9,   600] loss: 0.358\
+fold result 0.786833855799373\
+running fold 3\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.562\
+[1,   400] loss: 0.493\
+[1,   600] loss: 0.461\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.402\
+[2,   400] loss: 0.386\
+[2,   600] loss: 0.398\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.359\
+[3,   400] loss: 0.353\
+[3,   600] loss: 0.373\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.376\
+[4,   400] loss: 0.363\
+[4,   600] loss: 0.343\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.336\
+[5,   400] loss: 0.382\
+[5,   600] loss: 0.368\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.367\
+[6,   400] loss: 0.363\
+[6,   600] loss: 0.353\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.347\
+[7,   400] loss: 0.335\
+[7,   600] loss: 0.376\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.355\
+[8,   400] loss: 0.354\
+[8,   600] loss: 0.368\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.364\
+[9,   400] loss: 0.322\
+[9,   600] loss: 0.372\
+fold result 0.7774294670846394\
+running fold 4\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.555\
+[1,   400] loss: 0.462\
+[1,   600] loss: 0.511\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.407\
+[2,   400] loss: 0.376\
+[2,   600] loss: 0.417\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.384\
+[3,   400] loss: 0.385\
+[3,   600] loss: 0.369\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.368\
+[4,   400] loss: 0.352\
+[4,   600] loss: 0.370\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.373\
+[5,   400] loss: 0.366\
+[5,   600] loss: 0.360\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.384\
+[6,   400] loss: 0.374\
+[6,   600] loss: 0.363\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.359\
+[7,   400] loss: 0.383\
+[7,   600] loss: 0.379\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.364\
+[8,   400] loss: 0.372\
+[8,   600] loss: 0.385\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.366\
+[9,   400] loss: 0.370\
+[9,   600] loss: 0.361\
+fold result 0.8181818181818182\
+running fold 5\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.570\
+[1,   400] loss: 0.502\
+[1,   600] loss: 0.454\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.375\
+[2,   400] loss: 0.411\
+[2,   600] loss: 0.392\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.361\
+[3,   400] loss: 0.370\
+[3,   600] loss: 0.384\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.336\
+[4,   400] loss: 0.374\
+[4,   600] loss: 0.358\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.361\
+[5,   400] loss: 0.360\
+[5,   600] loss: 0.344\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.364\
+[6,   400] loss: 0.357\
+[6,   600] loss: 0.350\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.349\
+[7,   400] loss: 0.376\
+[7,   600] loss: 0.357\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.341\
+[8,   400] loss: 0.358\
+[8,   600] loss: 0.366\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.381\
+[9,   400] loss: 0.368\
+[9,   600] loss: 0.349\
+fold result 0.7931034482758621\
+running fold 6\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.544\
+[1,   400] loss: 0.494\
+[1,   600] loss: 0.482\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.386\
+[2,   400] loss: 0.427\
+[2,   600] loss: 0.383\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.379\
+[3,   400] loss: 0.354\
+[3,   600] loss: 0.367\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.360\
+[4,   400] loss: 0.389\
+[4,   600] loss: 0.346\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.367\
+[5,   400] loss: 0.361\
+[5,   600] loss: 0.350\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.381\
+[6,   400] loss: 0.337\
+[6,   600] loss: 0.354\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.352\
+[7,   400] loss: 0.369\
+[7,   600] loss: 0.366\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.352\
+[8,   400] loss: 0.371\
+[8,   600] loss: 0.358\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.338\
+[9,   400] loss: 0.363\
+[9,   600] loss: 0.401\
+fold result 0.768025078369906\
+running fold 7\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.534\
+[1,   400] loss: 0.483\
+[1,   600] loss: 0.496\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.384\
+[2,   400] loss: 0.401\
+[2,   600] loss: 0.381\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.364\
+[3,   400] loss: 0.376\
+[3,   600] loss: 0.357\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.349\
+[4,   400] loss: 0.356\
+[4,   600] loss: 0.350\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.350\
+[5,   400] loss: 0.358\
+[5,   600] loss: 0.350\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.367\
+[6,   400] loss: 0.361\
+[6,   600] loss: 0.334\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.354\
+[7,   400] loss: 0.355\
+[7,   600] loss: 0.352\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.353\
+[8,   400] loss: 0.357\
+[8,   600] loss: 0.348\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.340\
+[9,   400] loss: 0.372\
+[9,   600] loss: 0.364\
+fold result 0.7711598746081505\
+running fold 8\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.574\
+[1,   400] loss: 0.478\
+[1,   600] loss: 0.483\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.429\
+[2,   400] loss: 0.409\
+[2,   600] loss: 0.368\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.358\
+[3,   400] loss: 0.368\
+[3,   600] loss: 0.390\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.354\
+[4,   400] loss: 0.352\
+[4,   600] loss: 0.385\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.385\
+[5,   400] loss: 0.364\
+[5,   600] loss: 0.345\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.394\
+[6,   400] loss: 0.345\
+[6,   600] loss: 0.361\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.333\
+[7,   400] loss: 0.399\
+[7,   600] loss: 0.350\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.362\
+[8,   400] loss: 0.363\
+[8,   600] loss: 0.366\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.358\
+[9,   400] loss: 0.385\
+[9,   600] loss: 0.337\
+fold result 0.774294670846395\
+running fold 9\
+epoch: 0 learning rate: [0.023030883342305505]\
+[1,   200] loss: 0.577\
+[1,   400] loss: 0.475\
+[1,   600] loss: 0.483\
+epoch: 1 learning rate: [0.005026460750829985]\
+[2,   200] loss: 0.394\
+[2,   400] loss: 0.376\
+[2,   600] loss: 0.389\
+epoch: 2 learning rate: [0.0010970186121009265]\
+[3,   200] loss: 0.353\
+[3,   400] loss: 0.346\
+[3,   600] loss: 0.374\
+epoch: 3 learning rate: [0.00023942290509224127]\
+[4,   200] loss: 0.339\
+[4,   400] loss: 0.340\
+[4,   600] loss: 0.374\
+epoch: 4 learning rate: [5.225374196070119e-05]\
+[5,   200] loss: 0.352\
+[5,   400] loss: 0.383\
+[5,   600] loss: 0.334\
+epoch: 5 learning rate: [1.1404312164049617e-05]\
+[6,   200] loss: 0.363\
+[6,   400] loss: 0.338\
+[6,   600] loss: 0.371\
+epoch: 6 learning rate: [2.4889765030206615e-06]\
+[7,   200] loss: 0.363\
+[7,   400] loss: 0.359\
+[7,   600] loss: 0.349\
+epoch: 7 learning rate: [5.43215929507593e-07]\
+[8,   200] loss: 0.360\
+[8,   400] loss: 0.370\
+[8,   600] loss: 0.321\
+epoch: 8 learning rate: [1.1855617990474402e-07]\
+[9,   200] loss: 0.333\
+[9,   400] loss: 0.364\
+[9,   600] loss: 0.357\
+fold result 0.7408536585365854\
+test outcome 0.7812953972016209\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 3 params: (1027, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.018707576911873205, 0.6002929656092036, 0.7828351533419694, 10)\
+running fold 0\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.927\
+[1,   400] loss: 0.933\
+[1,   600] loss: 1.031\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.899\
+[2,   400] loss: 0.843\
+[2,   600] loss: 0.865\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.822\
+[3,   400] loss: 0.799\
+[3,   600] loss: 0.800\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.779\
+[4,   400] loss: 0.785\
+[4,   600] loss: 0.767\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.750\
+[5,   400] loss: 0.740\
+[5,   600] loss: 0.716\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.736\
+[6,   400] loss: 0.711\
+[6,   600] loss: 0.724\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.701\
+[7,   400] loss: 0.704\
+[7,   600] loss: 0.722\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.697\
+[8,   400] loss: 0.702\
+[8,   600] loss: 0.694\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.698\
+[9,   400] loss: 0.698\
+[9,   600] loss: 0.693\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.693\
+[10,   400] loss: 0.676\
+[10,   600] loss: 0.690\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.969\
+[1,   400] loss: 0.962\
+[1,   600] loss: 0.964\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.893\
+[2,   400] loss: 0.856\
+[2,   600] loss: 0.875\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.788\
+[3,   400] loss: 0.849\
+[3,   600] loss: 0.817\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.753\
+[4,   400] loss: 0.764\
+[4,   600] loss: 0.746\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.726\
+[5,   400] loss: 0.754\
+[5,   600] loss: 0.742\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.702\
+[6,   400] loss: 0.713\
+[6,   600] loss: 0.757\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.695\
+[7,   400] loss: 0.739\
+[7,   600] loss: 0.720\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.696\
+[8,   400] loss: 0.699\
+[8,   600] loss: 0.712\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.698\
+[9,   400] loss: 0.692\
+[9,   600] loss: 0.703\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.688\
+[10,   400] loss: 0.672\
+[10,   600] loss: 0.682\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.998\
+[1,   400] loss: 0.925\
+[1,   600] loss: 0.920\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.861\
+[2,   400] loss: 0.839\
+[2,   600] loss: 0.889\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.808\
+[3,   400] loss: 0.806\
+[3,   600] loss: 0.810\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.739\
+[4,   400] loss: 0.752\
+[4,   600] loss: 0.763\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.751\
+[5,   400] loss: 0.727\
+[5,   600] loss: 0.727\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.740\
+[6,   400] loss: 0.717\
+[6,   600] loss: 0.713\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.729\
+[7,   400] loss: 0.708\
+[7,   600] loss: 0.702\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.703\
+[8,   400] loss: 0.712\
+[8,   600] loss: 0.700\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.698\
+[9,   400] loss: 0.678\
+[9,   600] loss: 0.674\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.686\
+[10,   400] loss: 0.696\
+[10,   600] loss: 0.677\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.913\
+[1,   400] loss: 0.957\
+[1,   600] loss: 0.954\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.893\
+[2,   400] loss: 0.869\
+[2,   600] loss: 0.880\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.857\
+[3,   400] loss: 0.780\
+[3,   600] loss: 0.820\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.762\
+[4,   400] loss: 0.784\
+[4,   600] loss: 0.731\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.734\
+[5,   400] loss: 0.735\
+[5,   600] loss: 0.715\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.722\
+[6,   400] loss: 0.717\
+[6,   600] loss: 0.728\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.711\
+[7,   400] loss: 0.701\
+[7,   600] loss: 0.719\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.710\
+[8,   400] loss: 0.695\
+[8,   600] loss: 0.704\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.699\
+[9,   400] loss: 0.686\
+[9,   600] loss: 0.677\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.683\
+[10,   400] loss: 0.690\
+[10,   600] loss: 0.669\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 1.005\
+[1,   400] loss: 0.975\
+[1,   600] loss: 0.943\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.887\
+[2,   400] loss: 0.854\
+[2,   600] loss: 0.886\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.842\
+[3,   400] loss: 0.832\
+[3,   600] loss: 0.857\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.778\
+[4,   400] loss: 0.765\
+[4,   600] loss: 0.762\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.761\
+[5,   400] loss: 0.741\
+[5,   600] loss: 0.732\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.740\
+[6,   400] loss: 0.704\
+[6,   600] loss: 0.722\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.699\
+[7,   400] loss: 0.706\
+[7,   600] loss: 0.694\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.709\
+[8,   400] loss: 0.706\
+[8,   600] loss: 0.699\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.688\
+[9,   400] loss: 0.685\
+[9,   600] loss: 0.688\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.684\
+[10,   400] loss: 0.675\
+[10,   600] loss: 0.667\
+fold result 0.3605015673981191\
+running fold 5\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.956\
+[1,   400] loss: 0.881\
+[1,   600] loss: 1.012\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.905\
+[2,   400] loss: 0.827\
+[2,   600] loss: 0.915\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.795\
+[3,   400] loss: 0.813\
+[3,   600] loss: 0.798\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.771\
+[4,   400] loss: 0.804\
+[4,   600] loss: 0.783\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.746\
+[5,   400] loss: 0.746\
+[5,   600] loss: 0.723\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.729\
+[6,   400] loss: 0.745\
+[6,   600] loss: 0.705\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.702\
+[7,   400] loss: 0.713\
+[7,   600] loss: 0.719\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.689\
+[8,   400] loss: 0.714\
+[8,   600] loss: 0.693\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.708\
+[9,   400] loss: 0.698\
+[9,   600] loss: 0.663\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.679\
+[10,   400] loss: 0.694\
+[10,   600] loss: 0.681\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.927\
+[1,   400] loss: 0.990\
+[1,   600] loss: 0.943\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.853\
+[2,   400] loss: 0.818\
+[2,   600] loss: 0.866\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.806\
+[3,   400] loss: 0.840\
+[3,   600] loss: 0.783\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.770\
+[4,   400] loss: 0.752\
+[4,   600] loss: 0.779\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.766\
+[5,   400] loss: 0.733\
+[5,   600] loss: 0.719\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.718\
+[6,   400] loss: 0.702\
+[6,   600] loss: 0.718\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.702\
+[7,   400] loss: 0.685\
+[7,   600] loss: 0.718\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.696\
+[8,   400] loss: 0.708\
+[8,   600] loss: 0.709\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.690\
+[9,   400] loss: 0.688\
+[9,   600] loss: 0.690\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.697\
+[10,   400] loss: 0.680\
+[10,   600] loss: 0.676\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.874\
+[1,   400] loss: 0.980\
+[1,   600] loss: 1.039\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.832\
+[2,   400] loss: 0.850\
+[2,   600] loss: 0.856\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.845\
+[3,   400] loss: 0.756\
+[3,   600] loss: 0.828\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.750\
+[4,   400] loss: 0.814\
+[4,   600] loss: 0.784\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.736\
+[5,   400] loss: 0.762\
+[5,   600] loss: 0.751\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.720\
+[6,   400] loss: 0.745\
+[6,   600] loss: 0.688\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.722\
+[7,   400] loss: 0.696\
+[7,   600] loss: 0.694\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.697\
+[8,   400] loss: 0.704\
+[8,   600] loss: 0.692\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.697\
+[9,   400] loss: 0.685\
+[9,   600] loss: 0.696\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.686\
+[10,   400] loss: 0.661\
+[10,   600] loss: 0.686\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 0.918\
+[1,   400] loss: 0.988\
+[1,   600] loss: 0.928\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.892\
+[2,   400] loss: 0.823\
+[2,   600] loss: 0.828\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.825\
+[3,   400] loss: 0.846\
+[3,   600] loss: 0.820\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.810\
+[4,   400] loss: 0.794\
+[4,   600] loss: 0.753\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.758\
+[5,   400] loss: 0.766\
+[5,   600] loss: 0.753\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.728\
+[6,   400] loss: 0.719\
+[6,   600] loss: 0.721\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.707\
+[7,   400] loss: 0.711\
+[7,   600] loss: 0.685\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.690\
+[8,   400] loss: 0.712\
+[8,   600] loss: 0.687\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.713\
+[9,   400] loss: 0.690\
+[9,   600] loss: 0.662\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.656\
+[10,   400] loss: 0.698\
+[10,   600] loss: 0.676\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.018707576911873205]\
+[1,   200] loss: 1.039\
+[1,   400] loss: 0.964\
+[1,   600] loss: 0.980\
+epoch: 1 learning rate: [0.014644948840462947]\
+[2,   200] loss: 0.859\
+[2,   400] loss: 0.863\
+[2,   600] loss: 0.895\
+epoch: 2 learning rate: [0.011464580771209107]\
+[3,   200] loss: 0.823\
+[3,   400] loss: 0.858\
+[3,   600] loss: 0.814\
+epoch: 3 learning rate: [0.008974876846030877]\
+[4,   200] loss: 0.768\
+[4,   400] loss: 0.767\
+[4,   600] loss: 0.799\
+epoch: 4 learning rate: [0.007025849091987872]\
+[5,   200] loss: 0.747\
+[5,   400] loss: 0.731\
+[5,   600] loss: 0.729\
+epoch: 5 learning rate: [0.0055000816512838615]\
+[6,   200] loss: 0.714\
+[6,   400] loss: 0.676\
+[6,   600] loss: 0.724\
+epoch: 6 learning rate: [0.004305657262876155]\
+[7,   200] loss: 0.702\
+[7,   400] loss: 0.721\
+[7,   600] loss: 0.714\
+epoch: 7 learning rate: [0.0033706198636216187]\
+[8,   200] loss: 0.706\
+[8,   400] loss: 0.684\
+[8,   600] loss: 0.690\
+epoch: 8 learning rate: [0.0026386397177957177]\
+[9,   200] loss: 0.679\
+[9,   400] loss: 0.689\
+[9,   600] loss: 0.700\
+epoch: 9 learning rate: [0.002065619928094822]\
+[10,   200] loss: 0.669\
+[10,   400] loss: 0.673\
+[10,   600] loss: 0.687\
+fold result 0.6036585365853658\
+test outcome 0.5970429696459975\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 4 params: (1133, 2, <built-in method sigmoid of type object at 0x10d036fc0>, 0.008491602309470409, 0.6294447629425273, 0.9577496784126117, 6)\
+running fold 0\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.735\
+[1,   400] loss: 0.799\
+[1,   600] loss: 0.799\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.757\
+[2,   400] loss: 0.772\
+[2,   600] loss: 0.815\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.772\
+[3,   400] loss: 0.787\
+[3,   600] loss: 0.788\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.787\
+[4,   400] loss: 0.752\
+[4,   600] loss: 0.796\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.763\
+[5,   400] loss: 0.768\
+[5,   600] loss: 0.721\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.773\
+[6,   400] loss: 0.748\
+[6,   600] loss: 0.791\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.778\
+[1,   400] loss: 0.805\
+[1,   600] loss: 0.764\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.785\
+[2,   400] loss: 0.770\
+[2,   600] loss: 0.764\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.758\
+[3,   400] loss: 0.757\
+[3,   600] loss: 0.765\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.777\
+[4,   400] loss: 0.777\
+[4,   600] loss: 0.778\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.777\
+[5,   400] loss: 0.744\
+[5,   600] loss: 0.749\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.759\
+[6,   400] loss: 0.772\
+[6,   600] loss: 0.749\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.804\
+[1,   400] loss: 0.779\
+[1,   600] loss: 0.811\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.807\
+[2,   400] loss: 0.765\
+[2,   600] loss: 0.802\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.758\
+[3,   400] loss: 0.811\
+[3,   600] loss: 0.799\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.746\
+[4,   400] loss: 0.777\
+[4,   600] loss: 0.791\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.758\
+[5,   400] loss: 0.781\
+[5,   600] loss: 0.750\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.738\
+[6,   400] loss: 0.738\
+[6,   600] loss: 0.766\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.793\
+[1,   400] loss: 0.776\
+[1,   600] loss: 0.783\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.782\
+[2,   400] loss: 0.784\
+[2,   600] loss: 0.780\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.764\
+[3,   400] loss: 0.790\
+[3,   600] loss: 0.768\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.797\
+[4,   400] loss: 0.745\
+[4,   600] loss: 0.755\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.768\
+[5,   400] loss: 0.778\
+[5,   600] loss: 0.743\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.749\
+[6,   400] loss: 0.760\
+[6,   600] loss: 0.737\
+fold result 0.38557993730407525\
+running fold 4\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.794\
+[1,   400] loss: 0.811\
+[1,   600] loss: 0.789\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.810\
+[2,   400] loss: 0.776\
+[2,   600] loss: 0.794\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.802\
+[3,   400] loss: 0.780\
+[3,   600] loss: 0.813\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.772\
+[4,   400] loss: 0.778\
+[4,   600] loss: 0.768\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.771\
+[5,   400] loss: 0.762\
+[5,   600] loss: 0.754\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.791\
+[6,   400] loss: 0.752\
+[6,   600] loss: 0.743\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.813\
+[1,   400] loss: 0.773\
+[1,   600] loss: 0.847\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.760\
+[2,   400] loss: 0.805\
+[2,   600] loss: 0.812\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.759\
+[3,   400] loss: 0.792\
+[3,   600] loss: 0.805\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.770\
+[4,   400] loss: 0.750\
+[4,   600] loss: 0.744\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.767\
+[5,   400] loss: 0.760\
+[5,   600] loss: 0.774\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.794\
+[6,   400] loss: 0.720\
+[6,   600] loss: 0.766\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.791\
+[1,   400] loss: 0.780\
+[1,   600] loss: 0.820\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.812\
+[2,   400] loss: 0.768\
+[2,   600] loss: 0.759\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.801\
+[3,   400] loss: 0.776\
+[3,   600] loss: 0.799\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.747\
+[4,   400] loss: 0.782\
+[4,   600] loss: 0.755\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.765\
+[5,   400] loss: 0.764\
+[5,   600] loss: 0.776\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.797\
+[6,   400] loss: 0.808\
+[6,   600] loss: 0.728\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.774\
+[1,   400] loss: 0.772\
+[1,   600] loss: 0.791\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.788\
+[2,   400] loss: 0.759\
+[2,   600] loss: 0.742\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.768\
+[3,   400] loss: 0.788\
+[3,   600] loss: 0.764\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.783\
+[4,   400] loss: 0.766\
+[4,   600] loss: 0.782\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.764\
+[5,   400] loss: 0.762\
+[5,   600] loss: 0.757\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.753\
+[6,   400] loss: 0.726\
+[6,   600] loss: 0.741\
+fold result 0.3793103448275862\
+running fold 8\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.786\
+[1,   400] loss: 0.805\
+[1,   600] loss: 0.776\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.780\
+[2,   400] loss: 0.770\
+[2,   600] loss: 0.763\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.767\
+[3,   400] loss: 0.768\
+[3,   600] loss: 0.782\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.740\
+[4,   400] loss: 0.757\
+[4,   600] loss: 0.760\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.744\
+[5,   400] loss: 0.770\
+[5,   600] loss: 0.782\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.737\
+[6,   400] loss: 0.749\
+[6,   600] loss: 0.755\
+fold result 0.7241379310344828\
+running fold 9\
+epoch: 0 learning rate: [0.008491602309470409]\
+[1,   200] loss: 0.775\
+[1,   400] loss: 0.750\
+[1,   600] loss: 0.807\
+epoch: 1 learning rate: [0.008132829381103074]\
+[2,   200] loss: 0.772\
+[2,   400] loss: 0.826\
+[2,   600] loss: 0.771\
+epoch: 2 learning rate: [0.00778921472433611]\
+[3,   200] loss: 0.809\
+[3,   400] loss: 0.777\
+[3,   600] loss: 0.776\
+epoch: 3 learning rate: [0.0074601178973196895]\
+[4,   200] loss: 0.753\
+[4,   400] loss: 0.744\
+[4,   600] loss: 0.757\
+epoch: 4 learning rate: [0.007144925517078102]\
+[5,   200] loss: 0.786\
+[5,   400] loss: 0.734\
+[5,   600] loss: 0.764\
+epoch: 5 learning rate: [0.006843050116263615]\
+[6,   200] loss: 0.745\
+[6,   400] loss: 0.757\
+[6,   600] loss: 0.722\
+fold result 0.6036585365853658\
+test outcome 0.5895194586742106\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 5 params: (797, 1, <built-in method tanh of type object at 0x10d036fc0>, 0.032319772657042264, 0.05472170690138245, 0.855677734579582, 1)\
+running fold 0\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.538\
+[1,   400] loss: 0.520\
+[1,   600] loss: 0.502\
+fold result 0.7836990595611285\
+running fold 1\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.544\
+[1,   400] loss: 0.463\
+[1,   600] loss: 0.519\
+fold result 0.7774294670846394\
+running fold 2\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.539\
+[1,   400] loss: 0.504\
+[1,   600] loss: 0.484\
+fold result 0.7836990595611285\
+running fold 3\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.540\
+[1,   400] loss: 0.487\
+[1,   600] loss: 0.479\
+fold result 0.774294670846395\
+running fold 4\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.550\
+[1,   400] loss: 0.489\
+[1,   600] loss: 0.493\
+fold result 0.8025078369905956\
+running fold 5\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.535\
+[1,   400] loss: 0.501\
+[1,   600] loss: 0.476\
+fold result 0.7586206896551724\
+running fold 6\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.518\
+[1,   400] loss: 0.521\
+[1,   600] loss: 0.472\
+fold result 0.780564263322884\
+running fold 7\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.539\
+[1,   400] loss: 0.497\
+[1,   600] loss: 0.496\
+fold result 0.768025078369906\
+running fold 8\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.512\
+[1,   400] loss: 0.530\
+[1,   600] loss: 0.484\
+fold result 0.774294670846395\
+running fold 9\
+epoch: 0 learning rate: [0.032319772657042264]\
+[1,   200] loss: 0.541\
+[1,   400] loss: 0.491\
+[1,   600] loss: 0.466\
+fold result 0.7530487804878049\
+test outcome 0.7756183576726049\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 6 params: (340, 3, <built-in method tanh of type object at 0x10d036fc0>, 0.09549619539775765, 0.077744108242782, 0.2847421079620044, 7)\
+running fold 0\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.540\
+[1,   400] loss: 0.481\
+[1,   600] loss: 0.504\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.406\
+[2,   400] loss: 0.384\
+[2,   600] loss: 0.393\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.348\
+[3,   400] loss: 0.325\
+[3,   600] loss: 0.354\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.314\
+[4,   400] loss: 0.348\
+[4,   600] loss: 0.346\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.319\
+[5,   400] loss: 0.328\
+[5,   600] loss: 0.328\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.308\
+[6,   400] loss: 0.330\
+[6,   600] loss: 0.350\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.307\
+[7,   400] loss: 0.323\
+[7,   600] loss: 0.368\
+fold result 0.7962382445141066\
+running fold 1\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.552\
+[1,   400] loss: 0.472\
+[1,   600] loss: 0.507\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.364\
+[2,   400] loss: 0.400\
+[2,   600] loss: 0.389\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.346\
+[3,   400] loss: 0.346\
+[3,   600] loss: 0.336\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.318\
+[4,   400] loss: 0.336\
+[4,   600] loss: 0.320\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.327\
+[5,   400] loss: 0.346\
+[5,   600] loss: 0.317\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.298\
+[6,   400] loss: 0.343\
+[6,   600] loss: 0.322\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.324\
+[7,   400] loss: 0.323\
+[7,   600] loss: 0.319\
+fold result 0.774294670846395\
+running fold 2\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.533\
+[1,   400] loss: 0.474\
+[1,   600] loss: 0.497\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.384\
+[2,   400] loss: 0.408\
+[2,   600] loss: 0.348\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.379\
+[3,   400] loss: 0.338\
+[3,   600] loss: 0.323\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.316\
+[4,   400] loss: 0.351\
+[4,   600] loss: 0.309\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.344\
+[5,   400] loss: 0.308\
+[5,   600] loss: 0.324\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.322\
+[6,   400] loss: 0.342\
+[6,   600] loss: 0.312\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.328\
+[7,   400] loss: 0.326\
+[7,   600] loss: 0.316\
+fold result 0.786833855799373\
+running fold 3\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.521\
+[1,   400] loss: 0.512\
+[1,   600] loss: 0.462\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.387\
+[2,   400] loss: 0.362\
+[2,   600] loss: 0.404\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.343\
+[3,   400] loss: 0.329\
+[3,   600] loss: 0.335\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.323\
+[4,   400] loss: 0.324\
+[4,   600] loss: 0.333\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.331\
+[5,   400] loss: 0.316\
+[5,   600] loss: 0.322\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.315\
+[6,   400] loss: 0.308\
+[6,   600] loss: 0.317\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.344\
+[7,   400] loss: 0.327\
+[7,   600] loss: 0.305\
+fold result 0.7648902821316614\
+running fold 4\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.544\
+[1,   400] loss: 0.482\
+[1,   600] loss: 0.498\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.420\
+[2,   400] loss: 0.378\
+[2,   600] loss: 0.392\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.352\
+[3,   400] loss: 0.346\
+[3,   600] loss: 0.328\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.323\
+[4,   400] loss: 0.323\
+[4,   600] loss: 0.330\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.329\
+[5,   400] loss: 0.335\
+[5,   600] loss: 0.326\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.317\
+[6,   400] loss: 0.337\
+[6,   600] loss: 0.332\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.317\
+[7,   400] loss: 0.302\
+[7,   600] loss: 0.352\
+fold result 0.8150470219435737\
+running fold 5\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.532\
+[1,   400] loss: 0.491\
+[1,   600] loss: 0.481\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.381\
+[2,   400] loss: 0.370\
+[2,   600] loss: 0.382\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.336\
+[3,   400] loss: 0.326\
+[3,   600] loss: 0.342\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.313\
+[4,   400] loss: 0.330\
+[4,   600] loss: 0.331\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.320\
+[5,   400] loss: 0.325\
+[5,   600] loss: 0.320\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.311\
+[6,   400] loss: 0.321\
+[6,   600] loss: 0.320\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.316\
+[7,   400] loss: 0.305\
+[7,   600] loss: 0.315\
+fold result 0.7617554858934169\
+running fold 6\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.546\
+[1,   400] loss: 0.469\
+[1,   600] loss: 0.482\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.417\
+[2,   400] loss: 0.377\
+[2,   600] loss: 0.373\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.345\
+[3,   400] loss: 0.366\
+[3,   600] loss: 0.336\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.322\
+[4,   400] loss: 0.335\
+[4,   600] loss: 0.329\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.309\
+[5,   400] loss: 0.339\
+[5,   600] loss: 0.334\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.341\
+[6,   400] loss: 0.327\
+[6,   600] loss: 0.308\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.320\
+[7,   400] loss: 0.332\
+[7,   600] loss: 0.333\
+fold result 0.7586206896551724\
+running fold 7\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.523\
+[1,   400] loss: 0.497\
+[1,   600] loss: 0.493\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.384\
+[2,   400] loss: 0.368\
+[2,   600] loss: 0.382\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.324\
+[3,   400] loss: 0.332\
+[3,   600] loss: 0.337\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.342\
+[4,   400] loss: 0.301\
+[4,   600] loss: 0.327\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.268\
+[5,   400] loss: 0.352\
+[5,   600] loss: 0.320\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.313\
+[6,   400] loss: 0.331\
+[6,   600] loss: 0.297\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.306\
+[7,   400] loss: 0.329\
+[7,   600] loss: 0.321\
+fold result 0.7586206896551724\
+running fold 8\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.539\
+[1,   400] loss: 0.504\
+[1,   600] loss: 0.447\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.384\
+[2,   400] loss: 0.362\
+[2,   600] loss: 0.394\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.338\
+[3,   400] loss: 0.341\
+[3,   600] loss: 0.338\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.344\
+[4,   400] loss: 0.325\
+[4,   600] loss: 0.308\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.295\
+[5,   400] loss: 0.321\
+[5,   600] loss: 0.324\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.328\
+[6,   400] loss: 0.322\
+[6,   600] loss: 0.310\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.334\
+[7,   400] loss: 0.302\
+[7,   600] loss: 0.315\
+fold result 0.768025078369906\
+running fold 9\
+epoch: 0 learning rate: [0.09549619539775765]\
+[1,   200] loss: 0.516\
+[1,   400] loss: 0.490\
+[1,   600] loss: 0.464\
+epoch: 1 learning rate: [0.027191787979908975]\
+[2,   200] loss: 0.368\
+[2,   400] loss: 0.376\
+[2,   600] loss: 0.374\
+epoch: 2 learning rate: [0.007742647028655175]\
+[3,   200] loss: 0.319\
+[3,   400] loss: 0.325\
+[3,   600] loss: 0.376\
+epoch: 3 learning rate: [0.0022046576361450243]\
+[4,   200] loss: 0.313\
+[4,   400] loss: 0.325\
+[4,   600] loss: 0.340\
+epoch: 4 learning rate: [0.0006277588626504638]\
+[5,   200] loss: 0.340\
+[5,   400] loss: 0.324\
+[5,   600] loss: 0.309\
+epoch: 5 learning rate: [0.00017874938184292346]\
+[6,   200] loss: 0.321\
+[6,   400] loss: 0.326\
+[6,   600] loss: 0.331\
+epoch: 6 learning rate: [5.0897475782859255e-05]\
+[7,   200] loss: 0.317\
+[7,   400] loss: 0.327\
+[7,   600] loss: 0.324\
+fold result 0.7378048780487805\
+test outcome 0.7722130896857559\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 7 params: (943, 2, <built-in method tanh of type object at 0x10d036fc0>, 0.09808503953574811, 0.3145252629242563, 0.6045824551688216, 10)\
+running fold 0\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.577\
+[1,   400] loss: 0.534\
+[1,   600] loss: 0.544\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.396\
+[2,   400] loss: 0.404\
+[2,   600] loss: 0.462\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.338\
+[3,   400] loss: 0.348\
+[3,   600] loss: 0.372\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.294\
+[4,   400] loss: 0.305\
+[4,   600] loss: 0.314\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.266\
+[5,   400] loss: 0.218\
+[5,   600] loss: 0.252\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.190\
+[6,   400] loss: 0.206\
+[6,   600] loss: 0.197\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.172\
+[7,   400] loss: 0.188\
+[7,   600] loss: 0.182\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.146\
+[8,   400] loss: 0.154\
+[8,   600] loss: 0.176\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.143\
+[9,   400] loss: 0.150\
+[9,   600] loss: 0.163\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.143\
+[10,   400] loss: 0.152\
+[10,   600] loss: 0.147\
+fold result 0.768025078369906\
+running fold 1\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.547\
+[1,   400] loss: 0.505\
+[1,   600] loss: 0.537\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.418\
+[2,   400] loss: 0.406\
+[2,   600] loss: 0.430\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.341\
+[3,   400] loss: 0.360\
+[3,   600] loss: 0.355\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.271\
+[4,   400] loss: 0.282\
+[4,   600] loss: 0.305\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.234\
+[5,   400] loss: 0.247\
+[5,   600] loss: 0.239\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.200\
+[6,   400] loss: 0.227\
+[6,   600] loss: 0.180\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.160\
+[7,   400] loss: 0.167\
+[7,   600] loss: 0.206\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.150\
+[8,   400] loss: 0.149\
+[8,   600] loss: 0.165\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.139\
+[9,   400] loss: 0.152\
+[9,   600] loss: 0.147\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.140\
+[10,   400] loss: 0.145\
+[10,   600] loss: 0.147\
+fold result 0.7492163009404389\
+running fold 2\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.540\
+[1,   400] loss: 0.557\
+[1,   600] loss: 0.518\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.398\
+[2,   400] loss: 0.431\
+[2,   600] loss: 0.407\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.370\
+[3,   400] loss: 0.332\
+[3,   600] loss: 0.355\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.310\
+[4,   400] loss: 0.280\
+[4,   600] loss: 0.295\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.240\
+[5,   400] loss: 0.241\
+[5,   600] loss: 0.253\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.203\
+[6,   400] loss: 0.219\
+[6,   600] loss: 0.188\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.177\
+[7,   400] loss: 0.154\
+[7,   600] loss: 0.196\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.163\
+[8,   400] loss: 0.153\
+[8,   600] loss: 0.163\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.156\
+[9,   400] loss: 0.143\
+[9,   600] loss: 0.148\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.146\
+[10,   400] loss: 0.139\
+[10,   600] loss: 0.141\
+fold result 0.7492163009404389\
+running fold 3\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.529\
+[1,   400] loss: 0.571\
+[1,   600] loss: 0.507\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.405\
+[2,   400] loss: 0.415\
+[2,   600] loss: 0.401\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.319\
+[3,   400] loss: 0.319\
+[3,   600] loss: 0.371\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.305\
+[4,   400] loss: 0.256\
+[4,   600] loss: 0.282\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.222\
+[5,   400] loss: 0.221\
+[5,   600] loss: 0.250\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.198\
+[6,   400] loss: 0.171\
+[6,   600] loss: 0.189\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.180\
+[7,   400] loss: 0.165\
+[7,   600] loss: 0.168\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.162\
+[8,   400] loss: 0.132\
+[8,   600] loss: 0.160\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.138\
+[9,   400] loss: 0.141\
+[9,   600] loss: 0.132\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.132\
+[10,   400] loss: 0.126\
+[10,   600] loss: 0.134\
+fold result 0.7335423197492164\
+running fold 4\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.567\
+[1,   400] loss: 0.503\
+[1,   600] loss: 0.528\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.425\
+[2,   400] loss: 0.429\
+[2,   600] loss: 0.407\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.376\
+[3,   400] loss: 0.365\
+[3,   600] loss: 0.336\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.289\
+[4,   400] loss: 0.281\
+[4,   600] loss: 0.330\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.255\
+[5,   400] loss: 0.252\
+[5,   600] loss: 0.251\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.229\
+[6,   400] loss: 0.209\
+[6,   600] loss: 0.229\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.197\
+[7,   400] loss: 0.163\
+[7,   600] loss: 0.223\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.180\
+[8,   400] loss: 0.165\
+[8,   600] loss: 0.189\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.179\
+[9,   400] loss: 0.157\
+[9,   600] loss: 0.160\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.162\
+[10,   400] loss: 0.169\
+[10,   600] loss: 0.155\
+fold result 0.7836990595611285\
+running fold 5\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.581\
+[1,   400] loss: 0.498\
+[1,   600] loss: 0.499\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.405\
+[2,   400] loss: 0.395\
+[2,   600] loss: 0.447\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.325\
+[3,   400] loss: 0.352\
+[3,   600] loss: 0.363\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.262\
+[4,   400] loss: 0.253\
+[4,   600] loss: 0.336\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.245\
+[5,   400] loss: 0.229\
+[5,   600] loss: 0.222\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.204\
+[6,   400] loss: 0.188\
+[6,   600] loss: 0.186\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.155\
+[7,   400] loss: 0.179\
+[7,   600] loss: 0.170\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.135\
+[8,   400] loss: 0.171\
+[8,   600] loss: 0.143\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.144\
+[9,   400] loss: 0.134\
+[9,   600] loss: 0.154\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.137\
+[10,   400] loss: 0.145\
+[10,   600] loss: 0.129\
+fold result 0.7304075235109718\
+running fold 6\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.550\
+[1,   400] loss: 0.564\
+[1,   600] loss: 0.483\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.373\
+[2,   400] loss: 0.427\
+[2,   600] loss: 0.463\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.357\
+[3,   400] loss: 0.319\
+[3,   600] loss: 0.390\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.328\
+[4,   400] loss: 0.268\
+[4,   600] loss: 0.300\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.269\
+[5,   400] loss: 0.253\
+[5,   600] loss: 0.237\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.217\
+[6,   400] loss: 0.217\
+[6,   600] loss: 0.214\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.192\
+[7,   400] loss: 0.193\
+[7,   600] loss: 0.172\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.159\
+[8,   400] loss: 0.184\
+[8,   600] loss: 0.177\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.155\
+[9,   400] loss: 0.155\
+[9,   600] loss: 0.178\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.167\
+[10,   400] loss: 0.153\
+[10,   600] loss: 0.159\
+fold result 0.7554858934169278\
+running fold 7\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.563\
+[1,   400] loss: 0.549\
+[1,   600] loss: 0.504\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.416\
+[2,   400] loss: 0.428\
+[2,   600] loss: 0.420\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.356\
+[3,   400] loss: 0.343\
+[3,   600] loss: 0.313\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.284\
+[4,   400] loss: 0.288\
+[4,   600] loss: 0.281\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.223\
+[5,   400] loss: 0.228\
+[5,   600] loss: 0.251\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.192\
+[6,   400] loss: 0.207\
+[6,   600] loss: 0.190\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.173\
+[7,   400] loss: 0.164\
+[7,   600] loss: 0.158\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.152\
+[8,   400] loss: 0.144\
+[8,   600] loss: 0.162\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.138\
+[9,   400] loss: 0.129\
+[9,   600] loss: 0.156\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.148\
+[10,   400] loss: 0.132\
+[10,   600] loss: 0.134\
+fold result 0.7429467084639498\
+running fold 8\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.531\
+[1,   400] loss: 0.562\
+[1,   600] loss: 0.490\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.398\
+[2,   400] loss: 0.430\
+[2,   600] loss: 0.427\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.339\
+[3,   400] loss: 0.333\
+[3,   600] loss: 0.380\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.257\
+[4,   400] loss: 0.331\
+[4,   600] loss: 0.292\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.252\
+[5,   400] loss: 0.261\
+[5,   600] loss: 0.258\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.216\
+[6,   400] loss: 0.221\
+[6,   600] loss: 0.210\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.189\
+[7,   400] loss: 0.207\
+[7,   600] loss: 0.200\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.171\
+[8,   400] loss: 0.177\
+[8,   600] loss: 0.189\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.186\
+[9,   400] loss: 0.150\
+[9,   600] loss: 0.177\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.171\
+[10,   400] loss: 0.157\
+[10,   600] loss: 0.159\
+fold result 0.7586206896551724\
+running fold 9\
+epoch: 0 learning rate: [0.09808503953574811]\
+[1,   200] loss: 0.516\
+[1,   400] loss: 0.552\
+[1,   600] loss: 0.536\
+epoch: 1 learning rate: [0.059300494017853526]\
+[2,   200] loss: 0.444\
+[2,   400] loss: 0.435\
+[2,   600] loss: 0.395\
+epoch: 2 learning rate: [0.0358520382660379]\
+[3,   200] loss: 0.344\
+[3,   400] loss: 0.350\
+[3,   600] loss: 0.359\
+epoch: 3 learning rate: [0.021675513317687738]\
+[4,   200] loss: 0.298\
+[4,   400] loss: 0.284\
+[4,   600] loss: 0.303\
+epoch: 4 learning rate: [0.01310463505865214]\
+[5,   200] loss: 0.217\
+[5,   400] loss: 0.257\
+[5,   600] loss: 0.244\
+epoch: 5 learning rate: [0.007922832437851326]\
+[6,   200] loss: 0.215\
+[6,   400] loss: 0.199\
+[6,   600] loss: 0.198\
+epoch: 6 learning rate: [0.004790005487167334]\
+[7,   200] loss: 0.168\
+[7,   400] loss: 0.181\
+[7,   600] loss: 0.180\
+epoch: 7 learning rate: [0.0028959532777037547]\
+[8,   200] loss: 0.170\
+[8,   400] loss: 0.166\
+[8,   600] loss: 0.151\
+epoch: 8 learning rate: [0.0017508425426883318]\
+[9,   200] loss: 0.151\
+[9,   400] loss: 0.154\
+[9,   600] loss: 0.143\
+epoch: 9 learning rate: [0.001058528683072534]\
+[10,   200] loss: 0.158\
+[10,   400] loss: 0.148\
+[10,   600] loss: 0.129\
+fold result 0.7591463414634146\
+test outcome 0.7530306216071565\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 8 params: (177, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.017217106802515758, 0.6684239742920763, 0.8806135555220139, 4)\
+running fold 0\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.729\
+[1,   400] loss: 0.695\
+[1,   600] loss: 0.705\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.697\
+[2,   400] loss: 0.692\
+[2,   600] loss: 0.669\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.709\
+[3,   400] loss: 0.701\
+[3,   600] loss: 0.689\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.703\
+[4,   400] loss: 0.684\
+[4,   600] loss: 0.682\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.698\
+[1,   400] loss: 0.720\
+[1,   600] loss: 0.706\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.683\
+[2,   400] loss: 0.693\
+[2,   600] loss: 0.702\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.680\
+[3,   400] loss: 0.713\
+[3,   600] loss: 0.690\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.663\
+[4,   400] loss: 0.688\
+[4,   600] loss: 0.681\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.692\
+[1,   400] loss: 0.699\
+[1,   600] loss: 0.718\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.700\
+[2,   400] loss: 0.700\
+[2,   600] loss: 0.693\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.682\
+[3,   400] loss: 0.681\
+[3,   600] loss: 0.685\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.690\
+[4,   400] loss: 0.679\
+[4,   600] loss: 0.682\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.717\
+[1,   400] loss: 0.701\
+[1,   600] loss: 0.683\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.709\
+[2,   400] loss: 0.684\
+[2,   600] loss: 0.682\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.685\
+[3,   400] loss: 0.701\
+[3,   600] loss: 0.687\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.673\
+[4,   400] loss: 0.692\
+[4,   600] loss: 0.689\
+fold result 0.38557993730407525\
+running fold 4\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.702\
+[1,   400] loss: 0.684\
+[1,   600] loss: 0.720\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.684\
+[2,   400] loss: 0.691\
+[2,   600] loss: 0.705\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.695\
+[3,   400] loss: 0.703\
+[3,   600] loss: 0.685\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.690\
+[4,   400] loss: 0.687\
+[4,   600] loss: 0.686\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.689\
+[1,   400] loss: 0.711\
+[1,   600] loss: 0.699\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.702\
+[2,   400] loss: 0.693\
+[2,   600] loss: 0.696\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.692\
+[3,   400] loss: 0.694\
+[3,   600] loss: 0.697\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.697\
+[4,   400] loss: 0.675\
+[4,   600] loss: 0.688\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.699\
+[1,   400] loss: 0.705\
+[1,   600] loss: 0.701\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.687\
+[2,   400] loss: 0.708\
+[2,   600] loss: 0.691\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.696\
+[3,   400] loss: 0.683\
+[3,   600] loss: 0.671\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.685\
+[4,   400] loss: 0.690\
+[4,   600] loss: 0.688\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.706\
+[1,   400] loss: 0.672\
+[1,   600] loss: 0.710\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.696\
+[2,   400] loss: 0.691\
+[2,   600] loss: 0.682\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.687\
+[3,   400] loss: 0.720\
+[3,   600] loss: 0.683\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.696\
+[4,   400] loss: 0.692\
+[4,   600] loss: 0.698\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.699\
+[1,   400] loss: 0.712\
+[1,   600] loss: 0.686\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.689\
+[2,   400] loss: 0.688\
+[2,   600] loss: 0.692\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.680\
+[3,   400] loss: 0.695\
+[3,   600] loss: 0.716\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.686\
+[4,   400] loss: 0.679\
+[4,   600] loss: 0.683\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.017217106802515758]\
+[1,   200] loss: 0.713\
+[1,   400] loss: 0.693\
+[1,   600] loss: 0.709\
+epoch: 1 learning rate: [0.015161617637165654]\
+[2,   200] loss: 0.690\
+[2,   400] loss: 0.713\
+[2,   600] loss: 0.699\
+epoch: 2 learning rate: [0.013351526014929723]\
+[3,   200] loss: 0.687\
+[3,   400] loss: 0.673\
+[3,   600] loss: 0.707\
+epoch: 3 learning rate: [0.011757534795651928]\
+[4,   200] loss: 0.686\
+[4,   400] loss: 0.698\
+[4,   600] loss: 0.676\
+fold result 0.6036585365853658\
+test outcome 0.6020586436271886\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 9 params: (1347, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.056409899033638335, 0.5452118671768065, 0.1693704787874667, 9)\
+running fold 0\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 10.055\
+[1,   400] loss: 10.154\
+[1,   600] loss: 11.018\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 10.189\
+[2,   400] loss: 10.396\
+[2,   600] loss: 10.258\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.362\
+[3,   400] loss: 10.569\
+[3,   600] loss: 10.016\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.258\
+[4,   400] loss: 11.018\
+[4,   600] loss: 10.258\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.465\
+[5,   400] loss: 11.018\
+[5,   600] loss: 9.740\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.189\
+[6,   400] loss: 10.016\
+[6,   600] loss: 10.603\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.016\
+[7,   400] loss: 9.878\
+[7,   600] loss: 11.052\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.293\
+[8,   400] loss: 10.431\
+[8,   600] loss: 10.327\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.293\
+[9,   400] loss: 10.914\
+[9,   600] loss: 9.809\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 8.793\
+[1,   400] loss: 11.087\
+[1,   600] loss: 9.947\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 10.500\
+[2,   400] loss: 10.534\
+[2,   600] loss: 10.534\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.534\
+[3,   400] loss: 10.880\
+[3,   600] loss: 10.016\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.672\
+[4,   400] loss: 10.811\
+[4,   600] loss: 10.776\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.569\
+[5,   400] loss: 10.085\
+[5,   600] loss: 9.774\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.603\
+[6,   400] loss: 10.914\
+[6,   600] loss: 10.362\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.189\
+[7,   400] loss: 10.672\
+[7,   600] loss: 10.534\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.603\
+[8,   400] loss: 10.603\
+[8,   600] loss: 10.258\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 9.913\
+[9,   400] loss: 10.396\
+[9,   600] loss: 11.018\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 9.620\
+[1,   400] loss: 10.293\
+[1,   600] loss: 10.189\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 10.327\
+[2,   400] loss: 9.774\
+[2,   600] loss: 10.223\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.500\
+[3,   400] loss: 10.293\
+[3,   600] loss: 9.982\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.154\
+[4,   400] loss: 11.294\
+[4,   600] loss: 9.705\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.672\
+[5,   400] loss: 10.051\
+[5,   600] loss: 9.671\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 9.809\
+[6,   400] loss: 10.465\
+[6,   600] loss: 10.293\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.396\
+[7,   400] loss: 9.774\
+[7,   600] loss: 10.914\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.362\
+[8,   400] loss: 10.811\
+[8,   600] loss: 10.051\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.258\
+[9,   400] loss: 9.429\
+[9,   600] loss: 10.949\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 7.904\
+[1,   400] loss: 9.740\
+[1,   600] loss: 10.672\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 10.223\
+[2,   400] loss: 10.707\
+[2,   600] loss: 10.051\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.327\
+[3,   400] loss: 10.534\
+[3,   600] loss: 10.811\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.154\
+[4,   400] loss: 10.845\
+[4,   600] loss: 10.223\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.672\
+[5,   400] loss: 10.880\
+[5,   600] loss: 9.774\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.603\
+[6,   400] loss: 10.293\
+[6,   600] loss: 9.913\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.223\
+[7,   400] loss: 10.120\
+[7,   600] loss: 10.672\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.500\
+[8,   400] loss: 10.223\
+[8,   600] loss: 10.223\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.293\
+[9,   400] loss: 10.120\
+[9,   600] loss: 10.949\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 10.647\
+[1,   400] loss: 9.533\
+[1,   600] loss: 10.534\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 10.396\
+[2,   400] loss: 10.742\
+[2,   600] loss: 9.878\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.362\
+[3,   400] loss: 9.913\
+[3,   600] loss: 10.534\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.431\
+[4,   400] loss: 9.774\
+[4,   600] loss: 10.258\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.569\
+[5,   400] loss: 10.672\
+[5,   600] loss: 10.189\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.327\
+[6,   400] loss: 10.396\
+[6,   600] loss: 11.363\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.258\
+[7,   400] loss: 10.465\
+[7,   600] loss: 10.845\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.258\
+[8,   400] loss: 10.707\
+[8,   600] loss: 10.327\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.914\
+[9,   400] loss: 10.258\
+[9,   600] loss: 9.947\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 7.755\
+[1,   400] loss: 10.776\
+[1,   600] loss: 10.223\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 9.982\
+[2,   400] loss: 10.500\
+[2,   600] loss: 10.603\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.742\
+[3,   400] loss: 10.603\
+[3,   600] loss: 10.431\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 9.844\
+[4,   400] loss: 10.431\
+[4,   600] loss: 10.603\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 11.156\
+[5,   400] loss: 10.396\
+[5,   600] loss: 10.293\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.707\
+[6,   400] loss: 10.431\
+[6,   600] loss: 9.878\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.154\
+[7,   400] loss: 9.705\
+[7,   600] loss: 10.707\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 11.156\
+[8,   400] loss: 9.429\
+[8,   600] loss: 10.396\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 11.398\
+[9,   400] loss: 10.396\
+[9,   600] loss: 9.360\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 7.255\
+[1,   400] loss: 9.982\
+[1,   600] loss: 10.638\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 11.087\
+[2,   400] loss: 10.776\
+[2,   600] loss: 9.602\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.603\
+[3,   400] loss: 10.500\
+[3,   600] loss: 10.362\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.914\
+[4,   400] loss: 10.569\
+[4,   600] loss: 9.913\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 11.294\
+[5,   400] loss: 9.567\
+[5,   600] loss: 10.258\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.327\
+[6,   400] loss: 10.465\
+[6,   600] loss: 10.534\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.638\
+[7,   400] loss: 10.534\
+[7,   600] loss: 10.569\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.362\
+[8,   400] loss: 9.464\
+[8,   600] loss: 10.672\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 9.740\
+[9,   400] loss: 10.431\
+[9,   600] loss: 10.534\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 9.986\
+[1,   400] loss: 10.362\
+[1,   600] loss: 10.189\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 9.982\
+[2,   400] loss: 10.223\
+[2,   600] loss: 11.018\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.845\
+[3,   400] loss: 10.431\
+[3,   600] loss: 10.223\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 11.191\
+[4,   400] loss: 9.982\
+[4,   600] loss: 9.913\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 11.018\
+[5,   400] loss: 9.947\
+[5,   600] loss: 9.740\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 9.740\
+[6,   400] loss: 10.154\
+[6,   600] loss: 11.191\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.534\
+[7,   400] loss: 9.740\
+[7,   600] loss: 10.776\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.016\
+[8,   400] loss: 9.844\
+[8,   600] loss: 10.845\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.603\
+[9,   400] loss: 10.603\
+[9,   600] loss: 9.947\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 7.783\
+[1,   400] loss: 10.603\
+[1,   600] loss: 10.016\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 9.429\
+[2,   400] loss: 11.225\
+[2,   600] loss: 10.223\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.362\
+[3,   400] loss: 9.602\
+[3,   600] loss: 10.742\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 10.189\
+[4,   400] loss: 10.465\
+[4,   600] loss: 10.362\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 10.051\
+[5,   400] loss: 9.671\
+[5,   600] loss: 10.672\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.396\
+[6,   400] loss: 10.051\
+[6,   600] loss: 10.742\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.845\
+[7,   400] loss: 10.085\
+[7,   600] loss: 10.189\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 10.223\
+[8,   400] loss: 10.258\
+[8,   600] loss: 10.396\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.120\
+[9,   400] loss: 10.880\
+[9,   600] loss: 9.809\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.056409899033638335]\
+[1,   200] loss: 9.610\
+[1,   400] loss: 10.638\
+[1,   600] loss: 10.569\
+epoch: 1 learning rate: [0.00955417160767998]\
+[2,   200] loss: 11.087\
+[2,   400] loss: 9.774\
+[2,   600] loss: 10.293\
+epoch: 2 learning rate: [0.0016181946196103785]\
+[3,   200] loss: 10.016\
+[3,   400] loss: 10.776\
+[3,   600] loss: 10.362\
+epoch: 3 learning rate: [0.00027407439749471235]\
+[4,   200] loss: 9.982\
+[4,   400] loss: 9.809\
+[4,   600] loss: 10.949\
+epoch: 4 learning rate: [4.642011192706589e-05]\
+[5,   200] loss: 9.844\
+[5,   400] loss: 10.638\
+[5,   600] loss: 10.534\
+epoch: 5 learning rate: [7.862196582454943e-06]\
+[6,   200] loss: 10.914\
+[6,   400] loss: 9.533\
+[6,   600] loss: 10.672\
+epoch: 6 learning rate: [1.3316239994915781e-06]\
+[7,   200] loss: 10.500\
+[7,   400] loss: 9.982\
+[7,   600] loss: 10.465\
+epoch: 7 learning rate: [2.255377943587699e-07]\
+[8,   200] loss: 9.705\
+[8,   400] loss: 9.982\
+[8,   600] loss: 11.501\
+epoch: 8 learning rate: [3.8199444215214064e-08]\
+[9,   200] loss: 10.983\
+[9,   400] loss: 10.396\
+[9,   600] loss: 10.120\
+fold result 0.6036585365853658\
+test outcome 0.6249426561663737\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 10 params: (721, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.04505505988215195, 0.3690505258253993, 0.3190950202293976, 1)\
+running fold 0\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.109\
+[1,   400] loss: 1.132\
+[1,   600] loss: 1.216\
+fold result 0.36990595611285265\
+running fold 1\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.086\
+[1,   400] loss: 1.083\
+[1,   600] loss: 1.145\
+fold result 0.3542319749216301\
+running fold 2\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.131\
+[1,   400] loss: 1.240\
+[1,   600] loss: 1.209\
+fold result 0.39184952978056425\
+running fold 3\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.200\
+[1,   400] loss: 1.101\
+[1,   600] loss: 1.150\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.140\
+[1,   400] loss: 1.089\
+[1,   600] loss: 1.057\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.159\
+[1,   400] loss: 1.120\
+[1,   600] loss: 1.155\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.115\
+[1,   400] loss: 1.157\
+[1,   600] loss: 0.995\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.112\
+[1,   400] loss: 1.168\
+[1,   600] loss: 1.149\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.163\
+[1,   400] loss: 1.094\
+[1,   600] loss: 1.184\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.04505505988215195]\
+[1,   200] loss: 1.178\
+[1,   400] loss: 1.106\
+[1,   600] loss: 1.180\
+fold result 0.39634146341463417\
+test outcome 0.5274084410123099\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 11 params: (889, 3, <built-in method relu of type object at 0x10d036fc0>, 0.04539682356915664, 0.03536142285227728, 0.6006182226407626, 6)\
+running fold 0\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.661\
+[1,   400] loss: 0.645\
+[1,   600] loss: 0.608\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.527\
+[2,   400] loss: 0.521\
+[2,   600] loss: 0.514\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.465\
+[3,   400] loss: 0.433\
+[3,   600] loss: 0.461\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.409\
+[4,   400] loss: 0.412\
+[4,   600] loss: 0.414\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.384\
+[5,   400] loss: 0.389\
+[5,   600] loss: 0.386\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.375\
+[6,   400] loss: 0.376\
+[6,   600] loss: 0.368\
+fold result 0.8119122257053292\
+running fold 1\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.666\
+[1,   400] loss: 0.637\
+[1,   600] loss: 0.619\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.561\
+[2,   400] loss: 0.526\
+[2,   600] loss: 0.497\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.446\
+[3,   400] loss: 0.457\
+[3,   600] loss: 0.441\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.414\
+[4,   400] loss: 0.407\
+[4,   600] loss: 0.395\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.399\
+[5,   400] loss: 0.365\
+[5,   600] loss: 0.385\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.340\
+[6,   400] loss: 0.380\
+[6,   600] loss: 0.370\
+fold result 0.8087774294670846\
+running fold 2\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.665\
+[1,   400] loss: 0.640\
+[1,   600] loss: 0.615\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.537\
+[2,   400] loss: 0.525\
+[2,   600] loss: 0.482\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.452\
+[3,   400] loss: 0.461\
+[3,   600] loss: 0.418\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.399\
+[4,   400] loss: 0.426\
+[4,   600] loss: 0.384\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.404\
+[5,   400] loss: 0.377\
+[5,   600] loss: 0.353\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.364\
+[6,   400] loss: 0.344\
+[6,   600] loss: 0.374\
+fold result 0.7899686520376176\
+running fold 3\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.656\
+[1,   400] loss: 0.642\
+[1,   600] loss: 0.608\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.532\
+[2,   400] loss: 0.513\
+[2,   600] loss: 0.499\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.455\
+[3,   400] loss: 0.420\
+[3,   600] loss: 0.439\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.385\
+[4,   400] loss: 0.394\
+[4,   600] loss: 0.404\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.365\
+[5,   400] loss: 0.375\
+[5,   600] loss: 0.356\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.343\
+[6,   400] loss: 0.354\
+[6,   600] loss: 0.355\
+fold result 0.7899686520376176\
+running fold 4\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.653\
+[1,   400] loss: 0.650\
+[1,   600] loss: 0.624\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.538\
+[2,   400] loss: 0.521\
+[2,   600] loss: 0.508\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.457\
+[3,   400] loss: 0.459\
+[3,   600] loss: 0.432\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.404\
+[4,   400] loss: 0.384\
+[4,   600] loss: 0.397\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.377\
+[5,   400] loss: 0.388\
+[5,   600] loss: 0.364\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.375\
+[6,   400] loss: 0.352\
+[6,   600] loss: 0.347\
+fold result 0.8150470219435737\
+running fold 5\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.659\
+[1,   400] loss: 0.617\
+[1,   600] loss: 0.619\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.517\
+[2,   400] loss: 0.505\
+[2,   600] loss: 0.481\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.441\
+[3,   400] loss: 0.411\
+[3,   600] loss: 0.420\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.375\
+[4,   400] loss: 0.396\
+[4,   600] loss: 0.366\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.373\
+[5,   400] loss: 0.353\
+[5,   600] loss: 0.332\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.331\
+[6,   400] loss: 0.348\
+[6,   600] loss: 0.329\
+fold result 0.7711598746081505\
+running fold 6\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.663\
+[1,   400] loss: 0.644\
+[1,   600] loss: 0.621\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.550\
+[2,   400] loss: 0.522\
+[2,   600] loss: 0.527\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.471\
+[3,   400] loss: 0.439\
+[3,   600] loss: 0.456\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.424\
+[4,   400] loss: 0.416\
+[4,   600] loss: 0.407\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.376\
+[5,   400] loss: 0.386\
+[5,   600] loss: 0.390\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.373\
+[6,   400] loss: 0.387\
+[6,   600] loss: 0.367\
+fold result 0.7523510971786834\
+running fold 7\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.667\
+[1,   400] loss: 0.636\
+[1,   600] loss: 0.612\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.543\
+[2,   400] loss: 0.523\
+[2,   600] loss: 0.490\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.436\
+[3,   400] loss: 0.424\
+[3,   600] loss: 0.443\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.384\
+[4,   400] loss: 0.400\
+[4,   600] loss: 0.390\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.388\
+[5,   400] loss: 0.351\
+[5,   600] loss: 0.357\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.350\
+[6,   400] loss: 0.349\
+[6,   600] loss: 0.338\
+fold result 0.7617554858934169\
+running fold 8\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.672\
+[1,   400] loss: 0.647\
+[1,   600] loss: 0.614\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.559\
+[2,   400] loss: 0.538\
+[2,   600] loss: 0.489\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.467\
+[3,   400] loss: 0.463\
+[3,   600] loss: 0.437\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.407\
+[4,   400] loss: 0.384\
+[4,   600] loss: 0.415\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.390\
+[5,   400] loss: 0.389\
+[5,   600] loss: 0.368\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.358\
+[6,   400] loss: 0.371\
+[6,   600] loss: 0.344\
+fold result 0.7429467084639498\
+running fold 9\
+epoch: 0 learning rate: [0.04539682356915664]\
+[1,   200] loss: 0.661\
+[1,   400] loss: 0.628\
+[1,   600] loss: 0.610\
+epoch: 1 learning rate: [0.027266159485643142]\
+[2,   200] loss: 0.514\
+[2,   400] loss: 0.487\
+[2,   600] loss: 0.497\
+epoch: 2 learning rate: [0.01637655224850655]\
+[3,   200] loss: 0.430\
+[3,   400] loss: 0.410\
+[3,   600] loss: 0.417\
+epoch: 3 learning rate: [0.009836055704481591]\
+[4,   200] loss: 0.407\
+[4,   400] loss: 0.356\
+[4,   600] loss: 0.369\
+epoch: 4 learning rate: [0.0059077142950212675]\
+[5,   200] loss: 0.330\
+[5,   400] loss: 0.354\
+[5,   600] loss: 0.353\
+epoch: 5 learning rate: [0.0035482808597450993]\
+[6,   200] loss: 0.310\
+[6,   400] loss: 0.342\
+[6,   600] loss: 0.357\
+fold result 0.7530487804878049\
+test outcome 0.7796935927823229\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 12 params: (942, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.035115889022870495, 0.6311747415251698, 0.3450785702116168, 5)\
+running fold 0\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.334\
+[1,   400] loss: 1.393\
+[1,   600] loss: 1.679\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.831\
+[2,   400] loss: 0.818\
+[2,   600] loss: 0.844\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.709\
+[3,   400] loss: 0.698\
+[3,   600] loss: 0.698\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.670\
+[4,   400] loss: 0.668\
+[4,   600] loss: 0.688\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.669\
+[5,   400] loss: 0.672\
+[5,   600] loss: 0.659\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.405\
+[1,   400] loss: 1.416\
+[1,   600] loss: 1.699\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.833\
+[2,   400] loss: 0.793\
+[2,   600] loss: 0.822\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.715\
+[3,   400] loss: 0.729\
+[3,   600] loss: 0.712\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.692\
+[4,   400] loss: 0.683\
+[4,   600] loss: 0.665\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.677\
+[5,   400] loss: 0.673\
+[5,   600] loss: 0.663\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.526\
+[1,   400] loss: 1.353\
+[1,   600] loss: 1.393\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.770\
+[2,   400] loss: 0.823\
+[2,   600] loss: 0.784\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.732\
+[3,   400] loss: 0.710\
+[3,   600] loss: 0.705\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.660\
+[4,   400] loss: 0.672\
+[4,   600] loss: 0.683\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.662\
+[5,   400] loss: 0.673\
+[5,   600] loss: 0.674\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.550\
+[1,   400] loss: 1.370\
+[1,   600] loss: 1.676\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.793\
+[2,   400] loss: 0.789\
+[2,   600] loss: 0.811\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.729\
+[3,   400] loss: 0.704\
+[3,   600] loss: 0.684\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.673\
+[4,   400] loss: 0.679\
+[4,   600] loss: 0.681\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.680\
+[5,   400] loss: 0.668\
+[5,   600] loss: 0.657\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.498\
+[1,   400] loss: 1.506\
+[1,   600] loss: 1.470\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.818\
+[2,   400] loss: 0.834\
+[2,   600] loss: 0.818\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.703\
+[3,   400] loss: 0.693\
+[3,   600] loss: 0.708\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.670\
+[4,   400] loss: 0.678\
+[4,   600] loss: 0.674\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.652\
+[5,   400] loss: 0.680\
+[5,   600] loss: 0.670\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.231\
+[1,   400] loss: 1.387\
+[1,   600] loss: 1.294\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.827\
+[2,   400] loss: 0.858\
+[2,   600] loss: 0.801\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.720\
+[3,   400] loss: 0.687\
+[3,   600] loss: 0.705\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.683\
+[4,   400] loss: 0.674\
+[4,   600] loss: 0.679\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.667\
+[5,   400] loss: 0.675\
+[5,   600] loss: 0.666\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.353\
+[1,   400] loss: 1.520\
+[1,   600] loss: 1.096\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.878\
+[2,   400] loss: 0.815\
+[2,   600] loss: 0.796\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.696\
+[3,   400] loss: 0.711\
+[3,   600] loss: 0.726\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.675\
+[4,   400] loss: 0.677\
+[4,   600] loss: 0.667\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.672\
+[5,   400] loss: 0.668\
+[5,   600] loss: 0.660\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.334\
+[1,   400] loss: 1.469\
+[1,   600] loss: 1.338\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.840\
+[2,   400] loss: 0.821\
+[2,   600] loss: 0.838\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.695\
+[3,   400] loss: 0.715\
+[3,   600] loss: 0.709\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.670\
+[4,   400] loss: 0.689\
+[4,   600] loss: 0.665\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.671\
+[5,   400] loss: 0.659\
+[5,   600] loss: 0.672\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.470\
+[1,   400] loss: 1.378\
+[1,   600] loss: 1.361\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.867\
+[2,   400] loss: 0.827\
+[2,   600] loss: 0.844\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.706\
+[3,   400] loss: 0.720\
+[3,   600] loss: 0.726\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.682\
+[4,   400] loss: 0.676\
+[4,   600] loss: 0.664\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.652\
+[5,   400] loss: 0.675\
+[5,   600] loss: 0.661\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.035115889022870495]\
+[1,   200] loss: 1.374\
+[1,   400] loss: 1.520\
+[1,   600] loss: 1.329\
+epoch: 1 learning rate: [0.01211774077572196]\
+[2,   200] loss: 0.825\
+[2,   400] loss: 0.767\
+[2,   600] loss: 0.816\
+epoch: 2 learning rate: [0.004181572661081143]\
+[3,   200] loss: 0.723\
+[3,   400] loss: 0.710\
+[3,   600] loss: 0.696\
+epoch: 3 learning rate: [0.0014429711151218664]\
+[4,   200] loss: 0.674\
+[4,   400] loss: 0.681\
+[4,   600] loss: 0.675\
+epoch: 4 learning rate: [0.0004979384092629159]\
+[5,   200] loss: 0.672\
+[5,   400] loss: 0.659\
+[5,   600] loss: 0.665\
+fold result 0.6036585365853658\
+test outcome 0.6249426561663737\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 13 params: (1087, 3, <built-in method tanh of type object at 0x10d036fc0>, 0.075096220180062, 0.11513894159563065, 0.8700657323204827, 2)\
+running fold 0\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.552\
+[1,   400] loss: 0.499\
+[1,   600] loss: 0.472\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.402\
+[2,   400] loss: 0.438\
+[2,   600] loss: 0.446\
+fold result 0.799373040752351\
+running fold 1\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.557\
+[1,   400] loss: 0.472\
+[1,   600] loss: 0.491\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.406\
+[2,   400] loss: 0.419\
+[2,   600] loss: 0.402\
+fold result 0.7711598746081505\
+running fold 2\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.536\
+[1,   400] loss: 0.486\
+[1,   600] loss: 0.488\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.418\
+[2,   400] loss: 0.415\
+[2,   600] loss: 0.416\
+fold result 0.7836990595611285\
+running fold 3\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.544\
+[1,   400] loss: 0.491\
+[1,   600] loss: 0.481\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.409\
+[2,   400] loss: 0.392\
+[2,   600] loss: 0.430\
+fold result 0.768025078369906\
+running fold 4\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.552\
+[1,   400] loss: 0.497\
+[1,   600] loss: 0.454\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.390\
+[2,   400] loss: 0.421\
+[2,   600] loss: 0.435\
+fold result 0.8119122257053292\
+running fold 5\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.527\
+[1,   400] loss: 0.495\
+[1,   600] loss: 0.505\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.375\
+[2,   400] loss: 0.441\
+[2,   600] loss: 0.411\
+fold result 0.774294670846395\
+running fold 6\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.559\
+[1,   400] loss: 0.487\
+[1,   600] loss: 0.454\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.406\
+[2,   400] loss: 0.425\
+[2,   600] loss: 0.415\
+fold result 0.7523510971786834\
+running fold 7\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.563\
+[1,   400] loss: 0.486\
+[1,   600] loss: 0.460\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.425\
+[2,   400] loss: 0.392\
+[2,   600] loss: 0.404\
+fold result 0.774294670846395\
+running fold 8\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.540\
+[1,   400] loss: 0.500\
+[1,   600] loss: 0.482\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.378\
+[2,   400] loss: 0.429\
+[2,   600] loss: 0.424\
+fold result 0.7899686520376176\
+running fold 9\
+epoch: 0 learning rate: [0.075096220180062]\
+[1,   200] loss: 0.523\
+[1,   400] loss: 0.500\
+[1,   600] loss: 0.487\
+epoch: 1 learning rate: [0.06533864780546585]\
+[2,   200] loss: 0.368\
+[2,   400] loss: 0.415\
+[2,   600] loss: 0.429\
+fold result 0.7560975609756098\
+test outcome 0.7781175930881565\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 14 params: (706, 3, <built-in method relu of type object at 0x10d036fc0>, 0.06431516574386015, 0.11715905022891338, 0.9069982127467674, 3)\
+running fold 0\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.670\
+[1,   400] loss: 0.615\
+[1,   600] loss: 0.572\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.483\
+[2,   400] loss: 0.435\
+[2,   600] loss: 0.460\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.329\
+[3,   400] loss: 0.336\
+[3,   600] loss: 0.368\
+fold result 0.8119122257053292\
+running fold 1\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.660\
+[1,   400] loss: 0.619\
+[1,   600] loss: 0.562\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.478\
+[2,   400] loss: 0.427\
+[2,   600] loss: 0.431\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.342\
+[3,   400] loss: 0.295\
+[3,   600] loss: 0.354\
+fold result 0.799373040752351\
+running fold 2\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.660\
+[1,   400] loss: 0.608\
+[1,   600] loss: 0.573\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.455\
+[2,   400] loss: 0.440\
+[2,   600] loss: 0.414\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.334\
+[3,   400] loss: 0.306\
+[3,   600] loss: 0.328\
+fold result 0.768025078369906\
+running fold 3\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.648\
+[1,   400] loss: 0.620\
+[1,   600] loss: 0.575\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.471\
+[2,   400] loss: 0.433\
+[2,   600] loss: 0.400\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.325\
+[3,   400] loss: 0.316\
+[3,   600] loss: 0.308\
+fold result 0.786833855799373\
+running fold 4\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.662\
+[1,   400] loss: 0.635\
+[1,   600] loss: 0.564\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.458\
+[2,   400] loss: 0.452\
+[2,   600] loss: 0.430\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.321\
+[3,   400] loss: 0.350\
+[3,   600] loss: 0.343\
+fold result 0.8150470219435737\
+running fold 5\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.666\
+[1,   400] loss: 0.638\
+[1,   600] loss: 0.558\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.476\
+[2,   400] loss: 0.469\
+[2,   600] loss: 0.417\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.350\
+[3,   400] loss: 0.351\
+[3,   600] loss: 0.317\
+fold result 0.7774294670846394\
+running fold 6\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.658\
+[1,   400] loss: 0.625\
+[1,   600] loss: 0.566\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.454\
+[2,   400] loss: 0.447\
+[2,   600] loss: 0.435\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.327\
+[3,   400] loss: 0.342\
+[3,   600] loss: 0.342\
+fold result 0.7617554858934169\
+running fold 7\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.664\
+[1,   400] loss: 0.608\
+[1,   600] loss: 0.576\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.470\
+[2,   400] loss: 0.444\
+[2,   600] loss: 0.440\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.339\
+[3,   400] loss: 0.341\
+[3,   600] loss: 0.315\
+fold result 0.7836990595611285\
+running fold 8\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.660\
+[1,   400] loss: 0.609\
+[1,   600] loss: 0.565\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.442\
+[2,   400] loss: 0.448\
+[2,   600] loss: 0.462\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.336\
+[3,   400] loss: 0.341\
+[3,   600] loss: 0.334\
+fold result 0.780564263322884\
+running fold 9\
+epoch: 0 learning rate: [0.06431516574386015]\
+[1,   200] loss: 0.668\
+[1,   400] loss: 0.634\
+[1,   600] loss: 0.564\
+epoch: 1 learning rate: [0.05833374038219327]\
+[2,   200] loss: 0.462\
+[2,   400] loss: 0.429\
+[2,   600] loss: 0.429\
+epoch: 2 learning rate: [0.05290859826948323]\
+[3,   200] loss: 0.316\
+[3,   400] loss: 0.322\
+[3,   600] loss: 0.336\
+fold result 0.7469512195121951\
+test outcome 0.7831590717944799\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 15 params: (654, 4, <built-in method tanh of type object at 0x10d036fc0>, 0.07476508886758387, 0.268339075154979, 0.945221425944741, 10)\
+running fold 0\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.565\
+[1,   400] loss: 0.502\
+[1,   600] loss: 0.475\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.408\
+[2,   400] loss: 0.424\
+[2,   600] loss: 0.437\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.351\
+[3,   400] loss: 0.396\
+[3,   600] loss: 0.391\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.314\
+[4,   400] loss: 0.331\
+[4,   600] loss: 0.366\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.267\
+[5,   400] loss: 0.264\
+[5,   600] loss: 0.305\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.217\
+[6,   400] loss: 0.216\
+[6,   600] loss: 0.240\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.162\
+[7,   400] loss: 0.151\
+[7,   600] loss: 0.175\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.108\
+[8,   400] loss: 0.096\
+[8,   600] loss: 0.110\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.052\
+[9,   400] loss: 0.064\
+[9,   600] loss: 0.057\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.031\
+[10,   400] loss: 0.033\
+[10,   600] loss: 0.031\
+fold result 0.7648902821316614\
+running fold 1\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.553\
+[1,   400] loss: 0.494\
+[1,   600] loss: 0.453\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.423\
+[2,   400] loss: 0.430\
+[2,   600] loss: 0.401\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.323\
+[3,   400] loss: 0.368\
+[3,   600] loss: 0.413\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.304\
+[4,   400] loss: 0.340\
+[4,   600] loss: 0.336\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.268\
+[5,   400] loss: 0.277\
+[5,   600] loss: 0.290\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.211\
+[6,   400] loss: 0.193\
+[6,   600] loss: 0.262\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.146\
+[7,   400] loss: 0.152\
+[7,   600] loss: 0.153\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.098\
+[8,   400] loss: 0.086\
+[8,   600] loss: 0.109\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.053\
+[9,   400] loss: 0.049\
+[9,   600] loss: 0.061\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.032\
+[10,   400] loss: 0.032\
+[10,   600] loss: 0.030\
+fold result 0.7398119122257053\
+running fold 2\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.547\
+[1,   400] loss: 0.499\
+[1,   600] loss: 0.472\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.401\
+[2,   400] loss: 0.431\
+[2,   600] loss: 0.413\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.358\
+[3,   400] loss: 0.350\
+[3,   600] loss: 0.397\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.334\
+[4,   400] loss: 0.333\
+[4,   600] loss: 0.323\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.271\
+[5,   400] loss: 0.287\
+[5,   600] loss: 0.267\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.214\
+[6,   400] loss: 0.222\
+[6,   600] loss: 0.227\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.161\
+[7,   400] loss: 0.146\
+[7,   600] loss: 0.161\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.100\
+[8,   400] loss: 0.108\
+[8,   600] loss: 0.099\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.055\
+[9,   400] loss: 0.051\
+[9,   600] loss: 0.046\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.027\
+[10,   400] loss: 0.030\
+[10,   600] loss: 0.031\
+fold result 0.7492163009404389\
+running fold 3\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.561\
+[1,   400] loss: 0.478\
+[1,   600] loss: 0.501\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.390\
+[2,   400] loss: 0.427\
+[2,   600] loss: 0.402\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.343\
+[3,   400] loss: 0.379\
+[3,   600] loss: 0.374\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.291\
+[4,   400] loss: 0.316\
+[4,   600] loss: 0.335\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.281\
+[5,   400] loss: 0.249\
+[5,   600] loss: 0.274\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.221\
+[6,   400] loss: 0.194\
+[6,   600] loss: 0.221\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.147\
+[7,   400] loss: 0.154\
+[7,   600] loss: 0.160\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.088\
+[8,   400] loss: 0.092\
+[8,   600] loss: 0.103\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.054\
+[9,   400] loss: 0.058\
+[9,   600] loss: 0.054\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.029\
+[10,   400] loss: 0.032\
+[10,   600] loss: 0.038\
+fold result 0.7366771159874608\
+running fold 4\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.561\
+[1,   400] loss: 0.496\
+[1,   600] loss: 0.492\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.421\
+[2,   400] loss: 0.412\
+[2,   600] loss: 0.421\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.336\
+[3,   400] loss: 0.389\
+[3,   600] loss: 0.403\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.335\
+[4,   400] loss: 0.331\
+[4,   600] loss: 0.325\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.251\
+[5,   400] loss: 0.296\
+[5,   600] loss: 0.316\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.214\
+[6,   400] loss: 0.233\
+[6,   600] loss: 0.251\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.174\
+[7,   400] loss: 0.163\
+[7,   600] loss: 0.177\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.112\
+[8,   400] loss: 0.119\
+[8,   600] loss: 0.113\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.077\
+[9,   400] loss: 0.066\
+[9,   600] loss: 0.066\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.038\
+[10,   400] loss: 0.033\
+[10,   600] loss: 0.041\
+fold result 0.7774294670846394\
+running fold 5\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.588\
+[1,   400] loss: 0.456\
+[1,   600] loss: 0.480\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.376\
+[2,   400] loss: 0.396\
+[2,   600] loss: 0.448\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.358\
+[3,   400] loss: 0.353\
+[3,   600] loss: 0.378\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.277\
+[4,   400] loss: 0.302\
+[4,   600] loss: 0.334\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.255\
+[5,   400] loss: 0.293\
+[5,   600] loss: 0.255\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.193\
+[6,   400] loss: 0.221\
+[6,   600] loss: 0.221\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.138\
+[7,   400] loss: 0.149\
+[7,   600] loss: 0.171\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.095\
+[8,   400] loss: 0.086\
+[8,   600] loss: 0.084\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.056\
+[9,   400] loss: 0.053\
+[9,   600] loss: 0.055\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.036\
+[10,   400] loss: 0.031\
+[10,   600] loss: 0.032\
+fold result 0.7335423197492164\
+running fold 6\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.574\
+[1,   400] loss: 0.512\
+[1,   600] loss: 0.454\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.400\
+[2,   400] loss: 0.404\
+[2,   600] loss: 0.432\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.355\
+[3,   400] loss: 0.391\
+[3,   600] loss: 0.382\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.325\
+[4,   400] loss: 0.321\
+[4,   600] loss: 0.319\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.260\
+[5,   400] loss: 0.259\
+[5,   600] loss: 0.337\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.224\
+[6,   400] loss: 0.214\
+[6,   600] loss: 0.251\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.138\
+[7,   400] loss: 0.166\
+[7,   600] loss: 0.194\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.118\
+[8,   400] loss: 0.091\
+[8,   600] loss: 0.121\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.059\
+[9,   400] loss: 0.060\
+[9,   600] loss: 0.072\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.040\
+[10,   400] loss: 0.040\
+[10,   600] loss: 0.033\
+fold result 0.7460815047021944\
+running fold 7\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.536\
+[1,   400] loss: 0.504\
+[1,   600] loss: 0.483\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.398\
+[2,   400] loss: 0.408\
+[2,   600] loss: 0.414\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.370\
+[3,   400] loss: 0.369\
+[3,   600] loss: 0.379\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.307\
+[4,   400] loss: 0.316\
+[4,   600] loss: 0.323\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.248\
+[5,   400] loss: 0.287\
+[5,   600] loss: 0.281\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.202\
+[6,   400] loss: 0.206\
+[6,   600] loss: 0.218\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.130\
+[7,   400] loss: 0.132\
+[7,   600] loss: 0.182\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.086\
+[8,   400] loss: 0.088\
+[8,   600] loss: 0.083\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.051\
+[9,   400] loss: 0.047\
+[9,   600] loss: 0.048\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.030\
+[10,   400] loss: 0.029\
+[10,   600] loss: 0.031\
+fold result 0.7460815047021944\
+running fold 8\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.532\
+[1,   400] loss: 0.492\
+[1,   600] loss: 0.501\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.412\
+[2,   400] loss: 0.401\
+[2,   600] loss: 0.432\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.336\
+[3,   400] loss: 0.369\
+[3,   600] loss: 0.408\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.295\
+[4,   400] loss: 0.356\
+[4,   600] loss: 0.339\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.274\
+[5,   400] loss: 0.302\
+[5,   600] loss: 0.280\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.211\
+[6,   400] loss: 0.220\
+[6,   600] loss: 0.258\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.166\
+[7,   400] loss: 0.154\
+[7,   600] loss: 0.205\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.109\
+[8,   400] loss: 0.105\
+[8,   600] loss: 0.123\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.081\
+[9,   400] loss: 0.069\
+[9,   600] loss: 0.073\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.040\
+[10,   400] loss: 0.041\
+[10,   600] loss: 0.037\
+fold result 0.7304075235109718\
+running fold 9\
+epoch: 0 learning rate: [0.07476508886758387]\
+[1,   200] loss: 0.551\
+[1,   400] loss: 0.494\
+[1,   600] loss: 0.459\
+epoch: 1 learning rate: [0.07066956391030291]\
+[2,   200] loss: 0.401\
+[2,   400] loss: 0.402\
+[2,   600] loss: 0.422\
+epoch: 2 learning rate: [0.06679838597018953]\
+[3,   200] loss: 0.346\
+[3,   400] loss: 0.359\
+[3,   600] loss: 0.375\
+epoch: 3 learning rate: [0.06313926563754972]\
+[4,   200] loss: 0.301\
+[4,   400] loss: 0.324\
+[4,   600] loss: 0.349\
+epoch: 4 learning rate: [0.05968058669902854]\
+[5,   200] loss: 0.270\
+[5,   400] loss: 0.282\
+[5,   600] loss: 0.304\
+epoch: 5 learning rate: [0.0564113692608745]\
+[6,   200] loss: 0.199\
+[6,   400] loss: 0.236\
+[6,   600] loss: 0.226\
+epoch: 6 learning rate: [0.05332123489225913]\
+[7,   200] loss: 0.159\
+[7,   400] loss: 0.166\
+[7,   600] loss: 0.166\
+epoch: 7 learning rate: [0.05040037367799565]\
+[8,   200] loss: 0.100\
+[8,   400] loss: 0.107\
+[8,   600] loss: 0.104\
+epoch: 8 learning rate: [0.04763951307606284]\
+[9,   200] loss: 0.065\
+[9,   400] loss: 0.061\
+[9,   600] loss: 0.055\
+epoch: 9 learning rate: [0.045029888481069244]\
+[10,   200] loss: 0.032\
+[10,   400] loss: 0.033\
+[10,   600] loss: 0.034\
+fold result 0.7408536585365854\
+test outcome 0.7464991589571068\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 16 params: (352, 4, <built-in method sigmoid of type object at 0x10d036fc0>, 0.02698433192697576, 0.615315318796795, 0.869296989117468, 7)\
+running fold 0\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.789\
+[1,   400] loss: 0.770\
+[1,   600] loss: 0.767\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.764\
+[2,   400] loss: 0.764\
+[2,   600] loss: 0.793\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.771\
+[3,   400] loss: 0.745\
+[3,   600] loss: 0.752\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.722\
+[4,   400] loss: 0.742\
+[4,   600] loss: 0.728\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.713\
+[5,   400] loss: 0.733\
+[5,   600] loss: 0.738\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.721\
+[6,   400] loss: 0.707\
+[6,   600] loss: 0.703\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.697\
+[7,   400] loss: 0.704\
+[7,   600] loss: 0.715\
+fold result 0.36990595611285265\
+running fold 1\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.776\
+[1,   400] loss: 0.772\
+[1,   600] loss: 0.782\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.767\
+[2,   400] loss: 0.779\
+[2,   600] loss: 0.781\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.725\
+[3,   400] loss: 0.798\
+[3,   600] loss: 0.728\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.760\
+[4,   400] loss: 0.757\
+[4,   600] loss: 0.736\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.733\
+[5,   400] loss: 0.704\
+[5,   600] loss: 0.749\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.707\
+[6,   400] loss: 0.747\
+[6,   600] loss: 0.695\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.702\
+[7,   400] loss: 0.704\
+[7,   600] loss: 0.706\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.799\
+[1,   400] loss: 0.819\
+[1,   600] loss: 0.816\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.750\
+[2,   400] loss: 0.750\
+[2,   600] loss: 0.777\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.752\
+[3,   400] loss: 0.750\
+[3,   600] loss: 0.737\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.735\
+[4,   400] loss: 0.726\
+[4,   600] loss: 0.741\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.704\
+[5,   400] loss: 0.750\
+[5,   600] loss: 0.705\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.715\
+[6,   400] loss: 0.717\
+[6,   600] loss: 0.713\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.704\
+[7,   400] loss: 0.727\
+[7,   600] loss: 0.696\
+fold result 0.39184952978056425\
+running fold 3\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.745\
+[1,   400] loss: 0.793\
+[1,   600] loss: 0.776\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.741\
+[2,   400] loss: 0.748\
+[2,   600] loss: 0.743\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.751\
+[3,   400] loss: 0.750\
+[3,   600] loss: 0.734\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.724\
+[4,   400] loss: 0.708\
+[4,   600] loss: 0.722\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.700\
+[5,   400] loss: 0.727\
+[5,   600] loss: 0.725\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.727\
+[6,   400] loss: 0.690\
+[6,   600] loss: 0.712\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.729\
+[7,   400] loss: 0.692\
+[7,   600] loss: 0.699\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.773\
+[1,   400] loss: 0.759\
+[1,   600] loss: 0.772\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.740\
+[2,   400] loss: 0.743\
+[2,   600] loss: 0.763\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.755\
+[3,   400] loss: 0.745\
+[3,   600] loss: 0.716\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.732\
+[4,   400] loss: 0.723\
+[4,   600] loss: 0.750\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.706\
+[5,   400] loss: 0.742\
+[5,   600] loss: 0.729\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.697\
+[6,   400] loss: 0.728\
+[6,   600] loss: 0.725\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.707\
+[7,   400] loss: 0.695\
+[7,   600] loss: 0.710\
+fold result 0.3605015673981191\
+running fold 5\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.773\
+[1,   400] loss: 0.794\
+[1,   600] loss: 0.748\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.764\
+[2,   400] loss: 0.782\
+[2,   600] loss: 0.728\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.739\
+[3,   400] loss: 0.738\
+[3,   600] loss: 0.758\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.706\
+[4,   400] loss: 0.745\
+[4,   600] loss: 0.729\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.730\
+[5,   400] loss: 0.709\
+[5,   600] loss: 0.693\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.722\
+[6,   400] loss: 0.708\
+[6,   600] loss: 0.702\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.702\
+[7,   400] loss: 0.707\
+[7,   600] loss: 0.706\
+fold result 0.3573667711598746\
+running fold 6\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.749\
+[1,   400] loss: 0.765\
+[1,   600] loss: 0.757\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.779\
+[2,   400] loss: 0.756\
+[2,   600] loss: 0.776\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.732\
+[3,   400] loss: 0.786\
+[3,   600] loss: 0.756\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.749\
+[4,   400] loss: 0.725\
+[4,   600] loss: 0.756\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.709\
+[5,   400] loss: 0.715\
+[5,   600] loss: 0.706\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.713\
+[6,   400] loss: 0.710\
+[6,   600] loss: 0.721\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.708\
+[7,   400] loss: 0.722\
+[7,   600] loss: 0.693\
+fold result 0.36363636363636365\
+running fold 7\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.756\
+[1,   400] loss: 0.786\
+[1,   600] loss: 0.791\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.811\
+[2,   400] loss: 0.769\
+[2,   600] loss: 0.737\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.747\
+[3,   400] loss: 0.735\
+[3,   600] loss: 0.758\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.751\
+[4,   400] loss: 0.714\
+[4,   600] loss: 0.742\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.733\
+[5,   400] loss: 0.709\
+[5,   600] loss: 0.749\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.728\
+[6,   400] loss: 0.726\
+[6,   600] loss: 0.729\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.698\
+[7,   400] loss: 0.716\
+[7,   600] loss: 0.729\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.806\
+[1,   400] loss: 0.798\
+[1,   600] loss: 0.774\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.777\
+[2,   400] loss: 0.769\
+[2,   600] loss: 0.788\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.719\
+[3,   400] loss: 0.757\
+[3,   600] loss: 0.745\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.726\
+[4,   400] loss: 0.764\
+[4,   600] loss: 0.736\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.735\
+[5,   400] loss: 0.734\
+[5,   600] loss: 0.744\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.723\
+[6,   400] loss: 0.712\
+[6,   600] loss: 0.715\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.709\
+[7,   400] loss: 0.684\
+[7,   600] loss: 0.704\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.02698433192697576]\
+[1,   200] loss: 0.831\
+[1,   400] loss: 0.796\
+[1,   600] loss: 0.808\
+epoch: 1 learning rate: [0.023457398497466392]\
+[2,   200] loss: 0.732\
+[2,   400] loss: 0.803\
+[2,   600] loss: 0.749\
+epoch: 2 learning rate: [0.02039144588637615]\
+[3,   200] loss: 0.759\
+[3,   400] loss: 0.769\
+[3,   600] loss: 0.742\
+epoch: 3 learning rate: [0.017726222512778566]\
+[4,   200] loss: 0.731\
+[4,   400] loss: 0.712\
+[4,   600] loss: 0.717\
+epoch: 4 learning rate: [0.015409351858784687]\
+[5,   200] loss: 0.727\
+[5,   400] loss: 0.735\
+[5,   600] loss: 0.722\
+epoch: 5 learning rate: [0.013395303175093187]\
+[6,   200] loss: 0.723\
+[6,   400] loss: 0.696\
+[6,   600] loss: 0.699\
+epoch: 6 learning rate: [0.011644496718424168]\
+[7,   200] loss: 0.683\
+[7,   400] loss: 0.707\
+[7,   600] loss: 0.703\
+fold result 0.6036585365853658\
+test outcome 0.4935946937839284\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 17 params: (70, 2, <built-in method tanh of type object at 0x10d036fc0>, 0.012529105299534396, 0.08970521179385937, 0.5450607274254045, 3)\
+running fold 0\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.632\
+[1,   400] loss: 0.553\
+[1,   600] loss: 0.491\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.433\
+[2,   400] loss: 0.430\
+[2,   600] loss: 0.430\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.414\
+[3,   400] loss: 0.410\
+[3,   600] loss: 0.415\
+fold result 0.8119122257053292\
+running fold 1\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.636\
+[1,   400] loss: 0.546\
+[1,   600] loss: 0.492\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.423\
+[2,   400] loss: 0.451\
+[2,   600] loss: 0.436\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.389\
+[3,   400] loss: 0.425\
+[3,   600] loss: 0.393\
+fold result 0.786833855799373\
+running fold 2\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.625\
+[1,   400] loss: 0.529\
+[1,   600] loss: 0.514\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.421\
+[2,   400] loss: 0.445\
+[2,   600] loss: 0.458\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.371\
+[3,   400] loss: 0.395\
+[3,   600] loss: 0.426\
+fold result 0.7836990595611285\
+running fold 3\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.597\
+[1,   400] loss: 0.524\
+[1,   600] loss: 0.500\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.432\
+[2,   400] loss: 0.437\
+[2,   600] loss: 0.428\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.374\
+[3,   400] loss: 0.383\
+[3,   600] loss: 0.414\
+fold result 0.7648902821316614\
+running fold 4\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.626\
+[1,   400] loss: 0.529\
+[1,   600] loss: 0.514\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.429\
+[2,   400] loss: 0.436\
+[2,   600] loss: 0.443\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.404\
+[3,   400] loss: 0.403\
+[3,   600] loss: 0.424\
+fold result 0.8087774294670846\
+running fold 5\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.640\
+[1,   400] loss: 0.544\
+[1,   600] loss: 0.476\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.429\
+[2,   400] loss: 0.422\
+[2,   600] loss: 0.445\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.383\
+[3,   400] loss: 0.385\
+[3,   600] loss: 0.412\
+fold result 0.780564263322884\
+running fold 6\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.637\
+[1,   400] loss: 0.550\
+[1,   600] loss: 0.484\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.446\
+[2,   400] loss: 0.411\
+[2,   600] loss: 0.442\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.388\
+[3,   400] loss: 0.417\
+[3,   600] loss: 0.405\
+fold result 0.7711598746081505\
+running fold 7\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.627\
+[1,   400] loss: 0.535\
+[1,   600] loss: 0.488\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.445\
+[2,   400] loss: 0.430\
+[2,   600] loss: 0.437\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.411\
+[3,   400] loss: 0.398\
+[3,   600] loss: 0.376\
+fold result 0.7774294670846394\
+running fold 8\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.633\
+[1,   400] loss: 0.534\
+[1,   600] loss: 0.478\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.413\
+[2,   400] loss: 0.438\
+[2,   600] loss: 0.430\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.386\
+[3,   400] loss: 0.390\
+[3,   600] loss: 0.424\
+fold result 0.7711598746081505\
+running fold 9\
+epoch: 0 learning rate: [0.012529105299534396]\
+[1,   200] loss: 0.614\
+[1,   400] loss: 0.521\
+[1,   600] loss: 0.482\
+epoch: 1 learning rate: [0.006829123248553708]\
+[2,   200] loss: 0.425\
+[2,   400] loss: 0.420\
+[2,   600] loss: 0.408\
+epoch: 2 learning rate: [0.0037222868855344253]\
+[3,   200] loss: 0.384\
+[3,   400] loss: 0.388\
+[3,   600] loss: 0.391\
+fold result 0.7347560975609756\
+test outcome 0.7791182429849376\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 18 params: (70, 2, <built-in method sigmoid of type object at 0x10d036fc0>, 0.06490697671720194, 0.6188830176075507, 0.47826174070325156, 4)\
+running fold 0\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.713\
+[1,   400] loss: 0.696\
+[1,   600] loss: 0.706\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.686\
+[2,   400] loss: 0.673\
+[2,   600] loss: 0.669\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.663\
+[3,   400] loss: 0.663\
+[3,   600] loss: 0.658\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.657\
+[4,   400] loss: 0.650\
+[4,   600] loss: 0.649\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.724\
+[1,   400] loss: 0.718\
+[1,   600] loss: 0.714\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.688\
+[2,   400] loss: 0.686\
+[2,   600] loss: 0.666\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.646\
+[3,   400] loss: 0.661\
+[3,   600] loss: 0.657\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.642\
+[4,   400] loss: 0.632\
+[4,   600] loss: 0.636\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.705\
+[1,   400] loss: 0.704\
+[1,   600] loss: 0.711\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.696\
+[2,   400] loss: 0.676\
+[2,   600] loss: 0.666\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.664\
+[3,   400] loss: 0.652\
+[3,   600] loss: 0.654\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.650\
+[4,   400] loss: 0.638\
+[4,   600] loss: 0.650\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.712\
+[1,   400] loss: 0.705\
+[1,   600] loss: 0.678\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.694\
+[2,   400] loss: 0.674\
+[2,   600] loss: 0.667\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.645\
+[3,   400] loss: 0.656\
+[3,   600] loss: 0.667\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.654\
+[4,   400] loss: 0.634\
+[4,   600] loss: 0.633\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.741\
+[1,   400] loss: 0.714\
+[1,   600] loss: 0.704\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.667\
+[2,   400] loss: 0.677\
+[2,   600] loss: 0.664\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.657\
+[3,   400] loss: 0.647\
+[3,   600] loss: 0.636\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.640\
+[4,   400] loss: 0.639\
+[4,   600] loss: 0.624\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.700\
+[1,   400] loss: 0.708\
+[1,   600] loss: 0.715\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.651\
+[2,   400] loss: 0.693\
+[2,   600] loss: 0.686\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.657\
+[3,   400] loss: 0.663\
+[3,   600] loss: 0.650\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.641\
+[4,   400] loss: 0.649\
+[4,   600] loss: 0.639\
+fold result 0.6426332288401254\
+running fold 6\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.717\
+[1,   400] loss: 0.699\
+[1,   600] loss: 0.724\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.689\
+[2,   400] loss: 0.670\
+[2,   600] loss: 0.676\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.653\
+[3,   400] loss: 0.653\
+[3,   600] loss: 0.653\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.633\
+[4,   400] loss: 0.637\
+[4,   600] loss: 0.644\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.730\
+[1,   400] loss: 0.716\
+[1,   600] loss: 0.708\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.662\
+[2,   400] loss: 0.687\
+[2,   600] loss: 0.666\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.670\
+[3,   400] loss: 0.656\
+[3,   600] loss: 0.644\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.639\
+[4,   400] loss: 0.639\
+[4,   600] loss: 0.640\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.704\
+[1,   400] loss: 0.717\
+[1,   600] loss: 0.716\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.676\
+[2,   400] loss: 0.673\
+[2,   600] loss: 0.680\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.662\
+[3,   400] loss: 0.634\
+[3,   600] loss: 0.656\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.645\
+[4,   400] loss: 0.641\
+[4,   600] loss: 0.636\
+fold result 0.6206896551724138\
+running fold 9\
+epoch: 0 learning rate: [0.06490697671720194]\
+[1,   200] loss: 0.709\
+[1,   400] loss: 0.727\
+[1,   600] loss: 0.714\
+epoch: 1 learning rate: [0.031042523668554423]\
+[2,   200] loss: 0.666\
+[2,   400] loss: 0.675\
+[2,   600] loss: 0.679\
+epoch: 2 learning rate: [0.014846451405544725]\
+[3,   200] loss: 0.661\
+[3,   400] loss: 0.654\
+[3,   600] loss: 0.640\
+epoch: 3 learning rate: [0.007100489692482056]\
+[4,   200] loss: 0.647\
+[4,   400] loss: 0.642\
+[4,   600] loss: 0.642\
+fold result 0.6036585365853658\
+test outcome 0.6261965746616714\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 19 params: (1445, 4, <built-in method sigmoid of type object at 0x10d036fc0>, 0.013159940243882062, 0.4108259502966728, 0.1686724977933209, 2)\
+running fold 0\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.821\
+[1,   400] loss: 0.865\
+[1,   600] loss: 0.842\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.688\
+[2,   400] loss: 0.659\
+[2,   600] loss: 0.699\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.895\
+[1,   400] loss: 0.806\
+[1,   600] loss: 0.849\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.695\
+[2,   400] loss: 0.674\
+[2,   600] loss: 0.691\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.822\
+[1,   400] loss: 0.889\
+[1,   600] loss: 0.866\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.671\
+[2,   400] loss: 0.698\
+[2,   600] loss: 0.685\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.884\
+[1,   400] loss: 0.901\
+[1,   600] loss: 0.818\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.682\
+[2,   400] loss: 0.674\
+[2,   600] loss: 0.685\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.871\
+[1,   400] loss: 0.855\
+[1,   600] loss: 0.844\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.695\
+[2,   400] loss: 0.699\
+[2,   600] loss: 0.693\
+fold result 0.6394984326018809\
+running fold 5\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.862\
+[1,   400] loss: 0.891\
+[1,   600] loss: 0.826\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.679\
+[2,   400] loss: 0.683\
+[2,   600] loss: 0.680\
+fold result 0.3573667711598746\
+running fold 6\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.881\
+[1,   400] loss: 0.872\
+[1,   600] loss: 0.901\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.692\
+[2,   400] loss: 0.686\
+[2,   600] loss: 0.678\
+fold result 0.6363636363636364\
+running fold 7\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.834\
+[1,   400] loss: 0.849\
+[1,   600] loss: 0.884\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.689\
+[2,   400] loss: 0.677\
+[2,   600] loss: 0.695\
+fold result 0.6206896551724138\
+running fold 8\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.821\
+[1,   400] loss: 0.901\
+[1,   600] loss: 0.862\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.688\
+[2,   400] loss: 0.679\
+[2,   600] loss: 0.677\
+fold result 0.6081504702194357\
+running fold 9\
+epoch: 0 learning rate: [0.013159940243882062]\
+[1,   200] loss: 0.813\
+[1,   400] loss: 0.852\
+[1,   600] loss: 0.845\
+epoch: 1 learning rate: [0.002219719991746432]\
+[2,   200] loss: 0.674\
+[2,   400] loss: 0.695\
+[2,   600] loss: 0.681\
+fold result 0.6036585365853658\
+test outcome 0.5964160103983486\
+************************************************************\
+top so far\
+[(0.784717868338558, (238, 2, <built-in method relu of type object at 0x10d036fc0>, 0.040875000482498196, 0.3612389414735456, 0.2505317389360358, 8))]\
+************************************************************\
+starting test 20 params: (1340, 3, <built-in method sigmoid of type object at 0x10d036fc0>, 0.060638231923189206, 0.6508574625554789, 0.2931542836790494, 4)\
+running fold 0\
+epoch: 0 learning rate: [0.060638231923189206]\
+[1,   200] loss: 9.768\
+[1,   400] loss: 10.638\
+[1,   600] loss: 10.500\
+epoch: 1 learning rate: [0.017776357443006596]\
+[2,   200] loss: 10.396\
+[2,   400] loss: 10.120\
+[2,   600] loss: 10.465\
+epoch: 2 learning rate: [0.005211215332627337]\
+[3,   200] loss: 10.500\
+[3,   400] loss: 10.258\
+[3,   600] loss: 10.223\
+epoch: 3 learning rate: [0.0015276900979336462]\
+[4,   200] loss: 9.636\
+[4,   400] loss: 10.949\
+[4,   600] loss: 10.742\
+fold result 0.6300940438871473\
+running fold 1\
+epoch: 0 learning rate: [0.060638231923189206]\
+[1,   200] loss: 10.744\
+[1,   400] loss: 11.087\
+[1,   600] loss: 10.051\
+epoch: 1 learning rate: [0.017776357443006596]\
+[2,   200] loss: 10.189\
+[2,   400] loss: 9.636\
+[2,   600] loss: 10.880\
+epoch: 2 learning rate: [0.005211215332627337]\
+[3,   200] loss: 10.776\
+[3,   400] loss: 9.774\
+[3,   600] loss: 10.949\
+epoch: 3 learning rate: [0.0015276900979336462]\
+[4,   200] loss: 10.154\
+[4,   400] loss: 10.672\
+[4,   600] loss: 10.258\
+fold result 0.64576802507837\
+running fold 2\
+epoch: 0 learning rate: [0.060638231923189206]\
+[1,   200] loss: 9.712\
+[1,   400] loss: 10.085\
+[1,   600] loss: 10.983\
+epoch: 1 learning rate: [0.017776357443006596]\
+[2,   200] loss: 9.705\
+[2,   400] loss: 11.156\
+[2,   600] loss: 10.672\
+epoch: 2 learning rate: [0.005211215332627337]\
+[3,   200] loss: 10.293\
+[3,   400] loss: 10.603\
+[3,   600] loss: 10.051\
+epoch: 3 learning rate: [0.0015276900979336462]\
+[4,   200] loss: 10.880\
+[4,   400] loss: 9.533\
+[4,   600] loss: 10.362\
+fold result 0.6081504702194357\
+running fold 3\
+epoch: 0 learning rate: [0.060638231923189206]\
+[1,   200] loss: 10.321\
+[1,   400] loss: 10.500\
+[1,   600] loss: 10.154\
+epoch: 1 learning rate: [0.017776357443006596]\
+[2,   200] loss: 11.052\
+[2,   400] loss: 10.569\
+[2,   600] loss: 9.947\
+epoch: 2 learning rate: [0.005211215332627337]\
+[3,   200] loss: 10.327\
+[3,   400] loss: 10.362\
+[3,   600] loss: 10.603\
+epoch: 3 learning rate: [0.0015276900979336462]\
+[4,   200] loss: 9.671\
+[4,   400] loss: 10.845\
+[4,   600] loss: 10.811\
+fold result 0.6144200626959248\
+running fold 4\
+epoch: 0 learning rate: [0.060638231923189206]\
+[1,   200] loss: 10.555\
+[1,   400] loss: 9.671\
+[1,   600] loss: 10.914\
+epoch: 1 learning rate: [0.017776357443006596]\
+[2,   200] loss: 11.191\
+[2,   400] loss: 9.982\
+[2,   600] loss: 10.845\
+epoch: 2 learning rate: [0.005211215332627337]}
