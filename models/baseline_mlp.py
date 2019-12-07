@@ -92,7 +92,7 @@ class MLP(nn.Module):
             # halve learning rate
             self.scheduler.step()
 
-    def get_accuracy_graph(self, X, y):
+    def get_accuracy_graph(self, X, y, X_hist_len_test):
         """
             Get the accuracy of the model on some test set
             :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
@@ -106,14 +106,20 @@ class MLP(nn.Module):
         trueByLength = defaultdict(list)
         predByLength = defaultdict(list)
 
+        # make dataloader
+
+        testset = utils.TensorDataset(X, y)
+        testloader = utils.DataLoader(testset, batch_size=1, shuffle=False, num_workers=2)
+
         # test model
         correct = 0
         total = 0
         with torch.no_grad():
-            for i, X_i in enumerate(X):
-                length = X_i.shape[0]  # user history length
-                outputs = self(X_i)  # output contains labels for the whole sequence
-                predictions = torch.round(outputs[-1]).item()  # we only care about the last one
+            for i, data in enumerate(testloader):
+                length = X_hist_len_test[i]
+                inputs, labels = data[0].to(self.device), data[1].to(self.device)
+                outputs = self(inputs)
+                predictions = torch.round(outputs).item()
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
                 predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
@@ -179,7 +185,7 @@ class MLP(nn.Module):
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.5, 0.9)
         plt.yticks(np.arange(0.5, 0.9, 0.05))
-        plt.show()
+        #plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
@@ -249,8 +255,6 @@ class MLP(nn.Module):
         """
 
         # make dataloader
-        testset = utils.TensorDataset(X_test, y_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
         testset = utils.TensorDataset(X_test, y_test)
         testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
