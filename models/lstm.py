@@ -37,6 +37,10 @@ class LSTM(nn.Module):
             hidden_dim = hidden_dim * 2
         self.hidden2class = nn.Linear(hidden_dim, 1)    # fully connected layer
 
+        # set up cuda
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.to(self.device)
+
         # set up optimization
         self.loss_function = torch.nn.BCELoss()
         self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=momentum)
@@ -68,13 +72,15 @@ class LSTM(nn.Module):
 
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
+            y.to(self.device)  # send to gpu if available (X_i are sent later)
+
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0 # this variable just for visualization
+            #running_loss = 0.0 # this variable just for visualization
 
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
 
-                pred = self(X_i) # forward pass
+                pred = self(X_i.to(self.device)) # forward pass
 
                 # just examine last prediction #todo examine all labeled, not just the last
                 loss = self.loss_function(pred[-1], y[i])
@@ -84,11 +90,11 @@ class LSTM(nn.Module):
                 self.optimizer.step()
 
                 # report the running loss on each set of 200 for visualization
-                running_loss += loss.item()
-                if i % 200 == 199:  # print every 200 mini-batches
-                    print('[%d, %5d] loss: %.3f' %
-                          (epoch + 1, i + 1, running_loss / 200))
-                    running_loss = 0.0
+                #running_loss += loss.item()
+                #if i % 200 == 199:  # print every 200 mini-batches
+                    #print('[%d, %5d] loss: %.3f' %
+                          #(epoch + 1, i + 1, running_loss / 200))
+                    #running_loss = 0.0
 
             # halve learning rate
             self.scheduler.step()
@@ -195,12 +201,14 @@ class LSTM(nn.Module):
         :return: a float, the accuracy (number of correct predictions out of total)
         """
 
+        y.to(self.device) # send to gpu if available (X_i are sent later)
+
         # test model
         correct = 0
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                outputs = self(X_i)  # output contains labels for the whole sequence
+                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
