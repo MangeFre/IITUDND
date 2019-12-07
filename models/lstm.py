@@ -80,10 +80,8 @@ class LSTM(nn.Module):
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
 
-                pred = self(X_i.to(self.device)) # forward pass
-
                 # just examine last prediction #todo examine all labeled, not just the last
-                loss = self.loss_function(pred[-1], y[i])
+                loss = self.loss_function(pred[-1], y[i].to(self.device))
 
                 # back propagation
                 loss.backward()
