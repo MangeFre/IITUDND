@@ -187,16 +187,16 @@ class MLP(nn.Module):
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
         return groups, binRatios
 
-    def plot_CIs(self, binNames, binRatios):
+    def plot_cis(self, binNames, binRatios):
         '''
         Requires a list of group str outputs and bin ratios from get_accuracy_graph - one for each run
         Collect results of both get_accuracy_plot return values -- names and binRatios-- in an array to run this.
         '''
         names = [bin[0] for bin in binNames] # Establish bin names for the x labels
         binVals = defaultdict(list)
-        for run in binRatios:
-            for bin in run:
-                binVals[bin].append(binRatios[run][bin])
+        for run in range(len(binRatios)):
+            for bin in range(len(binRatios[run])):
+                binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
         cis = []
         means = []
         for bin in binVals: # Calculate mean and CI for each bin

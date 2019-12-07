@@ -260,9 +260,9 @@ class LSTM(nn.Module):
         '''
         names = [bin[0] for bin in binNames] # Establish bin names for the x labels
         binVals = defaultdict(list)
-        for run in binRatios:
-            for bin in run:
-                binVals[bin].append(binRatios[run][bin])
+        for run in range(len(binRatios)):
+            for bin in range(len(binRatios[run])):
+                binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
         cis = []
         means = []
         for bin in binVals: # Calculate mean and CI for each bin
