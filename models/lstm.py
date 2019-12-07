@@ -72,13 +72,13 @@ class LSTM(nn.Module):
 
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
-            y.to(self.device)  # send to gpu if available (X_i are sent later)
-
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
             #running_loss = 0.0 # this variable just for visualization
 
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
+
+                pred = self(X_i.to(self.device)) # forward pass
 
                 # just examine last prediction #todo examine all labeled, not just the last
                 loss = self.loss_function(pred[-1], y[i].to(self.device))
