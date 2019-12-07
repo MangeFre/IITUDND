@@ -199,14 +199,16 @@ class MLP(nn.Module):
                 binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
         cis = []
         means = []
+        keys = []
         for bin in binVals: # Calculate mean and CI for each bin
+            keys.append(bin)
             mean = np.mean(binVals[bin])
             ci = st.t.interval(0.95, len(binVals[bin]) - 1, loc=np.mean(binVals[bin]), scale=st.sem(binVals[bin]))
             cis.append(ci)
             means.append(mean)
-        plt.plot(binVals.keys(), means, label="Mean Accuracy by Bin")  # plot accuracy by bin
-        plt.errorbar(binVals.keys(), means, yerr=cis)
-        plt.xticks(binVals.keys(), names)
+        plt.plot(keys, means, label="Mean Accuracy by Bin")  # plot accuracy by bin
+        plt.errorbar(keys, means, yerr=cis)
+        plt.xticks(keys, names)
         return
 
 
