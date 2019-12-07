@@ -1,5 +1,6 @@
 import math
 
+import scipy.stats as st
 import torch.nn as nn
 import torch
 import torch.utils.data as utils
@@ -166,12 +167,13 @@ class MLP(nn.Module):
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
         plt.plot(bins, priors, label="Naive accuracy")  # plot dumb accuracy by bin
-        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
+        groups = [str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
                           str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
                           str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
-                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])))
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])]
+        plt.xticks(bins, groups)
         plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
@@ -183,7 +185,30 @@ class MLP(nn.Module):
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return binRatios
+        return groups, binRatios
+
+    def plot_CIs(self, binNames, binRatios):
+        '''
+        Requires a list of group str outputs and bin ratios from get_accuracy_graph - one for each run
+        Collect results of both get_accuracy_plot return values -- names and binRatios-- in an array to run this.
+        '''
+        names = [bin[0] for bin in binNames] # Establish bin names for the x labels
+        binVals = defaultdict(list)
+        for run in binRatios:
+            for bin in run:
+                binVals[bin].append(binRatios[run][bin])
+        cis = []
+        means = []
+        for bin in binVals: # Calculate mean and CI for each bin
+            mean = np.mean(binVals[bin])
+            ci = st.t.interval(0.95, len(binVals[bin]) - 1, loc=np.mean(binVals[bin]), scale=st.sem(binVals[bin]))
+            cis.append(ci)
+            means.append(mean)
+        plt.plot(binVals.keys(), means, label="Mean Accuracy by Bin")  # plot accuracy by bin
+        plt.errorbar(binVals.keys(), means, yerr=cis)
+        plt.xticks(binVals.keys(), names)
+        return
+
 
     # todo how did this get here and how was it working for so long!
     '''def get_accuracy(self, X, y):
