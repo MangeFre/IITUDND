@@ -185,7 +185,7 @@ class MLP(nn.Module):
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return groups, binRatios
+        return groups, binRatios, priors
 
 
 
