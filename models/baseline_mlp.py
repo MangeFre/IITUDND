@@ -191,39 +191,9 @@ class MLP(nn.Module):
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return groups, binRatios
+        return groups, binRatios, priors
 
-    def plot_cis(self, binNames, binRatios):
-        '''
-        Requires a list of group str outputs and bin ratios from get_accuracy_graph - one for each run
-        Collect results of both get_accuracy_plot return values -- names and binRatios-- in an array to run this.
-        '''
-        names = [bin[0] for bin in binNames] # Establish bin names for the x labels
-        binVals = defaultdict(list)
-        for run in range(len(binRatios)):
-            for bin in range(len(binRatios[run])):
-                binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
-        ci_low = []
-        ci_hi = []
-        means = []
-        keys = []
-        for bin in binVals: # Calculate mean and CI for each bin
-            keys.append(bin)
-            mean = np.mean(binVals[bin])
 
-            ci = st.t.interval(0.95, len(binVals[bin]) - 1, loc=np.mean(binVals[bin]), scale=st.sem(binVals[bin]))
-            ci_low.append(ci[0])
-            ci_hi.append(ci[1])
-            means.append(mean)
-        ci_low = np.array(ci_low)
-        ci_hi=np.array(ci_hi)
-        cis = np.stack((ci_low, ci_hi))
-        plt.figure()  # initiate accuracy plot
-        plt.plot(keys, means, label="Mean Accuracy by Bin")  # plot accuracy by bin
-        plt.errorbar(keys, means, yerr=cis)
-        plt.xticks(keys, names)
-        plt.show()
-        return
 
 
     # todo how did this get here and how was it working for so long!
