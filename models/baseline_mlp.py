@@ -212,9 +212,11 @@ class MLP(nn.Module):
         ci_low = np.array(ci_low)
         ci_hi=np.array(ci_hi)
         cis = np.stack((ci_low, ci_hi))
+        plt.figure()  # initiate accuracy plot
         plt.plot(keys, means, label="Mean Accuracy by Bin")  # plot accuracy by bin
         plt.errorbar(keys, means, yerr=cis)
         plt.xticks(keys, names)
+        plt.show()
         return
 
 
