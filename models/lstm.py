@@ -263,19 +263,26 @@ class LSTM(nn.Module):
         for run in range(len(binRatios)):
             for bin in range(len(binRatios[run])):
                 binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
-        cis = []
+        ci_low = []
+        ci_hi = []
         means = []
         keys = []
         for bin in binVals: # Calculate mean and CI for each bin
             keys.append(bin)
             mean = np.mean(binVals[bin])
+
             ci = st.t.interval(0.95, len(binVals[bin]) - 1, loc=np.mean(binVals[bin]), scale=st.sem(binVals[bin]))
-            cis.append(ci)
+            ci_low.append(ci[0])
+            ci_hi.append(ci[1])
             means.append(mean)
+        ci_low = np.array(ci_low)
+        ci_hi=np.array(ci_hi)
+        cis = np.stack((ci_low, ci_hi))
         plt.plot(keys, means, label="Mean Accuracy by Bin")  # plot accuracy by bin
         plt.errorbar(keys, means, yerr=cis)
         plt.xticks(keys, names)
         return
+
 
 
 def shuffle_data(X, y):
