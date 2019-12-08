@@ -20,11 +20,22 @@ class DataHandler:
         # Establish dict of annotated scores for each tweet ID
         class_encoding = {'dont_know_or_cant_judge': -1, 'informative': 1, 'not_informative': 0}
         self.id_to_class = {}  # this is the binary informative / not informative score
+
+        count_disagreements = 0
+
         # CHANGE FILEPATH — Read in the classifications of each tweet
         with open(classifications_filename) as fin:
             reader = csv.DictReader(fin, dialect='excel-tab')
             for line in reader:
-                self.id_to_class[int(line['tweet_id'])] = class_encoding[line['text_info']]
+                tweet_id = int(line['tweet_id'])
+                if tweet_id not in self.id_to_class:
+                    self.id_to_class[tweet_id] = [class_encoding[line['text_info']]]
+                self.id_to_class[tweet_id].append(class_encoding[line['image_info']])
+
+        # resolve conflicts
+        for key in self.id_to_class:
+            self.id_to_class[key] = max(self.id_to_class[key]) # if any are positive, make positive (also overides don't knows)
+
 
         # load json data
         with open(unlabeled_data_filename) as fin:
@@ -207,4 +218,10 @@ datahandler = DataHandler(UNLABELED_DATA, LABELED_DATA, CLASSIFICATIONS)
 #               tuple_k()]
 k = 10
 eva, val = datahandler.get_k_fold_split(k)
+
+
+UNLABLED_DATA = '/Users/ianmagnusson/IITUDND/data/retrieved_data/tweets/maria_extras.json'
+LABLED_DATA = '/Users/ianmagnusson/IITUDND/data/CrisisMMD_v1.0/json/hurricane_maria_final_data.json'
+CLASS_DATA = '/Users/ianmagnusson/IITUDND/data/CrisisMMD_v1.0/annotations/hurricane_maria_final_data.tsv'
+datahandler = DataHandler(UNLABLED_DATA, LABLED_DATA, CLASS_DATA)
 '''

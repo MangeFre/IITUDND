@@ -1,5 +1,6 @@
 import math
 
+import scipy.stats as st
 import torch.nn as nn
 import torch
 import torch.utils.data as utils
@@ -91,7 +92,7 @@ class MLP(nn.Module):
             # halve learning rate
             self.scheduler.step()
 
-    def get_accuracy_graph(self, X, y):
+    def get_accuracy_graph(self, X, y, X_hist_len_test):
         """
             Get the accuracy of the model on some test set
             :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
@@ -105,14 +106,20 @@ class MLP(nn.Module):
         trueByLength = defaultdict(list)
         predByLength = defaultdict(list)
 
+        # make dataloader
+
+        testset = utils.TensorDataset(X, y)
+        testloader = utils.DataLoader(testset, batch_size=1, shuffle=False, num_workers=2)
+
         # test model
         correct = 0
         total = 0
         with torch.no_grad():
-            for i, X_i in enumerate(X):
-                length = X_i.shape[0]  # user history length
-                outputs = self(X_i)  # output contains labels for the whole sequence
-                predictions = torch.round(outputs[-1]).item()  # we only care about the last one
+            for i, data in enumerate(testloader):
+                length = X_hist_len_test[i]
+                inputs, labels = data[0].to(self.device), data[1].to(self.device)
+                outputs = self(inputs)
+                predictions = torch.round(outputs).item()
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
                 predByLength[length].append(predictions) # store predicted value (need this to get R2 in bins)
@@ -166,24 +173,28 @@ class MLP(nn.Module):
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
         plt.plot(bins, priors, label="Naive accuracy")  # plot dumb accuracy by bin
-        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
+        groups = [str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
                           str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
                           str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
                           str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
-                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])))
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])]
+        plt.xticks(bins, groups)
         plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.5, 0.9)
         plt.yticks(np.arange(0.5, 0.9, 0.05))
-        plt.show()
+        #plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return binRatios
+        return groups, binRatios, priors
+
+
+
 
     # todo how did this get here and how was it working for so long!
     '''def get_accuracy(self, X, y):
@@ -214,8 +225,6 @@ class MLP(nn.Module):
         """
 
         # make dataloader
-        testset = utils.TensorDataset(X_test, y_test)  # create your datset
-        testloader = utils.DataLoader(testset, batch_size=4, shuffle=True, num_workers=2)
         testset = utils.TensorDataset(X_test, y_test)
         testloader = utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 

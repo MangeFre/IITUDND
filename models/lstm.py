@@ -3,6 +3,7 @@ from collections import defaultdict
 
 import numpy as np
 import torch
+import scipy.stats as st
 import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import roc_auc_score, confusion_matrix, r2_score
@@ -37,6 +38,10 @@ class LSTM(nn.Module):
             hidden_dim = hidden_dim * 2
         self.hidden2class = nn.Linear(hidden_dim, 1)    # fully connected layer
 
+        # set up cuda
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.to(self.device)
+
         # set up optimization
         self.loss_function = torch.nn.BCELoss()
         self.optimizer = optim.SGD(self.parameters(), lr=learning_rate, momentum=momentum)
@@ -69,26 +74,26 @@ class LSTM(nn.Module):
             X, y = shuffle_data(X, y) # shuffle the data each epoch
 
             print('epoch:', epoch, 'learning rate:', self.scheduler.get_lr())
-            running_loss = 0.0 # this variable just for visualization
+            #running_loss = 0.0 # this variable just for visualization
 
             for i, X_i in enumerate(X):
                 self.zero_grad() # reset the auto gradient calculations
 
-                pred = self(X_i) # forward pass
+                pred = self(X_i.to(self.device)) # forward pass
 
                 # just examine last prediction #todo examine all labeled, not just the last
-                loss = self.loss_function(pred[-1], y[i])
+                loss = self.loss_function(pred[-1], y[i].to(self.device))
 
                 # back propagation
                 loss.backward()
                 self.optimizer.step()
 
                 # report the running loss on each set of 200 for visualization
-                running_loss += loss.item()
-                if i % 200 == 199:  # print every 200 mini-batches
-                    print('[%d, %5d] loss: %.3f' %
-                          (epoch + 1, i + 1, running_loss / 200))
-                    running_loss = 0.0
+                #running_loss += loss.item()
+                #if i % 200 == 199:  # print every 200 mini-batches
+                    #print('[%d, %5d] loss: %.3f' %
+                          #(epoch + 1, i + 1, running_loss / 200))
+                    #running_loss = 0.0
 
             # halve learning rate
             self.scheduler.step()
@@ -163,17 +168,18 @@ class LSTM(nn.Module):
         bins = []
         accuracy = []
 
+        groups = [str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
+                          str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
+                          str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
+                          str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
+                          str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
+                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])]
         for bin in accByBin:
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
         plt.plot(bins, priors, label="Naive accuracy")    # plot dumb accuracy by bin
-        plt.xticks(bins, (str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
-                          str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
-                          str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
-                          str(binMinMax[3][0]) + ' to ' + str(binMinMax[3][1]),
-                          str(binMinMax[4][0]) + ' to ' + str(binMinMax[4][1]),
-                          str(binMinMax[5][0]) + ' to ' + str(binMinMax[5][1])))
+        plt.xticks(bins, groups)
         plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
         plt.ylabel('Average accuracy rate')
@@ -185,7 +191,7 @@ class LSTM(nn.Module):
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return binRatios
+        return groups, binRatios, priors
 
     def get_accuracy(self, X, y):
         """
@@ -195,12 +201,14 @@ class LSTM(nn.Module):
         :return: a float, the accuracy (number of correct predictions out of total)
         """
 
+        y.to(self.device) # send to gpu if available (X_i are sent later)
+
         # test model
         correct = 0
         total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                outputs = self(X_i)  # output contains labels for the whole sequence
+                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
@@ -244,6 +252,39 @@ class LSTM(nn.Module):
                 y_scores.extend(outputs.reshape(-1).tolist())
 
         return confusion_matrix(y_test.numpy(), np.array(y_scores))
+
+    def plot_cis(self, binNames, binRatios):
+        '''
+        Requires a list of group str outputs and bin ratios from get_accuracy_graph - one for each run
+        Collect results of both get_accuracy_plot return values -- names and binRatios-- in an array to run this.
+        '''
+        names = [bin[0] for bin in binNames] # Establish bin names for the x labels
+        binVals = defaultdict(list)
+        for run in range(len(binRatios)):
+            for bin in range(len(binRatios[run])):
+                binVals[bin+1].append(binRatios[run][bin]) # append the ratio (accuracy) of the bin to list
+        ci_low = []
+        ci_hi = []
+        means = []
+        keys = []
+        for bin in binVals: # Calculate mean and CI for each bin
+            keys.append(bin)
+            mean = np.mean(binVals[bin])
+
+            ci = st.t.interval(0.95, len(binVals[bin]) - 1, loc=np.mean(binVals[bin]), scale=st.sem(binVals[bin]))
+            ci_low.append(ci[0])
+            ci_hi.append(ci[1])
+            means.append(mean)
+        ci_low = np.array(ci_low)
+        ci_hi=np.array(ci_hi)
+        cis = np.stack((ci_low, ci_hi))
+        plt.figure()  # initiate accuracy plot
+        plt.plot(keys, means, label="Mean Accuracy by Bin")  # plot accuracy by bin
+        plt.errorbar(keys, means, yerr=cis)
+        plt.xticks(keys, names)
+        plt.show()
+        return
+
 
 
 def shuffle_data(X, y):
