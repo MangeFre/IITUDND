@@ -223,6 +223,14 @@ class MLP(nn.Module):
                 correct += 1 if predictions == y[i].item() else 0
         return correct / total'''
 
+
+    def get_naiveclassifier_acc(self, y, y_train):
+        # Naive classifier results on whole dataset:
+        a = np.sum(y_train) / len(y_train)
+        b = np.sum(y) / len(y)
+        return (a*b) + (1-a)*(1-b)
+
+
     def get_accuracy(self, X_test, y_test):
         """
         Get the accuracy of the model on some test set
