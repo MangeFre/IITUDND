@@ -98,7 +98,7 @@ class LSTM(nn.Module):
             # halve learning rate
             self.scheduler.step()
 
-    def get_accuracy_graph(self, X, y):
+    def get_accuracy_graph(self, X, y, y_train):
         """
             Get the accuracy of the model on some test set
             :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
@@ -156,6 +156,13 @@ class LSTM(nn.Module):
             predictedVals = predByBin[binNum]
             trueVals = trueByBin[binNum]
             print("R2 score for bin", binNum, "=", r2_score(trueVals, predictedVals))
+
+        # Naive classifier results per bin:
+        naiveClassifier = []
+        a = np.sum(y_train) / len(y_train)
+        for binNum in trueByBin:
+            b = (np.sum(trueByBin[binNum]) / len(trueByBin[binNum]))
+            naiveClassifier.append((a*b) + (1-a)*(1-b))
 
         # Calculate priors per bin:
         priors = []
