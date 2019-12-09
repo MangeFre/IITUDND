@@ -277,69 +277,38 @@ class MLP(nn.Module):
 
         return roc_auc_score(y_test.numpy(), np.array(y_scores))
 
-    def get_precision(self, X_test, y_test):
-        """
-        Get the precision of some test set
-        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
-        :return: a float, the AUC score
-        """
-        # make dataloader
-        testset = data_utils.TensorDataset(X_test)  # create your dataset
-        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
-        # test model
-        y_scores = []
-        with torch.no_grad():
-            for data in testloader:
-                inputs = data[0].to(self.device)
-                outputs = self(inputs)
-                y_scores.extend(outputs.reshape(-1).tolist())
-
-        return precision_score(y_test.numpy(), np.array(y_scores))
-
-
-    def get_recall(self, X_test, y_test):
+    def get_acc_auc_pre_re_f1(self,X_test, y_test):
         """
         Get the recall of some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
+
         # make dataloader
         testset = data_utils.TensorDataset(X_test)  # create your dataset
         testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
         y_scores = []
+        y_preds = []
+        correct = 0
+        total = 0
         with torch.no_grad():
             for data in testloader:
                 inputs = data[0].to(self.device)
                 outputs = self(inputs)
                 y_scores.extend(outputs.reshape(-1).tolist())
+                predictions = torch.round(outputs).reshape(-1).tolist()
+                y_preds.append(predictions)  # we only care about the last one
+                total += 1
+                correct += 1 if predictions == y_test[data].item() else 0
+        return correct/total, roc_auc_score(y_test.numpy(), np.array(y_scores)), \
+               precision_score(y_test.numpy(), np.array(y_preds)), \
+               recall_score(y_test.numpy(), np.array(y_preds)), \
+               f1_score(y_test.numpy(), np.array(y_preds))
 
-        return recall_score(y_test.numpy(), np.array(y_scores))
-
-
-    def get_f1(self, X_test, y_test):
-        """
-        Get the recall of some test set
-        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
-        :return: a float, the AUC score
-        """
-        # make dataloader
-        testset = data_utils.TensorDataset(X_test)  # create your dataset
-        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
-
-        # test model
-        y_scores = []
-        with torch.no_grad():
-            for data in testloader:
-                inputs = data[0].to(self.device)
-                outputs = self(inputs)
-                y_scores.extend(outputs.reshape(-1).tolist())
-        return f1_score(y_test.numpy(), np.array(y_scores))
 
 
     def get_confusion_matrix(self,X_test, y_test):
