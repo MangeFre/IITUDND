@@ -118,7 +118,7 @@ class LSTM(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 length = X_i.shape[0]  # user history length
-                outputs = self(X_i)  # output contains labels for the whole sequence
+                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
                 correct += 1 if predictions == y[i].item() else 0
@@ -227,7 +227,7 @@ class LSTM(nn.Module):
         y_scores = []
         with torch.no_grad():
             for i, X_i in enumerate(X):
-                outputs = self(X_i)  # output contains labels for the whole sequence
+                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
                 y_scores.append(outputs[-1].item())  # we only care about the last one
         return roc_auc_score(y.numpy(), np.array(y_scores))
 
