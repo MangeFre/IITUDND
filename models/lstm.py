@@ -116,7 +116,7 @@ class LSTM(nn.Module):
             # halve learning rate
             self.scheduler.step()
 
-    def get_accuracy_graph(self, X, X_img, y, y_train):
+    def get_accuracy_graph(self, X, X_img, X_hist_len_test, y, y_train):
         """
             Get the accuracy of the model on some test set
             :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history
@@ -138,7 +138,7 @@ class LSTM(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 X_i_images = X_img[i]
-                length = X_i.shape[0]  # user history length
+                length = X_hist_len_test[i]  # user history length
                 outputs = self(X_i.to(self.device), X_i_images)  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
