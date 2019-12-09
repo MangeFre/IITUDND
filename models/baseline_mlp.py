@@ -262,58 +262,69 @@ class MLP(nn.Module):
 
         return roc_auc_score(y_test.numpy(), np.array(y_scores))
 
-    def get_precision(self,X, X_img, y):
+    def get_precision(self, X_test, y_test):
         """
         Get the precision of some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
-        y.to(self.device)  # send to gpu if available (X_i are sent later)
+        # make dataloader
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
         # test model
         y_scores = []
         with torch.no_grad():
-            for i, X_i in enumerate(X):
-                X_i_images = X_img[i]
-                outputs = self(X_i.to(self.device), X_i_images)  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return precision_score(y.numpy(), np.array(y_scores))
+            for data in testloader:
+                inputs = data[0].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+
+        return precision_score(y_test.numpy(), np.array(y_scores))
 
 
-    def get_recall(self,X, X_img, y):
+    def get_recall(self, X_test, y_test):
         """
         Get the recall of some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
-        y.to(self.device)  # send to gpu if available (X_i are sent later)
+        # make dataloader
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
         # test model
         y_scores = []
         with torch.no_grad():
-            for i, X_i in enumerate(X):
-                X_i_images = X_img[i]
-                outputs = self(X_i.to(self.device), X_i_images)  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return recall_score(y.numpy(), np.array(y_scores))
+            for data in testloader:
+                inputs = data[0].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+
+        return recall_score(y_test.numpy(), np.array(y_scores))
 
 
-    def get_f1(self,X, X_img, y):
+    def get_f1(self, X_test, y_test):
         """
         Get the recall of some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
         :param y: a tensor of class labels (1 or 0)
         :return: a float, the AUC score
         """
-        y.to(self.device)  # send to gpu if available (X_i are sent later)
+        # make dataloader
+        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
+
         # test model
         y_scores = []
         with torch.no_grad():
-            for i, X_i in enumerate(X):
-                X_i_images = X_img[i]
-                outputs = self(X_i.to(self.device), X_i_images)  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return f1_score(y.numpy(), np.array(y_scores))
+            for data in testloader:
+                inputs = data[0].to(self.device)
+                outputs = self(inputs)
+                y_scores.extend(outputs.reshape(-1).tolist())
+        return f1_score(y_test.numpy(), np.array(y_scores))
 
 
     def get_confusion_matrix(self,X_test, y_test):
