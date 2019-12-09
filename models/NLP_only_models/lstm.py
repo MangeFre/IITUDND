@@ -185,7 +185,7 @@ class LSTM(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
-        plt.plot(bins, priors, label="Naive accuracy")    # plot dumb accuracy by bin
+        plt.plot(bins, naiveClassifier, label="Naive classifier accuracy")    # plot dumb accuracy by bin
         plt.xticks(bins, groups)
         plt.suptitle('Test classification accuracy rate by user history length, separated into six bins')
         plt.xlabel('User history length (lowest to highest), discretized into bins (ascending order)')
