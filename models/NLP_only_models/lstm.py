@@ -245,23 +245,7 @@ class LSTM(nn.Module):
         return roc_auc_score(y.numpy(), np.array(y_scores))
 
 
-    def get_precision(self,X, y):
-        """
-        Get the precision of some test set
-        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
-        :return: a float, the AUC score
-        """
-        # test model
-        y_scores = []
-        with torch.no_grad():
-            for i, X_i in enumerate(X):
-                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return precision_score(y.numpy(), np.array(y_scores))
-
-
-    def get_recall(self,X, y):
+    def get_acc_auc_pre_re_f1(self,X, y):
         """
         Get the recall of some test set
         :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
@@ -269,28 +253,22 @@ class LSTM(nn.Module):
         :return: a float, the AUC score
         """
         # test model
+        y_preds = []
         y_scores = []
+        correct = 0
+        total = 0
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return recall_score(y.numpy(), np.array(y_scores))
-
-
-    def get_f1(self,X, y):
-        """
-        Get the recall of some test set
-        :param X: a list of 2d tensors of shape (len(history), input_dim), where each is a single user history sequence
-        :param y: a tensor of class labels (1 or 0)
-        :return: a float, the AUC score
-        """
-        # test model
-        y_scores = []
-        with torch.no_grad():
-            for i, X_i in enumerate(X):
-                outputs = self(X_i.to(self.device))  # output contains labels for the whole sequence
-                y_scores.append(outputs[-1].item())  # we only care about the last one
-        return f1_score(y.numpy(), np.array(y_scores))
+                y_scores.append(outputs[-1].item())
+                predictions = torch.round(outputs[-1]).item()
+                y_preds.append(predictions)  # we only care about the last one
+                total += 1
+                correct += 1 if predictions == y[i].item() else 0
+        return correct/total, roc_auc_score(y.numpy(), np.array(y_scores)), \
+               precision_score(y.numpy(), np.array(y_preds)), \
+               recall_score(y.numpy(), np.array(y_preds)), \
+               f1_score(y.numpy(), np.array(y_preds))
 
     def get_confusion_matrix(self,X_test, y_test):
         """
