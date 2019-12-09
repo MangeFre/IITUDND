@@ -200,6 +200,12 @@ class LSTM(nn.Module):
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
         return groups, binRatios, priors
 
+    def get_naiveclassifier_acc(self, y, y_train):
+        # Naive classifier results on whole dataset:
+        a = np.sum(y_train) / len(y_train)
+        b = np.sum(y) / len(y)
+        return (a*b) + (1-a)*(1-b)
+
     def get_accuracy(self, X, y):
         """
         Get the accuracy of the model on some test set
