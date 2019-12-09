@@ -33,8 +33,9 @@ class LSTM(nn.Module):
         :param hidden_dim: the number of neurons used in the LSTM layer
         """
         super(LSTM, self).__init__()
+        self.img_hid = img_hidden_dim
         self.images_per_tweet_lstm = nn.LSTM(img_input_dim, img_hidden_dim)
-        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers= num_layers, bidirectional = bidirectional)  # lstm layer
+        self.lstm = nn.LSTM(input_dim + img_hidden_dim, hidden_dim, num_layers= num_layers, bidirectional = bidirectional)
         if bidirectional:
             hidden_dim = hidden_dim * 2
         self.hidden2class = nn.Linear(hidden_dim, 1)    # fully connected layer
@@ -59,7 +60,7 @@ class LSTM(nn.Module):
         :return: a 1d tensor of predicted classes (1 for informative, 0 for not)
         """
         # process multiple image per tweet into sequence of tweet image features
-        X_i_images_combined = torch.zeros(len(X_i_images), X_i_images[0].shape[1])
+        X_i_images_combined = torch.zeros(len(X_i_images), self.img_hid)
         for j, X_i_image in enumerate(X_i_images):  # for each tweet in the history, combine the images
             input = X_i_image.view(X_i_image.shape[0], 1, -1).to(self.device)
             img_lstm_out, _ = self.images_per_tweet_lstm(input)
@@ -67,7 +68,7 @@ class LSTM(nn.Module):
 
         #concatonate image combined per tweet features to the rest
 
-        X_i = torch.cat((X_i, X_i_images_combined), axis = 1)
+        X_i = torch.cat((X_i, X_i_images_combined.to(self.device)), axis = 1)
 
         # process tweet level data
         input = X_i.view(X_i.shape[0], 1, -1) # need to add a fake dimension for batch (2nd dim out of 3d now)
