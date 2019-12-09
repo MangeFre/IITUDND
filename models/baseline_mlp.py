@@ -179,7 +179,7 @@ class MLP(nn.Module):
             bins.append(bin)
             accuracy.append(np.mean(accByBin[bin]))
         plt.plot(bins, accuracy, label="Accuracy")  # plot accuracy by bin
-        plt.plot(bins, priors, label="Naive accuracy")  # plot dumb accuracy by bin
+        plt.plot(bins, naiveClassifier, label="Naive classifier accuracy")  # plot dumb accuracy by bin
         groups = [str(binMinMax[0][0]) + ' to ' + str(binMinMax[0][1]),  # set the x tick labels
                           str(binMinMax[1][0]) + ' to ' + str(binMinMax[1][1]),
                           str(binMinMax[2][0]) + ' to ' + str(binMinMax[2][1]),
