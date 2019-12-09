@@ -297,13 +297,13 @@ class MLP(nn.Module):
         total = 0
         with torch.no_grad():
             for data in testloader:
-                inputs = data[0].to(self.device)
+                inputs, labels = data[0].to(self.device), data[1].to(self.device)
                 outputs = self(inputs)
                 y_scores.extend(outputs.reshape(-1).tolist())
                 predictions = torch.round(outputs).reshape(-1).tolist()
-                y_preds.append(predictions)  # we only care about the last one
-                total += 1
-                correct += 1 if predictions == y_test[data].item() else 0
+                y_preds.extend(predictions)  # we only care about the last one
+                total += labels.size(0)
+                correct += (predictions == labels).sum().item()
         return correct/total, roc_auc_score(y_test.numpy(), np.array(y_scores)), \
                precision_score(y_test.numpy(), np.array(y_preds)), \
                recall_score(y_test.numpy(), np.array(y_preds)), \
