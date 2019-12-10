@@ -192,13 +192,13 @@ class MLP(nn.Module):
         plt.ylabel('Average accuracy rate')
         plt.ylim(0.5, 0.9)
         plt.yticks(np.arange(0.5, 0.9, 0.05))
-        #plt.show()
+        plt.show()
 
         ''' Compute ratios of true classifications to false classifications'''
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return groups, binRatios, priors
+        return groups, binRatios, naiveClassifier
 
 
 
@@ -287,7 +287,7 @@ class MLP(nn.Module):
         """
 
         # make dataloader
-        testset = data_utils.TensorDataset(X_test)  # create your dataset
+        testset = data_utils.TensorDataset(X_test, y_test)  # create your dataset
         testloader = data_utils.DataLoader(testset, batch_size=4, shuffle=False, num_workers=2)
 
         # test model
@@ -300,8 +300,8 @@ class MLP(nn.Module):
                 inputs, labels = data[0].to(self.device), data[1].to(self.device)
                 outputs = self(inputs)
                 y_scores.extend(outputs.reshape(-1).tolist())
-                predictions = torch.round(outputs).reshape(-1).tolist()
-                y_preds.extend(predictions)  # we only care about the last one
+                predictions = torch.round(outputs).reshape(-1)
+                y_preds.extend(predictions.tolist())  # we only care about the last one
                 total += labels.size(0)
                 correct += (predictions == labels).sum().item()
         return correct/total, roc_auc_score(y_test.numpy(), np.array(y_scores)), \

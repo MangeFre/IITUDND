@@ -138,7 +138,7 @@ class LSTM(nn.Module):
         with torch.no_grad():
             for i, X_i in enumerate(X):
                 X_i_images = X_img[i]
-                length = X_i.shape[0]   # user history length
+                length = X_i.shape[0]  # user history length
                 outputs = self(X_i.to(self.device), X_i_images)  # output contains labels for the whole sequence
                 predictions = torch.round(outputs[-1]).item()  # we only care about the last one
                 total += 1
@@ -219,7 +219,7 @@ class LSTM(nn.Module):
         binRatios = []  # compute ratio of true (+1) vs. false (0) classifications
         for bin in accByBin:
             binRatios.append(sum(accByBin[bin]) / len(accByBin[bin]))  # ratio: sum of +1s by total len (+1s and 0s)
-        return groups, binRatios, priors
+        return groups, binRatios, naiveClassifier
 
     def get_naiveclassifier_acc(self, y, y_train):
         # Naive classifier results on whole dataset:
