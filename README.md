@@ -1,5 +1,4 @@
-# IITUDND
-Identifying Informative Twitter Users During Natural Disasters
+# Identifying Informative Twitter Users During Natural Disasters
 
 Note: project under development!
 
@@ -15,4 +14,4 @@ Highlights:
 
 ● LSTM and baseline MLP neural networks in PyTorch
 
-*See report PDFs in the docs directory for further detail!*
+###See Final_Multimodal_Project_Report.pdf in the docs directory for further detail!
