@@ -14,4 +14,4 @@ Highlights:
 
 ● LSTM and baseline MLP neural networks in PyTorch
 
-###See Final_Multimodal_Project_Report.pdf in the docs directory for further detail!
+### See Final_Multimodal_Project_Report.pdf in the docs directory for further detail!
