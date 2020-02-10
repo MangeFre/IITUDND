@@ -10,7 +10,7 @@ RANDOM_SEED = 42
 class LSTM(nn.Module):
     """
     An LSTM to classify tweets in a sequence based on already extracted feature vectors
-    Following tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
+    informed by tutorial on LSTMs found here: https://pytorch.org/tutorials/beginner/nlp/sequence_models_tutorial.html
     """
 
     def __init__(self, input_dim, hidden_dim, img_input_dim=400, img_hidden_dim = 200, num_layers = 1,
